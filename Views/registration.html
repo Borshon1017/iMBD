@@ -8,9 +8,10 @@
 <body bgcolor="black">
     <br><br>
     <center>
-        <a href="home.html"><img src="../Images/logo.png" width="80px"></a>
+        <a href="../index.html"><img src="../Images/logo.png" width="80px"></a>
     </center>
     <br><br>
+    <form action="../Controllers/reg-controller.php" method="post">
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center">
         <tr>
             <td>
@@ -18,32 +19,42 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Your name</font>
                 <br>
-                <input type="text">
+                <input type="text" name="fullname" placeholder="First and Last name" size="43px">
+                <br><br>
+                <font color="white" face="times new roman" size="4">Username</font>
+                <br>
+                <input type="text" name="username" size="43px">
+                <br><br>
+                <font color="white" face="times new roman" size="4">Phone number</font>
+                <br>
+                <input type="text" name="phone" size="43px">
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="text">
+                <input type="email" name="email" size="43px">
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
-                <input type="password">
+                <input type="password" name="password" size="43px">
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Re-enter password</font>
                 <br>
-                <input type="password">
+                <input type="password" size="43px">
                 <br><br>
-                <button size="250px">Create your iMBD account</button>
+                <button size="250px" name="submit">Create your iMBD account</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
                 <p align="center">
+                    <br>
                     <font color="white" face="times new roman" size="3">Already have an account?</font>
                     <a href="sign-in.html"><font color="5799EF" face="times new roman" size="3">Sign in</font></a>
                 </p>
             </td>
         </tr>
     </table>
+    </form>
     <br><br><br>
     <center>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>

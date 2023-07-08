@@ -1,0 +1,41 @@
+<?php
+
+    require_once('database.php');
+
+    function login($email, $password){
+
+        $con = dbConnection();
+
+        $sql = "select * from UserInfo where email ='{$email}' and password ='{$password}'";
+        $result = mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+
+        if($count == 1) return true;
+        else return false;
+
+    }
+
+    function addUser($fullname, $username, $phone, $email, $password){
+
+        $con = dbConnection();
+
+        $sql = "insert into UserInfo values('', '{$fullname}' ,'{$username}' ,'{$phone}', '{$email}', '{$password}', '../Images/default_php.jpg', 'General User', 'Active')";
+
+        if(mysqli_query($con, $sql)) return true;
+        else return false;
+        
+    }
+
+    function deleteUser(){
+
+    }
+
+    function getAllUser(){
+
+    }
+
+    function updateUser(){
+
+    }
+
+?>
