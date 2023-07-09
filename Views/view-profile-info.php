@@ -7,10 +7,8 @@
 </head>
 <body bgcolor="black">
 <?php
-require_once('../Models/database.php');
-require_once('../Models/user-info-model.php');
-$userData = returnUserData();
-
+    session_start();        
+    $info=$_SESSION['info'];
 ?>
  
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -41,22 +39,22 @@ $userData = returnUserData();
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : <?php echo $userData['Fullname']; ?></font>
+                    <font color="white" face="times new roman" size="6">Full Name : <?php echo $info['Fullname']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Username : <?php echo $userData['Username']; ?></font>
+                    <font color="white" face="times new roman" size="6">Username : <?php echo $info['Username']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : <?php echo $userData['Phone']; ?></font>
+                    <font color="white" face="times new roman" size="6">Phone Number : <?php echo $info['Phone']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Email : <?php echo $userData['Email']; ?></font>
+                    <font color="white" face="times new roman" size="6">Email : <?php echo $info['Email']; ?></font>
                 </td>
             </tr>
         </table><br><br><br>

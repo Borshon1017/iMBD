@@ -1,5 +1,6 @@
 <?php
 
+
     require_once('database.php');
 
     $row;
@@ -13,19 +14,23 @@
         $result = mysqli_query($con, $sql);
         $count = mysqli_num_rows($result);
 
+        
+
+        if($count == 1) 
+        {
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['info']=$row;
 
-        if($count == 1) return true;
-        else return false;
-
-    }
-
-    function getRole(){
-
-        global $row;
-        return $row["Role"];
+        return true;
+        }
+        else 
+        {
+        return false;
+        }
 
     }
+
+ 
 
     function addUser($fullname, $username, $phone, $email, $password){
 
@@ -38,20 +43,7 @@
         
     }
     
-    function returnUserData(){
 
-        global $row;
-    
-        $userData = array(
-            "Fullname" => $row["Fullname"],
-            "Username" => $row["Username"],
-            "Phone" => $row["Phone"],
-            "Email" => $row["Email"]
-        );
-    
-        return $userData;
-        
-    }
 
 
 
