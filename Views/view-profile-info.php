@@ -10,8 +10,9 @@
 require_once('../Models/database.php');
 require_once('../Models/user-info-model.php');
 $userData = returnUserData();
-?>
 
+?>
+ 
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
