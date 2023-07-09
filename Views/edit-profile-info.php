@@ -1,3 +1,7 @@
+<?php
+    session_start();        
+    $info=$_SESSION['info'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,22 +38,22 @@
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : Rianul Amin Rian</font>
+                    <font color="white" face="times new roman" size="6">Full Name : <td><input type="text" name="fullname" value="<?php echo $info['Fullname']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Username : ppsppspsspss</font>
+                    <font color="white" face="times new roman" size="6">Username : <td><input type="text" name="fullname" value="<?php echo  $info['Username']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : 01402246680</font>
+                    <font color="white" face="times new roman" size="6">Phone Number : <td><input type="text" name="fullname" value="<?php echo  $info['Phone']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Email : ppsppspsspss@gmail.com</font>
+                    <font color="white" face="times new roman" size="6">Email : <td><input type="text" name="fullname" value="<?php echo  $info['Email']?>"></td></font>
                 </td>
             </tr>
         </table><br><br><br>
