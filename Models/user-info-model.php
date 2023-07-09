@@ -1,6 +1,5 @@
 <?php
 
-
     require_once('database.php');
 
     $row;
@@ -14,23 +13,17 @@
         $result = mysqli_query($con, $sql);
         $count = mysqli_num_rows($result);
 
-        
-
         if($count == 1) 
         {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['info']=$row;
 
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['info'] = $row;
         return true;
+
         }
-        else 
-        {
-        return false;
-        }
+        else return false;
 
     }
-
- 
 
     function addUser($fullname, $username, $phone, $email, $password){
 
@@ -43,21 +36,15 @@
         
     }
     
-
-
-
-
     function uniqueEmail($email){
+
         $con = dbConnection();
-        $sql="select email from userinfo where email like'{$email}'";
+        $sql="select email from userinfo where email like '{$email}' ";
         $result = mysqli_query($con, $sql);
         $count = mysqli_num_rows($result);
-        if($count==1){
-            return false;
-        }
-        else{
-            return true;
-        }
+
+        if($count==1) return false;
+        else return true; 
         
     }
 
