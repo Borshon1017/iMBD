@@ -37,6 +37,22 @@
         else return false;
         
     }
+    
+    function returnUserData(){
+
+        global $row;
+    
+        $userData = array(
+            "Name" => $row["Name"],
+            "Email" => $row["Email"],
+            "Fullname" => $row["Fullname"]
+        );
+    
+        return $userData;
+        
+    }
+
+
 
     function deleteUser(){
 

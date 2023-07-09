@@ -2,7 +2,7 @@
 
 function dbConnection(){
 
-    $conn = mysqli_connect('localhost:3308', 'root', '', 'iMBD');
+    $conn = mysqli_connect('localhost', 'root', '', 'iMBD');
     return $conn;
     
 }
