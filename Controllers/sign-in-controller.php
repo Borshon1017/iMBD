@@ -2,7 +2,6 @@
 
     require_once('../Models/user-info-model.php');
     session_start();        
-    
 
     if(isset($_POST['submit'])){
 
@@ -11,7 +10,7 @@
         $rememberMe = $_POST['rememberMe'];
 
         $status = login($email, $password);
-        $info=$_SESSION['info'];
+        $info = $_SESSION['info'];
 
         if($status){
 
