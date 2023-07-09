@@ -37,6 +37,23 @@
         else return false;
         
     }
+    
+    function returnUserData(){
+
+        global $row;
+    
+        $userData = array(
+            "Fullname" => $row["Fullname"],
+            "Username" => $row["Username"],
+            "Phone" => $row["Phone"],
+            "Email" => $row["Email"]
+        );
+    
+        return $userData;
+        
+    }
+
+
 
     function uniqueEmail($email){
         $con = dbConnection();

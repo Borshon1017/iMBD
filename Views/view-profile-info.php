@@ -6,6 +6,13 @@
     <title>iMBD View Profile Info</title>
 </head>
 <body bgcolor="black">
+<?php
+require_once('../Models/database.php');
+require_once('../Models/user-info-model.php');
+$userData = returnUserData();
+
+?>
+ 
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
@@ -34,22 +41,22 @@
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : Rianul Amin Rian</font>
+                    <font color="white" face="times new roman" size="6">Full Name : <?php echo $userData['Fullname']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Username : ppsppspsspss</font>
+                    <font color="white" face="times new roman" size="6">Username : <?php echo $userData['Username']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : 01402246680</font>
+                    <font color="white" face="times new roman" size="6">Phone Number : <?php echo $userData['Phone']; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Email : ppsppspsspss@gmail.com</font>
+                    <font color="white" face="times new roman" size="6">Email : <?php echo $userData['Email']; ?></font>
                 </td>
             </tr>
         </table><br><br><br>
