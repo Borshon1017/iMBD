@@ -56,8 +56,10 @@
 
     }
 
-    function updateUser(){
-
+    function updateUser($fullname, $username, $phone, $email){
+        $con = dbConnection();
+        $sql="update UserInfo set Fullname='$fullname',Username='$username',Phone='$phone',Email='$email' WHERE Email='$email' ";
+        mysqli_query($con,$sql);
     }
 
 ?>
