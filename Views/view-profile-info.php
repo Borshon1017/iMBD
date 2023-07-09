@@ -26,7 +26,7 @@
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="">Settings</option>
-                    <option value="">Log Out</option>
+                    <option value="sign-in.html">Log Out</option>
                 </select>
             </td>
         </tr>
