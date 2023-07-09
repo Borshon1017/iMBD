@@ -18,7 +18,7 @@
             if(getRole() == "Critic") header('location: ../index.html');
 
         }else{
-            echo "invalid username/password";
+           header('location:../Views/sigin-error.html');
         }
     }
 

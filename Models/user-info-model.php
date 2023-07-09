@@ -38,6 +38,20 @@
         
     }
 
+    function uniqueEmail($email){
+        $con = dbConnection();
+        $sql="select email from userinfo where email like'{$email}'";
+        $result = mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+        if($count==1){
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+    }
+
     function deleteUser(){
 
     }
