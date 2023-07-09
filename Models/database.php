@@ -2,8 +2,8 @@
 
 function dbConnection(){
 
-    $con = mysqli_connect('127.0.0.1', 'root', '', 'iMBD');
-    return $con;
+    $conn = mysqli_connect('localhost:3308', 'root', '', 'iMBD');
+    return $conn;
     
 }
 

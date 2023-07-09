@@ -6,7 +6,7 @@
     <title>iMBD Home</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
                 &nbsp;<img src="images/logo.png" width="80px">
@@ -15,14 +15,14 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <a href="Views/watchlist.html">
-                    <font color="white" face="times new roman">Watchlist</font>
-                </a>
-            </td>
-            <td>
-                <a href="Views/sign-in.html">
-                    <font color="white" face="times new roman">Sign In</font>
-                </a>
+                <img src="Images/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
+                <select name="profile" onchange="location = this.value;">
+                    <option disabled selected hidden>Username</option>
+                    <option value="Views/user-profile.html">Profile</option>
+                    <option value="Views/watchlist.html">Watchlist</option>
+                    <option value="">Settings</option>
+                    <option value="">Log Out</option>
+                </select>
             </td>
         </tr>
     </table><br><br><br>
@@ -153,9 +153,52 @@
                 <font color="white" face="times new roman" size="12">Who is the GOAT actor?</font><br><br>
                 <a href=""><font color="5799EF" face="times new roman" size="4">Join poll</font></a><br><br><br>
                 
+                <font color="F5C518" face="times new roman" size="12">Join our weekly discussion</font><br>
+                <hr color="F5C518" width="530px" align="left"><br>
+                <font color="white" face="times new roman" size="12">Is among us the greatest game ever created?</font><br><br>
+                <a href=""><font color="5799EF" face="times new roman" size="4">View discussion</font></a><br><br><br>
+
                 <font color="F5C518" face="times new roman" size="12">Recommended for you</font>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href=""><font color="5799EF" face="times new roman" size="4">Get more recommendations</font></a><br><br><br>
+                <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+                    <a href="sign-in.html"><tr>
+                        <td>
+                            <img src="images/posters/across_the_spider-verse.jpg" width="180px">
+                        </td>
+                        <td valign="top" align="left">
+                            <font color="white" face="times new roman" size="6">Spiderman: Across The Spider Verse</font><br><br>
+                            <font color="white" face="times new roman" size="4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse praesentium suscipit error! Saepe incidunt illo maxime vero veniam quos itaque praesentium natus similique porro, eaque autem? Esse corporis modi laboriosam?</font><br><br>
+                            <font color="white" face="times new roman" size="4">Release Date: 19/01/2002</font><br><br>
+                            <a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>
+                        </td>
+                    </tr></a>
+                        <td>
+                            <img src="images/posters/Among_Us_poster.png" width="180px">
+                        </td>
+                        <td valign="top" align="left">
+                            <font color="white" face="times new roman" size="6">Among Us: Who Is The Imposter</font><br><br>
+                            <font color="white" face="times new roman" size="4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse praesentium suscipit error! Saepe incidunt illo maxime vero veniam quos itaque praesentium natus similique porro, eaque autem? Esse corporis modi laboriosam?</font><br><br>
+                            <font color="white" face="times new roman" size="4">Release Date: 19/01/2002</font><br><br>
+                            <a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/posters/morbius.jpg" width="180px">
+                        </td>
+                        <td valign="top" align="left">
+                            <font color="white" face="times new roman" size="6">Morbius: It's Morbing Time</font><br><br>
+                            <font color="white" face="times new roman" size="4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse praesentium suscipit error! Saepe incidunt illo maxime vero veniam quos itaque praesentium natus similique porro, eaque autem? Esse corporis modi laboriosam?</font><br><br>
+                            <font color="white" face="times new roman" size="4">Release Date: 19/01/2002</font><br><br>
+                            <a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>
+                        </td>
+                    </tr>
+                </table><br><br><br>
+                
+                <font color="F5C518" face="times new roman" size="12">Your Purchases</font>
+                <hr color="F5C518" width="530px" align="left"><br>
+                <a href=""><font color="5799EF" face="times new roman" size="4">Show all purchases</font></a><br><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                     <a href="sign-in.html"><tr>
                         <td>
@@ -197,6 +240,10 @@
 
     <br><br><br>
     <center>
+        <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="faq.html"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="terms-and-services.html"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>

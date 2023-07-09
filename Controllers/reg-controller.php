@@ -12,7 +12,7 @@
 
         $status = addUser($fullname, $username, $phone, $email, $password);
 
-        if($status) header('location: ../Views/sign-in.php');
+        if($status) header('location: ../Views/sign-in.html');
         else echo "Account Creation Failed";
 
     }
