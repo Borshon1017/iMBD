@@ -43,7 +43,7 @@
         global $row;
     
         $userData = array(
-            "Fullname" => $row["Name"],
+            "Fullname" => $row["Fullname"],
             "Username" => $row["Username"],
             "Phone" => $row["Phone"],
             "Email" => $row["Email"]
