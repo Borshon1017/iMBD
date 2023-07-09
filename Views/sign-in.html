@@ -11,6 +11,7 @@
         <a href="../index.html"><img src="../Images/logo.png" width="80px"></a>
     </center>
     <br><br>
+    <form action="../Controllers/sign-in-controller.php" method="post">
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center">
         <tr>
             <td>
@@ -18,15 +19,15 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="email" size="43px">
+                <input type="email" name="email" size="43px" required>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><font color="5799EF" face="times new roman" size="4">Forgot Password?</font></a>
                 <br>
-                <input type="password" size="43px">
+                <input type="password" name="password" size="43px" required>
                 <br><br>
                 <input type="checkbox" name="rememberMe"> <font color="white" face="times new roman" size="4">Keep me signed in.</font><br><br>
-                <button size="250px">Sign In</button>
+                <button size="250px" name="submit">Sign In</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
                 <p align="center"><font color="white" face="times new roman" size="2">New to iMBD?</font></p>
@@ -35,6 +36,7 @@
             <br>
         </tr>
     </table>
+    </form>
     <br><br><br><br>
     <center>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
