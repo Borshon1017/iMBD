@@ -17,11 +17,11 @@ session_start();
     <title>iMBD</title>
 </head>
 <body bgcolor="black">
-    <!-- Rest of your HTML code -->
+    
     <center>
         <font color="white" face="times new roman" size="20"><?php echo $title ?></font><br><br>
         <font color="white" face="times new roman" size="6"><?php echo $message ?></font><br><br>
     </center>
-    <!-- Rest of your HTML code -->
+    
 </body>
 </html>
