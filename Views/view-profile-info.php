@@ -36,7 +36,7 @@
 
     <center>
 
-        <img src="../Uploads/icons/default_pfp.jpg" width="100px"><br><br><br>
+        <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
         <?php

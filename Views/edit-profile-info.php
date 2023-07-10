@@ -34,7 +34,7 @@
     </table><br><br><br>      
     <center>
 
-        <img src="../Uploads/icons/default_pfp.jpg" width="100px"><br><br><br>
+        <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
         <form method=post>
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
