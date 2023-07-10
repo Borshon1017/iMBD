@@ -1,7 +1,9 @@
 <?php
-     require_once('../Models/user-info-model.php');
-    session_start();        
-    $info=$_SESSION['info'];
+
+    require_once('../Models/user-info-model.php');        
+    $info = $_SESSION['info'];
+    $id = $info['UserID'];
+
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +59,11 @@
                     <font color="white" face="times new roman" size="6">Email : <td><input type="text" name="Email" value="<?php echo  $info['Email']?>"></td></font>
                 </td>
             </tr>
-            <tr><td><input type="submit"name="updateinfo"value="Update Information"></td></tr>
+            <tr>
+                <td>
+                    <input type="submit" name="updateinfo" value="Update Information">
+                </td>
+            </tr>
         </table>
         
         <br><br><br>
@@ -79,12 +85,12 @@
 
 <?php
 if(isset($_POST['updateinfo'])){
-    $fullname=$_POST['Fullname'];
-    $username=$_POST['Username'];
-    $phone=$_POST['Phone'];
-    $email=$_POST['Email'];
 
-    $update=updateUser($fullname,$username,$phone,$email);
-    header('location:update-info.html');
+    $fullname = $_POST['Fullname'];
+    $username = $_POST['Username'];
+    $phone = $_POST['Phone'];
+    $email = $_POST['Email'];
+
+    if(updateUserInfo($id, $fullname, $username, $phone, $email)) header('location:update-info-message.html');
 }
 ?>

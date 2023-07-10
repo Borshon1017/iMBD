@@ -14,13 +14,13 @@
 
         if($status){
 
-            if($info['Role']== "General User") header('location: ../index.html');
+            if($info['Role'] == "General User") header('location: ../index.html');
             if($info['Role'] == "Administrator") header('location: ../index.html');
             if($info['Role'] == "Content Writer") header('location: ../index.html');
             if($info['Role'] == "Critic") header('location: ../index.html');
 
         }else{
-           header('location:../Views/sigin-error.html');
+           header('location:../Views/sign-in-error.html');
         }
     }
 

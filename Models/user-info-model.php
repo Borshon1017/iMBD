@@ -1,6 +1,7 @@
 <?php
 
     require_once('database.php');
+    session_start();
 
     $row;
     function login($email, $password){
@@ -56,10 +57,16 @@
 
     }
 
-    function updateUser($fullname, $username, $phone, $email){
+    function updateUserInfo($id, $fullname, $username, $phone, $email){
+
         $con = dbConnection();
-        $sql="update UserInfo set Fullname='$fullname',Username='$username',Phone='$phone',Email='$email' WHERE Email='$email' ";
-        mysqli_query($con,$sql);
+        $sql = "update UserInfo set Fullname = '$fullname', Username = '$username', Phone = '$phone', Email = '$email' WHERE UserID = '$id';";
+        $result = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($result);
+
+        if($count == 1) return true;
+        else return false; 
+
     }
 
 ?>
