@@ -36,6 +36,14 @@
         else return false;
         
     }
+
+    function userInfo($id){
+        $con=dbConnection();
+        $sql="select* from UserInfo where UserID='$id'";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+        return $row;
+    }
     
     function uniqueEmail($email){
 
@@ -57,16 +65,14 @@
 
     }
 
-    function updateUserInfo($id, $fullname, $username, $phone, $email){
+    function updateUserInfo( $id,$fullname, $username, $phone, $email){
 
         $con = dbConnection();
-        $sql = "update UserInfo set Fullname = '$fullname', Username = '$username', Phone = '$phone', Email = '$email' WHERE UserID = '$id';";
-        $result = mysqli_query($con,$sql);
-        $count = mysqli_num_rows($result);
-
-        if($count == 1) return true;
+        $sql = "update UserInfo set Fullname = '$fullname', Username = '$username', Phone = '$phone',Email='$email' where UserID = '$id'";
+             
+        if(mysqli_query($con,$sql)===true) return true;
         else return false; 
-
+        
     }
 
 ?>

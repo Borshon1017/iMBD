@@ -1,9 +1,7 @@
 <?php
-
     require_once('../Models/user-info-model.php');        
     $info = $_SESSION['info'];
     $id = $info['UserID'];
-
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -32,31 +30,33 @@
                 </select>
             </td>
         </tr>
-    </table><br><br><br>
-
+    </table><br><br><br>      
     <center>
 
         <img src="../Uploads/icons/default_pfp.jpg" width="100px"><br><br><br>
         <form method=post>
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+            <?php
+            $row=UserInfo($id);
+            ?>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : <td><input type="text" name="Fullname" value="<?php echo $info['Fullname']?>"></td></font>
+                    <font color="white" face="times new roman" size="6">Full Name : <td><input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Username : <td><input type="text" name="Username" value="<?php echo  $info['Username']?>"></td></font>
+                    <font color="white" face="times new roman" size="6">Username : <td><input type="text" name="Username" value="<?php echo  $row['Username']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : <td><input type="text" name="Phone" value="<?php echo  $info['Phone']?>"></td></font>
+                    <font color="white" face="times new roman" size="6">Phone Number : <td><input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></td></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Email : <td><input type="text" name="Email" value="<?php echo  $info['Email']?>"></td></font>
+                    <font color="white" face="times new roman" size="6">Email : <td><input type="text" name="Email" value="<?php echo  $row['Email']?>"></td></font>
                 </td>
             </tr>
             <tr>
@@ -91,6 +91,13 @@ if(isset($_POST['updateinfo'])){
     $phone = $_POST['Phone'];
     $email = $_POST['Email'];
 
-    if(updateUserInfo($id, $fullname, $username, $phone, $email)) header('location:update-info-message.html');
+    if(updateUserInfo($id,$fullname, $username, $phone, $email)==true){
+        header('location:update-info-message.html');
+    }
+    else{
+        header('location:wrong.html');
+    }
+    
+  
 }
 ?>
