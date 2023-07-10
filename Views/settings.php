@@ -1,6 +1,5 @@
 <?php
-    require_once('../Models/user-info-model.php');   
-    session_start();        
+    require_once('../Models/user-info-model.php');         
     $id=$_SESSION['id'];
     $row=UserInfo($id);
 ?>
@@ -21,7 +20,7 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="..<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
