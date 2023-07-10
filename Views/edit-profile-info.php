@@ -91,7 +91,6 @@ if(isset($_POST['updateinfo'])){
     $phone = $_POST['Phone'];
     $email = $_POST['Email'];
 
-<<<<<<< HEAD
     if(updateUserInfo($id,$fullname, $username, $phone, $email)==true){
         header('location:update-info-message.html');
     }
@@ -100,8 +99,5 @@ if(isset($_POST['updateinfo'])){
     }
     
   
-=======
-    if(updateUserInfo($id, $fullname, $username, $phone, $email) == true) header('location: update-info-message.html');
->>>>>>> 09350f4d32bdd8e1e98d8b224cae840a7cf35b85
 }
 ?>
