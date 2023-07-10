@@ -27,7 +27,7 @@
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
-                    <option value="">Settings</option>
+                    <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
                 </select>
             </td>

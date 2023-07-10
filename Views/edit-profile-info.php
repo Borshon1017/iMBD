@@ -26,7 +26,7 @@
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
-                    <option value="">Settings</option>
+                    <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
                 </select>
             </td>
@@ -39,33 +39,17 @@
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : <td><input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></td></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Username : <td><input type="text" name="Username" value="<?php echo  $row['Username']?>"></td></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : <td><input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></td></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Email : <td><input type="text" name="Email" value="<?php echo  $row['Email']?>"></td></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    <font color="white" face="times new roman" size="6">Full Name : <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
+                    <font color="white" face="times new roman" size="6">Username : <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font><br><br>
+                    <font color="white" face="times new roman" size="6">Phone Number : <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font><br><br>
+                    <font color="white" face="times new roman" size="6">Email : <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font><br><br><br>
                     <input type="submit" name="updateinfo" value="Update Information">
                 </td>
             </tr>
         </table>
-        
         <br><br><br>
         </form>
+    </fieldset>
     </center>
     <br><br><br><br><br>
     <center>
