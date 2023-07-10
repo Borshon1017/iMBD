@@ -1,7 +1,6 @@
 <?php
 
-    require_once('../Models/user-info-model.php');
-    session_start();        
+    require_once('../Models/user-info-model.php');       
     
     if(isset($_POST['submit'])){
 
@@ -10,14 +9,15 @@
         $rememberMe = $_POST['rememberMe'];
 
         $status = login($email, $password);
-        $info = $_SESSION['info'];
+        $id = $_SESSION['id'];
+        $row=UserInfo($id);
         
         if($status){
 
-            if($info['Role'] == "General User") header('location: ../index.php');
-            if($info['Role'] == "Administrator") header('location: ../index.php');
-            if($info['Role'] == "Content Writer") header('location: ../index.php');
-            if($info['Role'] == "Critic") header('location: ../index.php');
+            if($row['Role'] == "General User") header('location: ../index.php');
+            if($row['Role'] == "Administrator") header('location: ../index.php');
+            if($row['Role'] == "Content Writer") header('location: ../index.php');
+            if($row['Role'] == "Critic") header('location: ../index.php');
            
 
         }else{
