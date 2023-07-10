@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php
+    session_start();        
+    $info=$_SESSION['info'];
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iMBD View Profile Info</title>
@@ -15,9 +19,9 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../Uploads/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
+                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
                     <option value="user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="">Settings</option>
@@ -25,6 +29,8 @@
                 </select>
             </td>
         </tr>
+
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
     </table><br><br><br>
 
     <center>
@@ -33,12 +39,22 @@
         <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
             <tr>
                 <td>
-                    <input type="file" name="pfp" accept=".png,.jpg,.jpeg">
+
+
+
+                    <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
+                    <input type="submit" value="Upload Image" name="submit">
+                    
+
+
+
+
                 </td>
             </tr>
         </table>
-
+ 
     </center>
+</form>
     <br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    session_start();
+    $info = $_SESSION['info'];
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iMBD Content Title</title>
@@ -15,7 +19,7 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../Uploads/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden>Username</option>
                     <option value="user-profile.html">Profile</option>

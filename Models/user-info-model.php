@@ -52,7 +52,7 @@
         $result = mysqli_query($con, $sql);
         $count = mysqli_num_rows($result);
 
-        if($count==1) return false;
+        if($count == 1) return false;
         else return true; 
         
     }

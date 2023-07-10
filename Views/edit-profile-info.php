@@ -20,9 +20,9 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../Uploads/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
+                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="">Settings</option>
@@ -91,6 +91,7 @@ if(isset($_POST['updateinfo'])){
     $phone = $_POST['Phone'];
     $email = $_POST['Email'];
 
+<<<<<<< HEAD
     if(updateUserInfo($id,$fullname, $username, $phone, $email)==true){
         header('location:update-info-message.html');
     }
@@ -99,5 +100,8 @@ if(isset($_POST['updateinfo'])){
     }
     
   
+=======
+    if(updateUserInfo($id, $fullname, $username, $phone, $email) == true) header('location: update-info-message.html');
+>>>>>>> 09350f4d32bdd8e1e98d8b224cae840a7cf35b85
 }
 ?>
