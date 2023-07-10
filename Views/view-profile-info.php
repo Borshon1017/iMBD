@@ -11,8 +11,6 @@
     <title>iMBD View Profile Info</title>
 </head>
 <body bgcolor="black">
-
- 
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>

@@ -44,6 +44,13 @@
         $row=mysqli_fetch_assoc($result);
         return $row;
     }
+
+    function changePassword($id,$newpass){
+        $con=dbConnection();
+        $sql = "update UserInfo set Password = '$newpass' where UserID = '$id'";
+        if(mysqli_query($con,$sql)===true) return true;
+        else return false; 
+    }
     
     function uniqueEmail($email){
 

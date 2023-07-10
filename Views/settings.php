@@ -39,7 +39,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr align="center">
                 <td>
-                    <a href="change-password.html"><font color="white" face="times new roman" size="6">Change Password</font></a>
+                    <a href="change-password.php"><font color="white" face="times new roman" size="6">Change Password</font></a>
                 </td>
             </tr>
             <tr align="center">

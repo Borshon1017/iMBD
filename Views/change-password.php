@@ -1,3 +1,8 @@
+<?php
+    require_once('../Models/user-info-model.php');    
+    $id=$_SESSION['id'];  
+    $row=UserInfo($id);  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +14,15 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../<?php echo $info['ProfilePicture']; ?>" width="80px">
+                &nbsp;<img src="../Uploads/logo.png" width="80px">
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $row['ProfilePicture']; ?>"  width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="settings.php">Settings</option>
@@ -27,6 +32,7 @@
         </tr>
     </table>
     <br><br>
+    <form action="../Controllers/change-password-controller.php" method="post">
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
@@ -39,19 +45,20 @@
                 <br>
                 <font color="white" face="times new roman" size="4">New Password</font>
                 <br>
-                <input type="password" name="password" size="43px" required>
+                <input type="password" name="newpass" size="43px" required>
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Re-enter New Password</font>
                 <br>
-                <input type="password" name="repassword" size="43px" required>
+                <input type="password" name="repass" size="43px" required>
                 <br><br><br>
-                <button>Change Password</button>
+                <input type="submit" name="submit" value="Change Password">
             </td>
             <br>
         </tr>
     </table>
+    </form>
     <br><br><br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
