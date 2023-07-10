@@ -24,7 +24,7 @@
             <td>
                 <img src="../Uploads/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
+                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="">Settings</option>

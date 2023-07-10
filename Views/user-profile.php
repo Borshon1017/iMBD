@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php
+    session_start();        
+    $info=$_SESSION['info'];
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD View Profile Info</title>
+    <title>iMBD Profile</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -17,8 +21,8 @@
             <td>
                 <img src="../Uploads/icons/default_pfp.jpg" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
-                    <option value="user-profile.html">Profile</option>
+                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
+                    <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="">Settings</option>
                     <option value="sign-in.html">Log Out</option>
@@ -28,16 +32,26 @@
     </table><br><br><br>
 
     <center>
+        <font color="F5C518" face="times new roman" size="12">Profile</font><br><br><br>
+        <hr color="F5C518" width="530px"><br><br><br>
 
-        <font color="F5C518" face="times new roman" size="12">Update Profile Picture</font><br><br><br>
-        <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-            <tr>
+        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+            <tr align="center">
                 <td>
-                    <input type="file" name="pfp" accept=".png,.jpg,.jpeg">
+                    <a href="view-profile-info.php"><font color="white" face="times new roman" size="6">View Public Info</font></a>
                 </td>
             </tr>
-        </table>
-
+            <tr align="center">
+                <td>
+                    <a href="edit-profile-info.php"><font color="white" face="times new roman" size="6">Update Profile Info</font></a>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    <a href="update-pfp.php"><font color="white" face="times new roman" size="6">Update Profile Picture</font></a>
+                </td>
+            </tr>
+        </table><br><br><br>
     </center>
     <br><br><br>
     <center>
