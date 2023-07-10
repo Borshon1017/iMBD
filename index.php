@@ -1,10 +1,11 @@
+<?php
+    require_once('Models/user-info-model.php'); 
+    $id=$_SESSION['id'];
+    $row=UserInfo($id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-    session_start();
-    $info=$_SESSION['info'];
-    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iMBD Home</title>
@@ -19,9 +20,9 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="Views/user-profile.php">Profile</option>
                     <option value="Views/watchlist.html">Watchlist</option>
                     <option value="Views/settings.php">Settings</option>
