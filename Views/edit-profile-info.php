@@ -24,7 +24,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="Views/user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
@@ -36,7 +36,7 @@
 
         <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
         <form method=post>
-        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+        <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Full Name : <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
