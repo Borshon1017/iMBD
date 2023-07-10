@@ -1,5 +1,6 @@
 <?php
-    require_once('../Models/user-info-model.php');        
+    require_once('../Models/user-info-model.php');    
+    require_once('../Controllers/message-controller.php');     
     $id = $_SESSION['id'];
     $row=UserInfo($id);
 
@@ -73,13 +74,8 @@ if(isset($_POST['updateinfo'])){
     $phone = $_POST['Phone'];
     $email = $_POST['Email'];
 
-    if(updateUserInfo($id,$fullname, $username, $phone, $email)==true){
-        header('location:update-info-message.html');
-    }
-    else{
-        header('location:wrong.html');
-    }
-    
-  
+    if(updateUserInfo($id,$fullname, $username, $phone, $email)==true) popup("Success!", "Your information has been updated successfully");
+    else popup("Error!", "Could not update information. Please try again.");
+
 }
 ?>

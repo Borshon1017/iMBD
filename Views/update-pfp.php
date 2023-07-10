@@ -30,33 +30,24 @@
                 </select>
             </td>
         </tr>
-
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
     </table><br><br><br>
-
     <center>
-
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
         <font color="F5C518" face="times new roman" size="12">Update Profile Picture</font><br><br><br>
+        <hr color="F5C518" width="530px">
+        <br><br><br><br><br>
         <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
             <tr>
                 <td>
-
-
-
                     <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
                     <input type="submit" value="Upload Image" name="submit">
-                    
-
-
-
-
                 </td>
             </tr>
         </table>
- 
+    </form>
     </center>
-</form>
-    <br><br><br>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
