@@ -29,6 +29,8 @@
                 </select>
             </td>
         </tr>
+
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
     </table><br><br><br>
 
     <center>
@@ -37,12 +39,22 @@
         <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
             <tr>
                 <td>
-                    <input type="file" name="pfp" accept=".png,.jpg,.jpeg">
+
+
+
+                    <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br>
+                    <input type="submit" value="Upload Image" name="submit">
+                    
+
+
+
+
                 </td>
             </tr>
         </table>
-
+ 
     </center>
+</form>
     <br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
