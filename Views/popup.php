@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +25,8 @@
         </tr>
     </table><br><br><br><br><br><br><br><br><br><br>
     <center>
-        <font color="white" face="times new roman" size="20">Title</font><br><br>
-        <font color="white" face="times new roman" size="6">Message.</font><br><br>
+        <font color="white" face="times new roman" size="20"><?php echo $title?></font><br><br>
+        <font color="white" face="times new roman" size="6"><?php echo $message?></font><br><br>
     </center>
     <br><br><br><br><br><br><br><br><br><br><br>
     <center>
