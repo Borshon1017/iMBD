@@ -1,6 +1,7 @@
 <?php
 
-require_once('../Models/user-info-model.php');         
+require_once('../Models/user-info-model.php');
+require_once('message-controller.php');            
 $id=$_SESSION['id'];
 $row=UserInfo($id);
 
@@ -9,19 +10,13 @@ if(isset($_POST['submit'])){
     $newpass=$_POST['newpass'];
     $repass=$_POST['repass'];
 
-    if($oldpass!=$row['Password']){
-        echo 'Old Password Invalid';
-    }else if($newpass!=$repass) {
-        echo 'Password does not match!';
-    }else if(strlen($newpass)<8){
-        echo 'Password less than 8 character!';
-    }else{
-        if(changePassword($id,$newpass)==true){
-            header('location:../Views/wrong.html');
-        }
-        else{
+    if($oldpass!=$row['Password']) popup("Error!", "Old password invalid");
+    else if($newpass!=$repass) popup("Error!", "Passwords does not match. Please check again.");
+    else if(strlen($newpass)<8)popup("Error!", "Password must be atleast 8 characters long.");
+    else{
 
-        }
+        if(changePassword($id,$newpass)==true) popup("Congratulations!", "Your password has been changed.");
+        else popup("Error!", "Could not change password. Please try again");
 
     }
 }
