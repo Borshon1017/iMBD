@@ -18,7 +18,7 @@
         {
 
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['info'] = $row;
+        $_SESSION['id'] = $row['UserID'];
         return true;
 
         }

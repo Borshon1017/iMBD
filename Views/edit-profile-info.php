@@ -1,7 +1,8 @@
 <?php
     require_once('../Models/user-info-model.php');        
-    $info = $_SESSION['info'];
-    $id = $info['UserID'];
+    $id = $_SESSION['id'];
+    $row=UserInfo($id);
+
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +21,10 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $info['Username']; ?></option>
-                    <option value="user-profile.php">Profile</option>
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
+                    <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
                     <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
@@ -33,13 +34,9 @@
     </table><br><br><br>      
     <center>
 
-
-        <img src="../Uploads/icons/default_pfp.jpg" width="100px"><br><br><br>
+        <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
         <form method=post>
-        <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="20" bordercolor="F5C518">
-            <?php
-            $row=UserInfo($id);
-            ?>
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Full Name : <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
