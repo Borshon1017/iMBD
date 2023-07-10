@@ -155,12 +155,12 @@
                 <font color="F5C518" face="times new roman" size="12">Check out todays poll</font><br>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <font color="white" face="times new roman" size="12">Who is the GOAT actor?</font><br><br>
-                <a href=""><font color="5799EF" face="times new roman" size="4">Join poll</font></a><br><br><br>
+                <a href="Views/poll.html"><font color="5799EF" face="times new roman" size="4">Join poll</font></a><br><br><br>
                 
                 <font color="F5C518" face="times new roman" size="12">Join our weekly discussion</font><br>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <font color="white" face="times new roman" size="12">Is among us the greatest game ever created?</font><br><br>
-                <a href=""><font color="5799EF" face="times new roman" size="4">View discussion</font></a><br><br><br>
+                <a href="Views/discussion.html"><font color="5799EF" face="times new roman" size="4">View discussion</font></a><br><br><br>
 
                 <font color="F5C518" face="times new roman" size="12">Recommended for you</font>
                 <hr color="F5C518" width="530px" align="left"><br>

@@ -94,7 +94,7 @@
         <tr>
             <td>
                 <font color="white" face="times new roman" size="12">Comments : </font><br><br><br>
-                <textarea name="comment" rows="15" cols="174"> </textarea><br><br>
+                <textarea name="comment" rows="15" cols="174"></textarea><br><br>
                 <p align="right">
                     <a href=""><font color="white" face="times new roman" size="6">Post Comment</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
