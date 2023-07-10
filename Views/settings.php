@@ -24,7 +24,7 @@
                     <option disabled selected hidden><?php echo $info['Username']; ?></option>
                     <option value="Views/user-profile.html">Profile</option>
                     <option value="watchlist.html">Watchlist</option>
-                    <option value="">Settings</option>
+                    <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
                 </select>
             </td>
@@ -38,7 +38,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr align="center">
                 <td>
-                    <a href=""><font color="white" face="times new roman" size="6">Change Password</font></a>
+                    <a href="change-password.html"><font color="white" face="times new roman" size="6">Change Password</font></a>
                 </td>
             </tr>
             <tr align="center">

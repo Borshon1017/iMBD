@@ -19,6 +19,11 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
+                <a href="sign-in.html">
+                    <font color="white" face="times new roman">Sign In</font>
+                </a>
+            </td>
+            <td>
                 <img src="<?php echo $info['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $info['Username']; ?></option>
