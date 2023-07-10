@@ -42,7 +42,7 @@
 
 
 
-                    <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br>
+                    <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
                     <input type="submit" value="Upload Image" name="submit">
                     
 
