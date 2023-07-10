@@ -1,6 +1,7 @@
 <?php
 
     require_once('../Models/user-info-model.php');
+    require_once('message-controller.php');
     session_start();        
     
     if(isset($_POST['submit'])){
@@ -20,9 +21,7 @@
             if($info['Role'] == "Critic") header('location: ../index.php');
            
 
-        }else{
-           header('location:../Views/sign-in-error.html');
-        }
+        }else popup("Error!", "Could not sign-in. Invalid sign-in credentials.");
         
     }
 

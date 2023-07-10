@@ -1,5 +1,5 @@
 <?php
-function TitleMsg($title, $message)
+function popup($title, $message)
 {
    
     session_start();
@@ -7,7 +7,7 @@ function TitleMsg($title, $message)
     $_SESSION['message'] = $message;
 
  
-    header("Location: popup.php");
+    header("Location: ../Views/popup.php");
     exit();
 }
 ?>
