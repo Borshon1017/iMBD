@@ -20,14 +20,20 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+
+            <?php
+
+            if($row['Role'] = "General User"){
+                echo "<img src="?><?php echo $row['ProfilePicture']; ?><?php\" width=\"40px\">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="Views/user-profile.php">Profile</option>
                     <option value="Views/watchlist.html">Watchlist</option>
                     <option value="Views/settings.php">Settings</option>
                     <option value="Views/sign-in.html">Log Out</option>
-                </select>
+                </select>"
+            }
+            ?>
             </td>
         </tr>
     </table><br><br><br>
