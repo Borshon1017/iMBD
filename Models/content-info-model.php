@@ -20,7 +20,7 @@ function showcontent($cid)
         if($count == 1) 
         {
             $posterURL = $crow['Poster'];
-            $ContentTitle = $crow['ContentTitle'];
+            $title = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
             if (strlen($description) > 220) {
