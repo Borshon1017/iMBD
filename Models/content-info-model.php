@@ -23,6 +23,10 @@ function showcontent($cid)
             $ContentTitle = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
+            if (strlen($description) > 220) {
+                $description = substr($description, 0, 220) . '...';
+            }
+    
     
             echo '<tr>';
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
@@ -66,6 +70,10 @@ function showMovies($cid)
             $title = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
+            if (strlen($description) > 220) {
+                $description = substr($description, 0, 220) . '...';
+            }
+    
     
             echo '<tr>';
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
@@ -107,6 +115,10 @@ function showAnime($cid)
             $title = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
+            if (strlen($description) > 220) {
+                $description = substr($description, 0, 220) . '...';
+            }
+    
     
             echo '<tr>';
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
@@ -148,6 +160,10 @@ function showTVShow($cid)
             $title = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
+            if (strlen($description) > 220) {
+                $description = substr($description, 0, 220) . '...';
+            }
+    
     
             echo '<tr>';
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
