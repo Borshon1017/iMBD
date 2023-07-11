@@ -47,7 +47,7 @@
         </tr>
     </table><br><br><br>
     <center>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <form action="../Controllers/upload-controller.php" method="POST" enctype="multipart/form-data">
         <font color="F5C518" face="times new roman" size="12">Update Profile Picture</font><br><br><br>
         <hr color="F5C518" width="530px">
         <br><br><br><br><br>
