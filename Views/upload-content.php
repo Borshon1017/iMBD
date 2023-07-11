@@ -35,14 +35,14 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Upload Content</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-
+        <form action="../Controllers/upload-content-controller.php" method="post">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px">
+                    <input type="text" size="60px" name="title" required>
                 </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
                     <font color="white" face="times new roman" size="6">Description : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10"></textarea>
+                    <textarea cols="59" rows="10" name="description" required></textarea>
                 </td>
             </tr>
             <tr>
@@ -58,10 +58,10 @@
                     <font color="white" face="times new roman" size="6">Category : </font>
                 </td>
                 <td>
-                    <select>
-                        <option value="">Movie</option>
-                        <option value="">TV Show</option>
-                        <option value="">Anime</option>
+                    <select name="category">
+                        <option value="Movie">Movie</option>
+                        <option value="TV Show">TV Show</option>
+                        <option value="Anime">Anime</option>
                     </select>
                 </td>
             </tr>
@@ -70,7 +70,7 @@
                     <font color="white" face="times new roman" size="6">Release Date : </font>
                 </td>
                 <td>
-                    <input type="date">
+                    <input type="date" name="releaseDate" required>
                 </td>
             </tr>
             <tr>
@@ -81,7 +81,7 @@
                 <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
                     <tr>
                         <td>
-                            <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
+                            <input type="file" name="poster" accept=".png,.jpg,.jpeg" required> <br> <br>
                         </td>
                     </tr>
                 </table>
@@ -95,7 +95,7 @@
                 <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
                     <tr>
                         <td>
-                            <input type="file" name="myfile" accept=".mp4,.mkv,.webm"> <br> <br>
+                            <input type="file" name="trailer" accept=".mp4,.mkv,.webm" required> <br> <br>
                         </td>
                     </tr>
                 </table>
@@ -106,7 +106,7 @@
                     <font color="white" face="times new roman" size="6">Price : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px">
+                    <input type="text" size="60px" name="price" required>
                 </td>
             </tr>
             <tr>
@@ -114,7 +114,7 @@
                     <font color="white" face="times new roman" size="6">Download Link : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px">
+                    <input type="text" size="60px" name="downloadLink" requied>
                 </td>
             </tr>
             <tr align="center">
@@ -124,6 +124,7 @@
                 </td>
             </tr>
         </table><br><br><br>
+        </form>
     </center>
     <br><br><br>
     <center>

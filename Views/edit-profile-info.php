@@ -52,13 +52,13 @@
 
         <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
         <form method=post>
-        <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="25" bordercolor="F5C518">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Full Name : 
                 </td>
                 <td>
-                    <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
+                    <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font>
                 </td>
             </tr>
             <tr>
@@ -66,7 +66,7 @@
                     <font color="white" face="times new roman" size="6">Username : 
                 </td>
                 <td>
-                    <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font><br><br>
+                    <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font>
                 </td>
             </tr>
             <tr>
@@ -74,7 +74,7 @@
                     <font color="white" face="times new roman" size="6">Phone Number : 
                 </td>
                 <td>
-                    <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font><br><br>
+                    <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font>
                 </td>
             </tr>
             <tr>
@@ -82,7 +82,7 @@
                     <font color="white" face="times new roman" size="6">Email : 
                 </td>
                 <td>
-                    <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font><br><br><br>
+                    <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font>
                 </td>
             </tr>
             <tr align="center">
