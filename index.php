@@ -53,9 +53,9 @@
         <tr>
             <td>
                 
-                <font color="F5C518" face="times new roman" size="12">Movies</font><br>
+                <a href="Views/movies.php"><font color="F5C518" face="times new roman" size="12">Movies</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
-                <a href=""><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
+                <a href="Views/movies.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
     <?php
 for ($cid = 1; $cid <=6; $cid++) {
@@ -65,9 +65,9 @@ showMovies($cid);
                    
                 </table><br><br><br>
 
-                <font color="F5C518" face="times new roman" size="12">TV Shows</font><br>
+                <a href="Views/tv-shows.php"><font color="F5C518" face="times new roman" size="12">TV Shows</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
-                <a href=""><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
+                <a href="Views/tv-shows.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                     <a href="sign-in.html"><tr>
                         <td>
@@ -80,9 +80,9 @@ showTVShow($cid);
 
                 </table><br><br><br>
                 
-                <font color="F5C518" face="times new roman" size="12">Animes</font><br>
+                <a href="Views/animes.php"><font color="F5C518" face="times new roman" size="12">Animes</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
-                <a href=""><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
+                <a href="Views/animes.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                     <a href="sign-in.html">
                     <?php
