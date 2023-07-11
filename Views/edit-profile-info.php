@@ -22,14 +22,29 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
-                <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.php">Profile</option>
-                    <option value="watchlist.html">Watchlist</option>
-                    <option value="settings.php">Settings</option>
-                    <option value="sign-in.html">Log Out</option>
-                </select>
+            <?php
+            
+            if($row['Role'] == "General User"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"watchlist.html\">Watchlist</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"sign-in.html\">Log Out</option>
+                </select>";
+            }
+            else if($row['Role'] == "Content Writer"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"dashboard.php\">Dashboard</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"sign-in.html\">Log Out</option>
+                </select>";
+            }
+            ?>
             </td>
         </tr>
     </table><br><br><br>      
@@ -40,10 +55,38 @@
         <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
-                    <font color="white" face="times new roman" size="6">Username : <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font><br><br>
-                    <font color="white" face="times new roman" size="6">Phone Number : <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font><br><br>
-                    <font color="white" face="times new roman" size="6">Email : <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font><br><br><br>
+                    <font color="white" face="times new roman" size="6">Full Name : 
+                </td>
+                <td>
+                    <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Username : 
+                </td>
+                <td>
+                    <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Phone Number : 
+                </td>
+                <td>
+                    <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Email : 
+                </td>
+                <td>
+                    <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font><br><br><br>
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
                     <input type="submit" name="updateinfo" value="Update Information">
                 </td>
             </tr>

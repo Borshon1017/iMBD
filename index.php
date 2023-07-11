@@ -39,7 +39,7 @@
                 <select name=\"profile\" onchange=\"location = this.value;\">
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"Views/user-profile.php\">Profile</option>
-                    <option value=\"Views/dashboard.html\">Dashboard</option>
+                    <option value=\"Views/dashboard.php\">Dashboard</option>
                     <option value=\"Views/settings.php\">Settings</option>
                     <option value=\"Views/sign-in.html\">Log Out</option>
                 </select>";
