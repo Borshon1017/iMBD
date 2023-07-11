@@ -23,15 +23,25 @@
 
             <?php
 
-            if($row['Role'] = "General User"){
-                echo "<img src="?><?php echo $row['ProfilePicture']; ?><?php\" width=\"40px\">&nbsp;&nbsp;&nbsp;
-                <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="Views/user-profile.php">Profile</option>
-                    <option value="Views/watchlist.html">Watchlist</option>
-                    <option value="Views/settings.php">Settings</option>
-                    <option value="Views/sign-in.html">Log Out</option>
-                </select>"
+            if($row['Role'] == "General User"){
+                echo "<img src=\" {$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"Views/user-profile.php\">Profile</option>
+                    <option value=\"Views/watchlist.html\">Watchlist</option>
+                    <option value=\"Views/settings.php\">Settings</option>
+                    <option value=\"Views/sign-in.html\">Log Out</option>
+                </select>";
+            }
+            else if($row['Role'] == "Content Writer"){
+                echo "<img src=\" {$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"Views/user-profile.php\">Profile</option>
+                    <option value=\"Views/dashboard.html\">Dashboard</option>
+                    <option value=\"Views/settings.php\">Settings</option>
+                    <option value=\"Views/sign-in.html\">Log Out</option>
+                </select>";
             }
             ?>
             </td>
