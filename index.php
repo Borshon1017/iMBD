@@ -1,6 +1,7 @@
 <?php
     require_once('Models/user-info-model.php'); 
     require_once('Models/content-info-model.php'); 
+   
     $id=$_SESSION['id'];
     $row=UserInfo($id);
 ?>
