@@ -1,25 +1,27 @@
 <?php
+ require_once('database.php');
 
+ $crow;
 function showcontent($cid)
 {
    
-
-    $conn = mysqli_connect('localhost', 'root', '', 'iMBD');
+  global $crow;
+  $con = dbConnection();
 
    
     $sql = "SELECT * FROM contentinfo WHERE ContentID='$cid'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($con, $sql);
 
  
  
      
-        $row = mysqli_fetch_assoc($result);
+        $crow = mysqli_fetch_assoc($result);
 
        
-        $posterURL = $row['PosterURL'];
-        $title = $row['Title'];
-        $description = $row['Description'];
-        $releaseDate = $row['ReleaseDate'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['Title'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
 
         echo '<tr>';
         echo '<td><img src="' . $posterURL . '" width="180px"></td>';
@@ -32,8 +34,7 @@ function showcontent($cid)
         echo '</tr>';
  
 
-    // Close the database connection
-    mysqli_close($conn);
+
 }
 
 ?>
