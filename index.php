@@ -1,5 +1,6 @@
 <?php
     require_once('Models/user-info-model.php'); 
+    require_once('Models/content-info-model.php'); 
     $id=$_SESSION['id'];
     $row=UserInfo($id);
 ?>
@@ -55,6 +56,11 @@
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href=""><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+    <?php
+for ($cid = 1; $cid <=2; $cid++) {
+showcontent($cid);
+}
+?>
                     <tr>
                         <td>
                             <img src="Uploads/posters/across_the_spider-verse.jpg" width="180px">
