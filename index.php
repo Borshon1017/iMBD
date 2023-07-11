@@ -51,17 +51,14 @@
     </table><br><br><br>
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
         <tr>
-            <td>
+            <td valign="top">
                 
                 <a href="Views/movies.php"><font color="F5C518" face="times new roman" size="12">Movies</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href="Views/movies.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-    <?php
-for ($cid = 1; $cid <=6; $cid++) {
-showMovies($cid);
-}
-?>
+                
+                <?php for ($cid = 1; $cid <=6; $cid++) showMovies($cid); ?>
                    
                 </table><br><br><br>
 
@@ -69,14 +66,8 @@ showMovies($cid);
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href="Views/tv-shows.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <a href="sign-in.html"><tr>
-                        <td>
             
-                            <?php
-for ($cid = 1; $cid <=6; $cid++) {
-showTVShow($cid);
-}
-?>
+                <?php for ($cid = 1; $cid <=6; $cid++) showTVShow($cid); ?>
 
                 </table><br><br><br>
                 
@@ -84,12 +75,8 @@ showTVShow($cid);
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href="Views/animes.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <a href="sign-in.html">
-                    <?php
-for ($cid = 1; $cid <=6; $cid++) {
-showAnime($cid);
-}
-?>    
+                
+                <?php for ($cid = 1; $cid <=6; $cid++) showAnime($cid); ?>    
                    
                 </table><br><br><br>
 
@@ -117,12 +104,9 @@ showAnime($cid);
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href=""><font color="5799EF" face="times new roman" size="4">Get more recommendations</font></a><br><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <a href="sign-in.html"><tr>
-                    <?php
-for ($cid = 1; $cid <=3; $cid++) {
-showcontent($cid);
-}
-?>   
+                    
+                <?php for ($cid = 1; $cid <=3; $cid++) showContent($cid); ?>   
+
                 </table><br><br><br>
                 
                 <?php
