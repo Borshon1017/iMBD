@@ -15,12 +15,29 @@
                 <input type="text" placeholder="Search iMBD" size="100px">
             </td>
             <td>
-                <font color="white" face="times new roman">Watchlist</font>
-            </td>
-            <td>
-                <a href="sign-in.html">
-                    <font color="white" face="times new roman">Sign In</font>
-                </a>
+            <?php
+            
+            if($row['Role'] == "General User"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"watchlist.html\">Watchlist</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"sign-in.html\">Log Out</option>
+                </select>";
+            }
+            else if($row['Role'] == "Content Writer"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"dashboard.php\">Dashboard</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"sign-in.html\">Log Out</option>
+                </select>";
+            }
+            ?>
             </td>
         </tr>
     </table><br><br><br>
