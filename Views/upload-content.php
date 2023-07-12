@@ -35,7 +35,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Upload Content</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <form action="../Controllers/upload-content-controller.php" method="post">
+        <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
@@ -120,7 +120,7 @@
             <tr align="center">
                 <td colspan="2">
                     <br><br><br>
-                    <input type="submit" value="Upload">
+                    <input type="submit" name="Upload" value="Upload">
                 </td>
             </tr>
         </table><br><br><br>

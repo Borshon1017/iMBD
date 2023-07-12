@@ -4,7 +4,6 @@
     
     $id=$_COOKIE['id'];
     $src = $_FILES['myfile']['tmp_name'];
-
     $fileName = 'Uploads/Images/'.$_FILES['myfile']['name'];
     $des = "../Uploads/Images/".$_FILES['myfile']['name'];
 

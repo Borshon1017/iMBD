@@ -7,7 +7,7 @@ function uploadContent($id, $title, $description, $category, $releaseDate, $post
 
     $con = dbConnection();
 
-    $sql = "insert into ContentInfo values('', '{$id}' ,'{$title}' ,'{$description}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,{$downloadLink})";
+    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' )";
 
     if(mysqli_query($con, $sql)) return true;
     else return false;
