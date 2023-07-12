@@ -10,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Animes</title>
+    <title>iMBD New Arrivals</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
@@ -33,11 +33,11 @@ session_start();
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Animes</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">New Arrivals</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php for ($cid = 1; $cid <=countContent(); $cid++) showAnime($cid, "view"); ?>
+                    <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
                 </table><br><br><br>
     </center>
     <br><br><br>

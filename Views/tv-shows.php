@@ -37,7 +37,6 @@ session_start();
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <a href="sign-in.html"><tr>
                     <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
                 </table><br><br><br>
     </center>
