@@ -51,10 +51,7 @@
 
         <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
 
-        <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">
-        <?php
-        $row=UserInfo($id);
-        ?>    
+        <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">    
         <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Full Name : <?php echo $row['Fullname']; ?></font><br><br>
