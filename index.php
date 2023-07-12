@@ -1,8 +1,7 @@
 <?php
     require_once('Models/user-info-model.php'); 
     require_once('Models/content-info-model.php'); 
-   
-    $id=$_SESSION['id'];
+    $id =$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
 <!DOCTYPE html>
@@ -24,7 +23,6 @@
             <td>
 
             <?php
-
             if($row['Role'] == "General User"){
                 echo "<img src=\" {$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                 <select name=\"profile\" onchange=\"location = this.value;\">

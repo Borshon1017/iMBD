@@ -1,7 +1,7 @@
 <?php
     require_once('../Models/user-info-model.php');    
     require_once('../Controllers/message-controller.php');     
-    $id = $_SESSION['id'];
+    $id=$_COOKIE['id'];
     $row=UserInfo($id);
 
 ?>  

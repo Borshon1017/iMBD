@@ -2,7 +2,7 @@
 
 require_once('../Models/user-info-model.php');
 require_once('message-controller.php');            
-$id=$_SESSION['id'];
+$id=$_COOKIE['id'];
 $row=UserInfo($id);
 
 if(isset($_POST['submit'])){
