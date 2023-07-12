@@ -22,6 +22,7 @@
         else return false;
 
     }
+    
 
     function addUser($fullname, $username, $phone, $email, $password){
 

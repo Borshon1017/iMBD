@@ -13,6 +13,18 @@ function uploadContent($id, $title, $description, $category, $releaseDate, $post
     else return false;
     
 }
+
+function getContentDeatils($cid){
+
+    $con = dbConnection();
+
+    $sql = "SELECT * FROM contentinfo WHERE ContentID = '$cid'";
+
+    $result = mysqli_query($con, $sql);
+    return $result;
+    
+}
+
 function showContent($cid, $site)
 {
    
@@ -49,7 +61,7 @@ function showContent($cid, $site)
                 echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
             }
             echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
+            echo '<font color="white" face="times new roman" size="12"><a href="views/content-page.php?cid=' . $cid . '">' . $title . '</a></font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';

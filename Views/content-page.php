@@ -1,8 +1,36 @@
 <?php
     require_once('../Models/user-info-model.php'); 
-    $id=$_COOKIE['id'];
-    $row=UserInfo($id);
+    require_once('../Models/content-info-model.php'); 
+    $id = $_COOKIE['id'];
+    $row = UserInfo($id);
+    $cid = $_GET['cid'];
+
+    require_once('../Models/database.php'); 
+
+    
+  
+
+
+ 
+    $result = getContentDeatils($cid);
+
+
+    if ($result) {
+        
+        $row = mysqli_fetch_assoc($result);
+
+       
+        $title = $row['ContentTitle'];
+        $releaseDate = $row['ReleaseDate'];
+        $posterURL = $row['Poster'];
+        $trailer = $row['Trailer'];
+        $description = $row['ContentDescription'];
+        $price= $row['Price'];
+
+ 
+    } 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,18 +61,17 @@
     </table><br>
     
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-
         <tr>
             <td>
-                <font color="white" face="times new roman" size="12">Morbius: It's Morbing Time</font><br><br>
+                <font color="white" face="times new roman" size="12"><?php echo $title; ?></font><br><br>
                 <font color="white" face="times new roman" size="4">Movie |</font>
-                <font color="white" face="times new roman" size="4">Release Date: 19/01/2002</font><br><br>
+                <font color="white" face="times new roman" size="4">Release Date: <?php echo $releaseDate; ?></font><br><br>
             </td>
         </tr>
         <tr>
             <td>
-                <img src="../Uploads/posters/morbius.jpg" width="300px">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<video src="../Uploads/Trailers/MORBIUS - Official Trailer (HD).mp4" controls autoplay width="800px"></video><br><br><br>
+                <img src="../<?php echo $posterURL; ?>" width="300px">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<video src="../<?php echo $trailer; ?>" controls autoplay width="800px"></video><br><br><br>
             </td>
         </tr>
         <tr>
@@ -52,13 +79,13 @@
                 <hr color="F5C518" width="100%"><br><br>
                 <font color="white" face="times new roman" size="12">Description : </font><br>
                 <hr color="F5C518" width="270px" align="left"><br>
-                <font color="white" face="times new roman" size="6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minus iusto obcaecati adipisci iste mollitia officia earum eligendi quam assumenda, impedit quod odio modi dolorem! Architecto delectus veritatis explicabo debitis?</font><br><br><br>
+                <font color="white" face="times new roman" size="6"><?php echo $description; ?></font><br><br><br>
                 <hr color="F5C518" width="100%">
             </td>
         </tr>
         <tr>
             <td>
-                <font color="white" face="times new roman" size="6">Purchase This : </font><a href=""><font color="white" face="times new roman" size="6">100 BDT</font></a>
+                <font color="white" face="times new roman" size="6">Purchase This : </font><a href=""><font color="white" face="times new roman" size="6"><?php echo $price; ?></font></a>
             </td>
         </tr>
         <tr>
@@ -101,7 +128,6 @@
                 </p>
             </td>
         </tr>
-
     </table>
 
     <br><br><br>
