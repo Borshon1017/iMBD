@@ -28,7 +28,7 @@
 
         $con = dbConnection();
 
-        $sql = "insert into UserInfo values('', '{$fullname}' ,'{$username}' ,'{$phone}', '{$email}', '{$password}', 'Images/default_pfp.jpg', 'General User', 'Active')";
+        $sql = "insert into UserInfo values('', '{$fullname}' ,'{$username}' ,'{$phone}', '{$email}', '{$password}', 'Uploads/Images/default_pfp.jpg', 'General User', 'Active')";
 
         if(mysqli_query($con, $sql)) return true;
         else return false;

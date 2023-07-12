@@ -36,23 +36,80 @@
         <font color="F5C518" face="times new roman" size="12">Dashboard</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr align="center">
+        <?php
+
+        if($row['Role'] == "Content Writer"){
+            echo "<table width=\"60%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\">
+            <tr align=\"center\">
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Upload Content</font></a>
+                    <a href=\"upload-content.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Upload Content</font></a>
                 </td>
             </tr>
-            <tr align="center">
+            <tr align=\"center\">
                 <td>
-                    <a href="edit-content-info.php"><font color="white" face="times new roman" size="6">Edit Content Info</font></a>
+                    <a href=\"edit-content-info.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Edit Content Info</font></a>
                 </td>
             </tr>
-            <tr align="center">
+            <tr align=\"center\">
                 <td>
-                    <a href="delete-content.php"><font color="white" face="times new roman" size="6">Delete Content</font></a>
+                    <a href=\"delete-content.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Delete Content</font></a>
                 </td>
             </tr>
-        </table><br><br><br>
+        </table>";
+        }
+
+        else if($row['Role'] == "Critic"){
+            echo "<table width=\"60%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\">
+            <tr align=\"center\">
+                <td>
+                    <a href=\"rate-review-content.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Rate/Review Content</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"edit-rating-review.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Edit Rating/Review</font></a>
+                </td>
+            </tr>
+        </table>";
+        }
+        
+        else if($row['Role'] == "Administrator"){
+            echo "<table width=\"60%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\">
+            <tr align=\"center\">
+                <td>
+                    <a href=\"manage-general-user.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Manage General User</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"manage-content-writer.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Manage Content Writer</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"manage-critic.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Manage Critic</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"manage-poll.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Manage Poll</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"manage-discussion.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Manage Discussion</font></a>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"sales-history.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Sales History</font></a>
+                </td>
+            </tr>
+        </table>";
+        }
+
+        ?>
+        <br><br><br>
     </center>
     <br><br><br>
     <center>

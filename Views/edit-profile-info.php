@@ -34,7 +34,7 @@
                     <option value=\"sign-in.html\">Log Out</option>
                 </select>";
             }
-            else if($row['Role'] == "Content Writer"){
+            else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
                 echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                 <select name=\"profile\" onchange=\"location = this.value;\">
                     <option disabled selected hidden> {$row['Username']} </option>
