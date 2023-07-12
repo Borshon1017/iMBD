@@ -1,8 +1,8 @@
 <?php
     require_once('../Models/user-info-model.php');
     require_once('message-controller.php');
-
-    $id = $_SESSION['id'];
+    
+    $id=$_COOKIE['id'];
     $src = $_FILES['myfile']['tmp_name'];
 
     $fileName = 'Uploads/Images/'.$_FILES['myfile']['name'];
