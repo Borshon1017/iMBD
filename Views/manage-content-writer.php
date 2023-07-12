@@ -44,12 +44,12 @@
             </tr>
             <tr align="center">
                 <td>
-                    <a href="edit-content-info.php"><font color="white" face="times new roman" size="6">Edit Content Writer Info</font></a>
+                    <a href="edit-content-writer-info.php"><font color="white" face="times new roman" size="6">Edit Content Writer Info</font></a>
                 </td>
             </tr>
             <tr align="center">
                 <td>
-                    <a href="edit-content-info.php"><font color="white" face="times new roman" size="6">Delete Content Writer</font></a>
+                    <a href="ban-content-writer.php"><font color="white" face="times new roman" size="6">Ban Content Writer</font></a>
                 </td>
             </tr>
         </table>

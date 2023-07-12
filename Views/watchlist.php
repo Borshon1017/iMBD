@@ -1,3 +1,10 @@
+<?php
+
+require_once('../Models/content-info-model.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,23 +36,11 @@
         <font color="F5C518" face="times new roman" size="12">Your Watchlist</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td>
-                    <img src="../Uploads/posters/across_the_spider-verse.jpg" width="150px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../Uploads/posters/Among_Us_poster.png" width="150px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../Uploads/posters/morbius.jpg" width="150px">
-                </td>
-            </tr>
-        </table><br><br><br>
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
+        </table>
+        
+        <br><br><br>
     </center>
     <br><br><br>
     <center>

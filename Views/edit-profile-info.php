@@ -29,7 +29,7 @@
                 <select name=\"profile\" onchange=\"location = this.value;\">
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"watchlist.html\">Watchlist</option>
+                    <option value=\"watchlist.php\">Watchlist</option>
                     <option value=\"settings.php\">Settings</option>
                     <option value=\"sign-in.html\">Log Out</option>
                 </select>";

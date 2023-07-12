@@ -1,20 +1,24 @@
 <?php
-    require_once('../Models/user-info-model.php');         
+
+    require_once('../Models/user-info-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Critic</title>
+    <title>iMBD View All Users</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="home.html"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -33,23 +37,39 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Critic</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">General Users</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr align="center">
+
+        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Add Critic</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Name</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Username</font>
+                    <hr color="F5C518" width="120px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Email</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+
                 </td>
             </tr>
-            <tr align="center">
+            <tr>
                 <td>
-                    <a href="edit-critic-info.php"><font color="white" face="times new roman" size="6">Edit Critic Info</font></a>
+                    <font color="white" face="times new roman" size="5">Rianul Amin Rian</font>
                 </td>
-            </tr>
-            <tr align="center">
                 <td>
-                    <a href="ban-critic.php"><font color="white" face="times new roman" size="6">Ban Critic</font></a>
+                    <font color="white" face="times new roman" size="5">ppsppspsspss</font>
+                </td>
+                <td>
+                    <font color="white" face="times new roman" size="5">ppsppspsspss@gmail.com</font>
+                </td>
+                <td>
+                    <a href="view-profile-info.php"><font color="5799EF" face="times new roman" size="5">Show Details</font></a>
                 </td>
             </tr>
         </table>

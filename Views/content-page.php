@@ -52,7 +52,7 @@
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden>Username</option>
                     <option value="user-profile.html">Profile</option>
-                    <option value="watchlist.html">Watchlist</option>
+                    <option value="watchlist.php">Watchlist</option>
                     <option value="settings.html">Settings</option>
                     <option value="sign-in.html">Log Out</option>
                 </select>

@@ -39,12 +39,12 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr align="center">
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">View All Users</font></a>
+                    <a href="view-all-user.php"><font color="white" face="times new roman" size="6">View All Users</font></a>
                 </td>
             </tr>
             <tr align="center">
                 <td>
-                    <a href="edit-content-info.php"><font color="white" face="times new roman" size="6">Ban User</font></a>
+                    <a href="ban-user.php"><font color="white" face="times new roman" size="6">Ban User</font></a>
                 </td>
             </tr>
         </table>

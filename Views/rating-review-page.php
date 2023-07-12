@@ -8,7 +8,7 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Critic</title>
+    <title>iMBD Rate/Review</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -23,7 +23,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
@@ -33,28 +33,34 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Critic</font><br><br><br>
-        <hr color="F5C518" width="530px"><br><br><br>
-        
+        <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
+        <hr color="F5C518" width="650px"><br><br><br>
+        <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr align="center">
+            <tr>
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Add Critic</font></a>
+                    <font color="white" face="times new roman" size="6">Rating [1-5] : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="rating" required>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <font color="white" face="times new roman" size="6">Review : </font>
+                </td>
+                <td>
+                    <textarea cols="59" rows="10" name="review" required></textarea>
                 </td>
             </tr>
             <tr align="center">
-                <td>
-                    <a href="edit-critic-info.php"><font color="white" face="times new roman" size="6">Edit Critic Info</font></a>
+                <td colspan="2">
+                    <br><br><br>
+                    <input type="submit" name="submit" value="Submit">
                 </td>
             </tr>
-            <tr align="center">
-                <td>
-                    <a href="ban-critic.php"><font color="white" face="times new roman" size="6">Ban Critic</font></a>
-                </td>
-            </tr>
-        </table>
-        
-        <br><br><br>
+        </table><br><br><br>
+        </form>
     </center>
     <br><br><br>
     <center>
