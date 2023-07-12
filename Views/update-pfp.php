@@ -1,6 +1,6 @@
 <?php
     require_once('../Models/user-info-model.php');       
-    $id=$_SESSION['id'];
+    $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
 <!DOCTYPE html>

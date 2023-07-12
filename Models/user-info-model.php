@@ -1,7 +1,6 @@
 <?php
 
     require_once('database.php');
-    session_start();
 
     $row;
     function login($email, $password){
@@ -16,10 +15,8 @@
 
         if($count == 1) 
         {
-
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['id'] = $row['UserID'];
-        return true;
+        return $row;
 
         }
         else return false;

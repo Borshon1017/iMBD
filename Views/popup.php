@@ -1,8 +1,8 @@
 <?php
-
     require_once('../Models/user-info-model.php'); 
-    $id=$_SESSION['id'];
+    $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    session_start(); 
 
     $title = $_SESSION['title'];
     $message = $_SESSION['message'];

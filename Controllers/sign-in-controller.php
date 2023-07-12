@@ -1,25 +1,43 @@
 <?php
 
     require_once('../Models/user-info-model.php');
-    require_once('message-controller.php');
-    session_start();        
+    require_once('message-controller.php');  
     
     if(isset($_POST['submit'])){
 
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $rememberMe = $_POST['rememberMe'];
+        $Remember;
+
+        if(isset($_POST['Remember'])){
+            $Remember="true";
+        }
+       if(!isset($_POST['Remember'])){
+            $Remember="false";
+        }
+
 
         $status = login($email, $password);
-        $id = $_SESSION['id'];
-        $row=UserInfo($id);
         
-        if($status){
+        
+        if($status!=false){
+            if($Remember=="true"){
+                setcookie("flag","true",time()+86000,"/");
+            }
+            if($Remember=="false"){
+                setcookie("flag","false",time()+360,"/");
+            }
+           
 
-            if($row['Role'] == "General User") header('location: ../index.php');
-            if($row['Role'] == "Administrator") header('location: ../index.php');
-            if($row['Role'] == "Content Writer") header('location: ../index.php');
-            if($row['Role'] == "Critic") header('location: ../index.php');
+            
+            setcookie("id",$status['UserID'],time()+86000,"/");
+
+            
+
+            if($status['Role'] == "General User")header('location: ../index.php');
+            if($status['Role'] == "Administrator") header('location: ../index.php');
+            if($status['Role'] == "Content Writer") header('location: ../index.php');
+            if($status['Role'] == "Critic") header('location: ../index.php');
            
 
         }else popup("Error!", "Could not sign-in. Invalid sign-in credentials.");
