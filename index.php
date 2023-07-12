@@ -56,7 +56,7 @@
                 <a href="Views/movies.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                 
-                <?php for ($cid = 1; $cid <=6; $cid++) showMovies($cid); ?>
+                <?php for ($cid = 1; $cid <=6; $cid++) showMovies($cid, "index"); ?>
                    
                 </table><br><br><br>
 
@@ -65,7 +65,7 @@
                 <a href="Views/tv-shows.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
             
-                <?php for ($cid = 1; $cid <=6; $cid++) showTVShow($cid); ?>
+                <?php for ($cid = 1; $cid <=6; $cid++) showTVShow($cid, "index"); ?>
 
                 </table><br><br><br>
                 
@@ -74,7 +74,7 @@
                 <a href="Views/animes.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                 
-                <?php for ($cid = 1; $cid <=6; $cid++) showAnime($cid); ?>    
+                <?php for ($cid = 1; $cid <=6; $cid++) {showAnime($cid, "index");} ?>    
                    
                 </table><br><br><br>
 
@@ -103,7 +103,7 @@
                 <a href=""><font color="5799EF" face="times new roman" size="4">Get more recommendations</font></a><br><br><br>
                 <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
                     
-                <?php for ($cid = 1; $cid <=3; $cid++) showContent($cid); ?>   
+                <?php for ($cid = 1; $cid <=3; $cid++) showContent($cid, "index"); ?>   
 
                 </table><br><br><br>
                 

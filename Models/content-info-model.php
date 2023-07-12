@@ -13,7 +13,7 @@ function uploadContent($id, $title, $description, $category, $releaseDate, $post
     else return false;
     
 }
-function showContent($cid)
+function showContent($cid, $site)
 {
    
   global $crow;
@@ -40,7 +40,14 @@ function showContent($cid)
     
     
             echo '<tr>';
+            if ($site=="index")
+            {
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            }
+            else if ($site=="view")
+            {
+                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
+            }
             echo '<td valign="top" align="left">';
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
@@ -59,8 +66,18 @@ function showContent($cid)
 }
 
 
-
-function showMovies($cid)
+function countContent()
+{
+    global $crow;
+    $con = dbConnection();
+    $sql = "SELECT * FROM contentinfo ";
+    $result = mysqli_query($con, $sql);
+    $crow = mysqli_fetch_assoc($result);
+        $count = mysqli_num_rows($result);
+        return $count;
+  
+}
+function showMovies($cid, $site)
 {
    
   global $crow;
@@ -87,7 +104,15 @@ function showMovies($cid)
     
     
             echo '<tr>';
+            if ($site=="index")
+            {
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            }
+            else if ($site=="view")
+            {
+                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
+
+            }
             echo '<td valign="top" align="left">';
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
@@ -105,7 +130,7 @@ function showMovies($cid)
        
 }
 
-function showAnime($cid)
+function showAnime($cid, $site)
 {
    
   global $crow;
@@ -132,7 +157,14 @@ function showAnime($cid)
     
     
             echo '<tr>';
+            if ($site=="index")
+            {
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            }
+            else if ($site=="view")
+            {
+                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
+            }
             echo '<td valign="top" align="left">';
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
@@ -150,7 +182,7 @@ function showAnime($cid)
        
 }
 
-function showTVShow($cid)
+function showTVShow($cid, $site)
 {
    
   global $crow;
@@ -177,7 +209,14 @@ function showTVShow($cid)
     
     
             echo '<tr>';
+            if ($site=="index")
+            {
             echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            }
+            else if ($site=="view")
+            {
+                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
+            }
             echo '<td valign="top" align="left">';
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
