@@ -13,7 +13,7 @@ function uploadContent($id, $title, $description, $category, $releaseDate, $post
     else return false;
     
 }
-function showcontent($cid)
+function showContent($cid)
 {
    
   global $crow;
@@ -53,7 +53,7 @@ function showcontent($cid)
         }
         else
         {
-
+            
         }
        
 }
@@ -100,7 +100,7 @@ function showMovies($cid)
         }
         else
         {
-
+            
         }
        
 }
@@ -145,7 +145,7 @@ function showAnime($cid)
         }
         else
         {
-
+            
         }
        
 }
