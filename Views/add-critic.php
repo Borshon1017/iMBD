@@ -1,9 +1,9 @@
 <?php
-    require_once('../Models/user-info-model.php');
+    require_once('../Models/user-info-model.php');   
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }         
+    }      
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -12,7 +12,7 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Upload Content</title>
+    <title>iMBD Add Critic</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -37,94 +37,62 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Upload Content</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Add Critic</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
         <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Title : </font>
+                    <font color="white" face="times new roman" size="6">Fullname : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="title" required>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <font color="white" face="times new roman" size="6">Description : </font>
-                </td>
-                <td>
-                    <textarea cols="59" rows="10" name="description" required></textarea>
+                    <input type="text" size="40px" name="fullname" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Category : </font>
+                    <font color="white" face="times new roman" size="6">Username : </font>
                 </td>
                 <td>
-                    <select name="category">
-                        <option value="Movie">Movie</option>
-                        <option value="TV Show">TV Show</option>
-                        <option value="Anime">Anime</option>
-                    </select>
+                    <input type="text" size="40px" name="username" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Release Date : </font>
+                    <font color="white" face="times new roman" size="6">Phone Number : </font>
                 </td>
                 <td>
-                    <input type="date" name="releaseDate" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Upload Poster : </font>
-                </td>
-                <td>
-                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-                    <tr>
-                        <td>
-                            <input type="file" name="poster" accept=".png,.jpg,.jpeg" required> <br> <br>
-                        </td>
-                    </tr>
-                </table>
+                    <input type="text" size="40px" name="phone" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Upload Trailer : </font>
+                    <font color="white" face="times new roman" size="6">Email : </font>
                 </td>
                 <td>
-                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-                    <tr>
-                        <td>
-                            <input type="file" name="trailer" accept=".mp4,.mkv,.webm" required> <br> <br>
-                        </td>
-                    </tr>
-                </table>
+                    <input type="email" size="40px" name="fullname" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Price : </font>
+                    <font color="white" face="times new roman" size="6">Password : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="price" required>
+                    <input type="password" size="40px" name="password" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Download Link : </font>
+                    <font color="white" face="times new roman" size="6">Confirm Password : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="downloadLink" requied>
+                    <input type="password" size="40px" name="cpassword" required>
                 </td>
             </tr>
             <tr align="center">
                 <td colspan="2">
                     <br><br><br>
-                    <input type="submit" name="Upload" value="Upload">
+                    <input type="submit" name="submit" value="Add Critic">
                 </td>
             </tr>
         </table><br><br><br>

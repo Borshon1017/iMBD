@@ -23,7 +23,6 @@
             <?php
 
             if(!isset($_COOKIE['flag'])){
-
                 echo "<a href=\"Views/sign-in.html\">
                         <font color=\"white\" face=\"times new roman\">Sign In</font>
                     </a>";
@@ -93,7 +92,10 @@
 
                 <?php
 
-                    if($row['Role'] == "General User"){
+                    if(isset($_COOKIE['flag']))
+                    {
+                        if($row['Role'] == "General User")
+                        {
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"12\">Check out todays poll</font><br>
                         <hr color=\"F5C518\" width=\"530px\" align=\"left\"><br>
                         <font color=\"white\" face=\"times new roman\" size=\"12\">Who is the GOAT actor?</font><br><br>
@@ -103,8 +105,8 @@
                         <hr color=\"F5C518\" width=\"530px\" align=\"left\"><br>
                         <font color=\"white\" face=\"times new roman\" size=\"12\">Is among us the greatest game ever created?</font><br><br>
                         <a href=\"Views/discussion.html\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">View discussion</font></a><br><br><br>";
+                        }
                     }
-                
                 ?>
 
                 <a href="Views/new-arrivals.php"><font color="F5C518" face="times new roman" size="12">New Arrivals</font></a>
@@ -118,7 +120,10 @@
                 
                 <?php
 
-                    if($row['Role'] == "General User"){
+                    if(isset($_COOKIE['flag']))
+                    {
+                        if($row['Role'] == "General User")
+                        {
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"12\">Your Purchases</font>
                         <hr color=\"F5C518\" width=\"530px\" align=\"left\"><br>
                         <a href=\"\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Show all purchases</font></a><br><br><br>
@@ -156,6 +161,7 @@
                                 </td>
                             </tr>
                         </table>";
+                        }
                     }
                 
                 ?>

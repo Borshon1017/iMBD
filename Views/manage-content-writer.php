@@ -2,7 +2,7 @@
     require_once('../Models/user-info-model.php');  
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
-        popup("Error!","You should login");
+        popup("Error!","You need to sign-in in order to access this page.");
     }       
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
@@ -43,7 +43,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr align="center">
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
+                    <a href="add-content-writer.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
                 </td>
             </tr>
             <tr align="center">
