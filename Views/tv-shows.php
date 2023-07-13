@@ -19,7 +19,7 @@ session_start();
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
         <tr height="60px">
             <td>
-                &nbsp;<a href="home.html"><img src="../Uploads/logo.png" width="80px"></a>
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
