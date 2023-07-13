@@ -58,7 +58,7 @@
                     <option value="user-profile.html">Profile</option>
                     <option value="watchlist.php">Watchlist</option>
                     <option value="settings.html">Settings</option>
-                    <option value="sign-in.html">Log Out</option>
+                    <option value="logout-page.php">Log Out</option>
                 </select>
             </td>
         </tr>

@@ -26,7 +26,7 @@
                     <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
-                    <option value="sign-in.html">Log Out</option>
+                    <option value="logout-page.php">Log Out</option>
                 </select>
             </td>
         </tr>

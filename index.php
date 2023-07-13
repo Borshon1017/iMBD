@@ -36,7 +36,7 @@
                         <option value=\"Views/user-profile.php\">Profile</option>
                         <option value=\"Views/watchlist.php\">Watchlist</option>
                         <option value=\"Views/settings.php\">Settings</option>
-                        <option value=\"Views/sign-in.html\">Log Out</option>
+                        <option value=\"Views/logout-page.php\">Log Out</option>
                     </select>";
                 }
                 else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
@@ -46,7 +46,7 @@
                         <option value=\"Views/user-profile.php\">Profile</option>
                         <option value=\"Views/dashboard.php\">Dashboard</option>
                         <option value=\"Views/settings.php\">Settings</option>
-                        <option value=\"Views/sign-in.html\">Log Out</option>
+                        <option value=\"Views/logout-page.php\">Log Out</option>
                     </select>";
                 }
             }
