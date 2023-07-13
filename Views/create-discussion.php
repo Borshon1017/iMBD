@@ -1,9 +1,9 @@
 <?php
-    require_once('../Models/user-info-model.php');  
+    require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }       
+    }         
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -12,13 +12,13 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Content Writer</title>
+    <title>iMBD Create Discussion</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
+                &nbsp;<img src="../Uploads/logo.png" width="80px">
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -27,38 +27,44 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
-                    <option value="logout-page.php">Log Out</option>
+                    <option value="sign-in.html">Log Out</option>
                 </select>
             </td>
         </tr>
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Content Writer</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Create Discussion</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <tr align="center">
+        <form action="../Controllers/create-discussion-controller.php" method="POST">
+        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+            <tr>
                 <td>
-                    <a href="add-content-writer.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
+                    <font color="white" face="times new roman" size="6">Discussion Title : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="discussionTitle" required>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <font color="white" face="times new roman" size="6">Description : </font>
+                </td>
+                <td>
+                    <textarea cols="59" rows="10" name="description" required></textarea>
                 </td>
             </tr>
             <tr align="center">
-                <td>
-                    <a href="edit-content-writer-info.php"><font color="white" face="times new roman" size="6">Edit Content Writer Info</font></a>
+                <td colspan="2">
+                    <br><br><br>
+                    <input type="submit" name="submit" value="Create Discussion">
                 </td>
             </tr>
-            <tr align="center">
-                <td>
-                    <a href="ban-content-writer.php"><font color="white" face="times new roman" size="6">Ban Content Writer</font></a>
-                </td>
-            </tr>
-        </table>
-        
-        <br><br><br>
+        </table><br><br><br>
+        </form>
     </center>
     <br><br><br>
     <center>

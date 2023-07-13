@@ -16,7 +16,7 @@ session_start();
     <title>iMBD Animes</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
+    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>

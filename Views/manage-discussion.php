@@ -40,15 +40,15 @@
         <font color="F5C518" face="times new roman" size="12">Manage Discussion</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
         
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
             <tr align="center">
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Create Discussion</font></a>
+                    <a href="create-discussion.php"><font color="white" face="times new roman" size="6">Create Discussion</font></a>
                 </td>
             </tr>
             <tr align="center">
                 <td>
-                    <a href="edit-content-info.php"><font color="white" face="times new roman" size="6">Edit Discussion</font></a>
+                    <a href="edit-discussion.php"><font color="white" face="times new roman" size="6">Edit Discussion</font></a>
                 </td>
             </tr>
         </table>
