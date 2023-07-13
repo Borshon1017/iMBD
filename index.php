@@ -1,8 +1,6 @@
 <?php
     require_once('Models/user-info-model.php'); 
     require_once('Models/content-info-model.php'); 
-    $id =$_COOKIE['id'];
-    $row=UserInfo($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +22,14 @@
 
             <?php
 
-            if(cookie exist kore){
+            if(!isset($_COOKIE['flag'])){
 
                 echo "<a href=\"sign-in.html\">
                         <font color=\"white\" face=\"times new roman\">Sign In</font>
                     </a>";
             }else{
+                $id =$_COOKIE['id'];
+                $row=UserInfo($id);
                 if($row['Role'] == "General User"){
                     echo "<img src=\" {$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                     <select name=\"profile\" onchange=\"location = this.value;\">
