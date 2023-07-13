@@ -39,7 +39,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Add Critic</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
+        <form action="../Controllers/add-critic-controller.php" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
@@ -70,7 +70,7 @@
                     <font color="white" face="times new roman" size="6">Email : </font>
                 </td>
                 <td>
-                    <input type="email" size="40px" name="fullname" required>
+                    <input type="mail" size="40px" name="email" required>
                 </td>
             </tr>
             <tr>
@@ -86,7 +86,7 @@
                     <font color="white" face="times new roman" size="6">Confirm Password : </font>
                 </td>
                 <td>
-                    <input type="password" size="40px" name="cpassword" required>
+                    <input type="password" size="40px" name="repassword" required>
                 </td>
             </tr>
             <tr align="center">

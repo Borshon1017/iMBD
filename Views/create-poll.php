@@ -1,9 +1,5 @@
 <?php
-    require_once('../Models/user-info-model.php'); 
-    require_once('../Controllers/message-controller.php');  
-    if(!isset($_COOKIE['flag'])){
-        popup("Error!","You need to sign-in in order to access this page.");
-    }        
+    require_once('../Models/user-info-model.php');         
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -12,7 +8,7 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Poll</title>
+    <title>iMBD Create Poll</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -27,7 +23,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="sign-in.html">Log Out</option>
@@ -37,23 +33,58 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Poll</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Create Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
+        <form action="../Controllers/create-poll-controller.php" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr align="center">
+            <tr>
                 <td>
-                    <a href="create-poll.php"><font color="white" face="times new roman" size="6">Create Poll</font></a>
+                    <font color="white" face="times new roman" size="6">Poll Title : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="pollTitle" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 1 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option1" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 2 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option2" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 3 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option3" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 4 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option4" required>
                 </td>
             </tr>
             <tr align="center">
-                <td>
-                    <a href="edit-poll.php"><font color="white" face="times new roman" size="6">Edit Poll</font></a>
+                <td colspan="2">
+                    <br><br><br>
+                    <input type="submit" name="submit" value="Create Poll">
                 </td>
             </tr>
-        </table>
-        
-        <br><br><br>
+        </table><br><br><br>
+        </form>
     </center>
     <br><br><br>
     <center>

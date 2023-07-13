@@ -2,13 +2,11 @@
 
  require_once('database.php');
 
- $crow;
-
-function uploadContent($id, $title, $description, $category, $releaseDate, $poster, $trailer, $price, $downloadLink){
+function createPoll($id, $pollTitle, $option1, $option2, $option3, $option4){
 
     $con = dbConnection();
 
-    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' )";
+    $sql = "insert into Poll values('', '{$id}' ,'{$pollTitle}' ,'{$option1}', '{$option2}', '{$option3}', '{$option4}')";
 
     if(mysqli_query($con, $sql)) return true;
     else return false;
