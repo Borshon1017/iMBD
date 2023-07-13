@@ -24,7 +24,7 @@
 
             if(!isset($_COOKIE['flag'])){
 
-                echo "<a href=\"sign-in.html\">
+                echo "<a href=\"Views/sign-in.html\">
                         <font color=\"white\" face=\"times new roman\">Sign In</font>
                     </a>";
             }else{
