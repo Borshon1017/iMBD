@@ -2,8 +2,10 @@
 session_start();
     require_once('../Models/user-info-model.php'); 
     require_once('../Models/content-info-model.php'); 
-   
-   
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You should login");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

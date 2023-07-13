@@ -1,5 +1,9 @@
 <?php
-    require_once('../Models/user-info-model.php');         
+    require_once('../Models/user-info-model.php'); 
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You should login");
+    }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
