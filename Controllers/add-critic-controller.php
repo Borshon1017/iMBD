@@ -10,8 +10,8 @@
         $phone = $_POST['phone'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $repassword=$_POST['repassword'];
-        $role = 'General User';
+        $repassword = $_POST['repassword'];
+        $role = 'Critic';
 
         if(strlen($password)<8) popup("Error!", "Password must be atleast 8 characters long.");
         else if(uniqueEmail($email)==false) popup("Error!", "Email already exists.");
@@ -19,8 +19,8 @@
         else{
 
             $status = addUser($fullname, $username, $phone, $email, $password, $role);
-            if($status) popup("Congratulations!", "Your account creation was successful.");
-            else popup("Error!", "Could not register. Please try again");
+            if($status) popup("Congratulations!", "New critic has been added.");
+            else popup("Error!", "Could not add critic. Please try again");
 
         }  
         

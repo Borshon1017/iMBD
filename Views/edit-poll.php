@@ -1,20 +1,24 @@
 <?php
-    require_once('../Models/user-info-model.php');         
+
+    require_once('../Models/user-info-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Poll</title>
+    <title>iMBD Edit Poll</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="home.html"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -33,18 +37,25 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Poll</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Edit Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr align="center">
+
+        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
                 <td>
-                    <a href="create-poll.php"><font color="white" face="times new roman" size="6">Create Poll</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Poll Title</font>
+                    <hr color="F5C518" width="120px" align="left">
+                </td>
+                <td>
+
                 </td>
             </tr>
-            <tr align="center">
+            <tr>
                 <td>
-                    <a href="edit-poll.php"><font color="white" face="times new roman" size="6">Edit Poll</font></a>
+                    <font color="white" face="times new roman" size="5">Will we be able to finish this project on time?</font>
+                </td>
+                <td>
+                    <a href="view-profile-info.php"><font color="5799EF" face="times new roman" size="5">Edit Poll</font></a>
                 </td>
             </tr>
         </table>

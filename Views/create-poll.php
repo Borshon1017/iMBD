@@ -8,7 +8,7 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Add Content Writer</title>
+    <title>iMBD Create Poll</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -33,62 +33,54 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Add Content Writer</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Create Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <form action="../Controllers/add-content-writer-controller.php" method="POST">
+        <form action="../Controllers/create-poll-controller.php" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Fullname : </font>
+                    <font color="white" face="times new roman" size="6">Poll Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="fullname" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Username : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="username" required>
+                    <input type="text" size="40px" name="pollTitle" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : </font>
+                    <font color="white" face="times new roman" size="6">Option 1 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="phone" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Email : </font>
-                </td>
-                <td>
-                    <input type="mail" size="40px" name="email" required>
+                    <input type="text" size="40px" name="option1" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Password : </font>
+                    <font color="white" face="times new roman" size="6">Option 2 : </font>
                 </td>
                 <td>
-                    <input type="password" size="40px" name="password" required>
+                    <input type="text" size="40px" name="option2" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Confirm Password : </font>
+                    <font color="white" face="times new roman" size="6">Option 3 : </font>
                 </td>
                 <td>
-                    <input type="password" size="40px" name="repassword" required>
+                    <input type="text" size="40px" name="option3" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 4 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option4" required>
                 </td>
             </tr>
             <tr align="center">
                 <td colspan="2">
                     <br><br><br>
-                    <input type="submit" name="submit" value="Add Content Writer">
+                    <input type="submit" name="submit" value="Create Poll">
                 </td>
             </tr>
         </table><br><br><br>
