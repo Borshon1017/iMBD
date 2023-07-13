@@ -37,8 +37,6 @@
         $description = $_POST['description'];
         $category = $_POST['category'];
         $releaseDate = $_POST['releaseDate'];
-        //$poster = $_POST['poster']; //
-        //$trailer = $_POST['trailer']; //
         $price = $_POST['price'];
         $downloadLink = $_POST['downloadLink'];
         $id=$_COOKIE['id'];
@@ -48,10 +46,5 @@
         if($status) popup("Congratulations!", "Your content has been uploaded.");
         else popup("Error!", "Could not upload content.");
         
-    }
-
-    else
-    {
-        echo "not really";
     }
 ?>
