@@ -39,7 +39,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr align="center">
                 <td>
-                    <a href="upload-content.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
+                    <a href="add-content-writer.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
                 </td>
             </tr>
             <tr align="center">
