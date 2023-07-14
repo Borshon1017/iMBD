@@ -5,7 +5,8 @@
         popup("Error!","You need to sign-in in order to access this page.");
     }   
     $id=$_COOKIE['id'];
-    $row=UserInfo($id);  
+    $row=UserInfo($id); 
+    $userid=$_GET['id']; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
