@@ -87,21 +87,7 @@
         return $result;
     }
 
-    function getAllPoll(){
-        $con = dbConnection();
-        $sql="select PollID,PollTitle from poll";
-        $result=mysqli_query($con,$sql);
-        return $result;
-    }
-    
-
-    function getAllDiscussion(){
-        $con = dbConnection();
-        $sql="select DiscussionID,DiscussionTitle from discussion";
-        $result=mysqli_query($con,$sql);
-        return $result;
-    }
-
+   
     function updateUserInfo( $id,$fullname, $username, $phone, $email){
 
         $con = dbConnection();

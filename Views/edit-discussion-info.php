@@ -1,12 +1,15 @@
 <?php
     require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
+    require_once('../Models/discussion-model.php');
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }         
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $discussionid=$_GET['id'];
+    $dis=getaDiscussion($discussionid);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +22,7 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <form action="search-content.php" method="post">
@@ -43,14 +46,14 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Edit Discussion</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <form action="../Controllers/create-discussion-controller.php" method="POST">
+        <form action="../Controllers/update-discussion-controller.php?id=<?php echo $discussionid; ?>" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Discussion Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="discussionTitle" required>
+                    <input type="text" size="60px" name="discussionTitle" value="<?php echo $dis['DiscussionTitle'] ?>" required>
                 </td>
             </tr>
             <tr>
@@ -58,7 +61,7 @@
                     <font color="white" face="times new roman" size="6">Description : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10" name="description" required></textarea>
+                    <textarea cols="59" rows="10" name="description" required><?php echo $dis['DiscussionDescription'] ?></textarea>
                 </td>
             </tr>
             <tr align="center">

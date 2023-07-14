@@ -1,6 +1,7 @@
 <?php
     require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
+    require_once('../Models/discussion-model.php');
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }         

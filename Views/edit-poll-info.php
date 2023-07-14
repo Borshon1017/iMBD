@@ -1,9 +1,11 @@
 <?php
-    require_once('../Models/user-info-model.php');         
+    require_once('../Models/user-info-model.php'); 
+    require_once('../Models/poll-model.php');        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $pollid=$_GET['pollid'];
-    
+    $poll=getAPoll($pollid);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,14 +42,14 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Edit Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <form action="../Controllers/create-poll-controller.php" method="POST">
+        <form action="../Controllers/update-poll-controller.php?id=<?php echo $pollid;?>" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Poll Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="pollTitle" required>
+                    <input type="text" size="40px" name="pollTitle" value="<?php echo $poll['PollTitle'] ?>" required>
                 </td>
             </tr>
             <tr>
@@ -55,7 +57,7 @@
                     <font color="white" face="times new roman" size="6">Option 1 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option1" required>
+                    <input type="text" size="40px" name="option1" value="<?php echo $poll['OptionOne'] ?>" required>
                 </td>
             </tr>
             <tr>
@@ -63,7 +65,7 @@
                     <font color="white" face="times new roman" size="6">Option 2 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option2" required>
+                    <input type="text" size="40px" name="option2" value="<?php echo $poll['OptionTwo'] ?>" required>
                 </td>
             </tr>
             <tr>
@@ -71,7 +73,7 @@
                     <font color="white" face="times new roman" size="6">Option 3 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option3" required>
+                    <input type="text" size="40px" name="option3" value="<?php echo $poll['OptionThree'] ?>" required>
                 </td>
             </tr>
             <tr>
@@ -79,7 +81,7 @@
                     <font color="white" face="times new roman" size="6">Option 4 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option4" required>
+                    <input type="text" size="40px" name="option4" value="<?php echo $poll['OptionFour'] ?>" required>
                 </td>
             </tr>
             <tr align="center">

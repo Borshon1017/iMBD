@@ -1,6 +1,7 @@
 <?php
 
     require_once('../Models/user-info-model.php');
+    require_once('../Models/poll-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $result=getAllPoll();

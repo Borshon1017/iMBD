@@ -71,7 +71,7 @@
         <?php
             if($flag==0){
             echo"
-        <form action=\"../Controllers/update-info-controller.php?id={$id}\" method=\"post\">
+        <form action=\"../Controllers/update-profile-info-controller.php?id={$id}\" method=\"post\">
         <table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"25\" bordercolor=\"F5C518\">
             
             <tr>
@@ -114,7 +114,7 @@
             }else{
                 {
                     echo"
-                    <form action=\"../Controllers/update-info-controller.php?id={$id2}\" method=\"post\">
+                    <form action=\"../Controllers/update-profile-info-controller.php?id={$id2}\" method=\"post\">
                     <table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"25\" bordercolor=\"F5C518\">
                     <tr>
                         <td>
