@@ -3,7 +3,7 @@
     require_once('../Models/user-info-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-
+    $result=getAllPoll();
 ?>
 
 
@@ -53,14 +53,17 @@
 
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="5">Will we be able to finish this project on time?</font>
-                </td>
-                <td>
-                    <a href="view-profile-info.php"><font color="5799EF" face="times new roman" size="5">Edit Poll</font></a>
-                </td>
-            </tr>
+            <?php 
+                if(mysqli_num_rows($result)>0){
+                    while($w=mysqli_fetch_assoc($result)){
+                        $poll=$w['PollTitle'];
+                        echo "    
+                        <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$poll</font></td>
+                        <td><a href=\"view-profile-info.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Poll</font></a></td>          
+                        </tr>";
+                    }
+                }
+            ?>
         </table>
         
         <br><br><br>

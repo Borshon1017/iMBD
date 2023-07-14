@@ -3,7 +3,7 @@
     require_once('../Models/user-info-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-
+    $result=getAllDiscussion();
 ?>
 
 
@@ -18,7 +18,7 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<a href="home.html"><img src="../Uploads/logo.png" width="80px"></a>
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <form action="search-content.php" method="post">
@@ -53,14 +53,17 @@
 
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="5">Should trans people be considered a female?</font>
-                </td>
-                <td>
-                    <a href="view-profile-info.php"><font color="5799EF" face="times new roman" size="5">Edit Discussion</font></a>
-                </td>
-            </tr>
+            <?php 
+                if(mysqli_num_rows($result)>0){
+                    while($w=mysqli_fetch_assoc($result)){
+                        $discussion=$w['DiscussionTitle'];
+                        echo "    
+                        <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\"> $discussion</font></td>
+                        <td><a href=\"view-profile-info.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Discussion</font></a></td>          
+                        </tr>";
+                    }
+                }
+            ?>
         </table>
         
         <br><br><br>
