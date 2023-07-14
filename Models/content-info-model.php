@@ -1,8 +1,18 @@
 <?php
-$id =$_COOKIE['id'];
+
 
  require_once('database.php');
+ require_once('user-info-model.php');
  //$id =$_COOKIE['id'];
+ if(isset($_COOKIE['flag']))
+ {
+    $id=$_COOKIE['id'];
+ }
+ else
+ {
+   $id="0";
+ }
+
  
 
  $crow;
@@ -30,7 +40,7 @@ function getContentDeatils($cid){
 
 function showContent($cid, $site)
 {
-    $id =$_COOKIE['id'];
+    
   global $crow;
   $con = dbConnection();
 
@@ -73,7 +83,9 @@ function showContent($cid, $site)
             }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            $row=UserInfo($id);
+            if(isset($_COOKIE['flag']))
+            {
+                            $row=UserInfo($id);
             if($row['Role'] == "General User")
             {
             
@@ -95,6 +107,7 @@ function showContent($cid, $site)
             {
             
             }
+        }
        
         }
 
@@ -124,7 +137,7 @@ function countWatchlist()
 
 function showMovies($cid, $site)
 {
-    $id =$_COOKIE['id'];
+    
   global $crow;
   $con = dbConnection();
 
@@ -167,7 +180,11 @@ function showMovies($cid, $site)
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            if(isset($_COOKIE['flag']))
+            {
             $row=UserInfo($id);
+            if(isset($_COOKIE['flag']))
+            {
             if($row['Role'] == "General User")
             {
             $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
@@ -190,11 +207,13 @@ function showMovies($cid, $site)
             {
             
             }
+        }
+    }
 }
 
 function showAnime($cid, $site)
 {
-    $id =$_COOKIE['id'];
+    
   global $crow;
   $con = dbConnection();
 
@@ -237,6 +256,8 @@ function showAnime($cid, $site)
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            if(isset($_COOKIE['flag']))
+            {
             $row=UserInfo($id);
             if($row['Role'] == "General User")
             {
@@ -258,6 +279,7 @@ function showAnime($cid, $site)
             {
             
             }
+        }
        
 }
 function searchContent($title) {
@@ -310,7 +332,8 @@ function searchContent($title) {
 
 function showTVShow($cid, $site)
 {
-$id =$_COOKIE['id'];
+    global $id;
+
   global $crow;
   $con = dbConnection();
 
@@ -353,6 +376,8 @@ $id =$_COOKIE['id'];
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            if(isset($_COOKIE['flag']))
+            {
             $row=UserInfo($id);
             if($row['Role'] == "General User")
             {
@@ -374,6 +399,7 @@ $id =$_COOKIE['id'];
             {
             
             }
+        }
        
 }
 
