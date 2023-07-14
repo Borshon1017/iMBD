@@ -1,5 +1,9 @@
 <?php
-    require_once('../Models/user-info-model.php');       
+    require_once('../Models/user-info-model.php');  
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You need to sign-in in order to access this page.");
+    }     
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -14,7 +18,7 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -27,19 +31,19 @@
                 <select name=\"profile\" onchange=\"location = this.value;\">
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"watchlist.html\">Watchlist</option>
+                    <option value=\"watchlist.php\">Watchlist</option>
                     <option value=\"settings.php\">Settings</option>
-                    <option value=\"sign-in.html\">Log Out</option>
+                    <option value=\"logout-page.php\">Log Out</option>
                 </select>";
             }
-            else if($row['Role'] == "Content Writer"){
+            else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
                 echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                 <select name=\"profile\" onchange=\"location = this.value;\">
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"user-profile.php\">Profile</option>
                     <option value=\"dashboard.php\">Dashboard</option>
                     <option value=\"settings.php\">Settings</option>
-                    <option value=\"sign-in.html\">Log Out</option>
+                    <option value=\"logout-page.php\">Log Out</option>
                 </select>";
             }
             ?>

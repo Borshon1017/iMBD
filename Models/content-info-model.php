@@ -1,4 +1,5 @@
 <?php
+
  require_once('database.php');
  $id =$_COOKIE['id'];
 

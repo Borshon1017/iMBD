@@ -1,9 +1,12 @@
 <?php
 session_start();
     require_once('../Models/user-info-model.php'); 
-    require_once('../Models/content-info-model.php'); 
-   
-   
+    require_once('../Models/content-info-model.php');
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You need to sign-in in order to access this page.");
+    }
+       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +16,10 @@ session_start();
     <title>iMBD Animes</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="5">
+    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<a href="home.html"><img src="../Uploads/logo.png" width="80px"></a>
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">

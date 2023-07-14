@@ -1,7 +1,5 @@
 <?php
     require_once('../Models/user-info-model.php'); 
-    $id=$_COOKIE['id'];
-    $row=UserInfo($id);
     session_start(); 
 
     $title = $_SESSION['title'];
@@ -18,7 +16,7 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -26,25 +24,33 @@
             <td>
             <?php
             
-            if($row['Role'] == "General User"){
-                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
-                <select name=\"profile\" onchange=\"location = this.value;\">
-                    <option disabled selected hidden> {$row['Username']} </option>
-                    <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"watchlist.html\">Watchlist</option>
-                    <option value=\"settings.php\">Settings</option>
-                    <option value=\"sign-in.html\">Log Out</option>
-                </select>";
-            }
-            else if($row['Role'] == "Content Writer"){
-                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
-                <select name=\"profile\" onchange=\"location = this.value;\">
-                    <option disabled selected hidden> {$row['Username']} </option>
-                    <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"dashboard.php\">Dashboard</option>
-                    <option value=\"settings.php\">Settings</option>
-                    <option value=\"sign-in.html\">Log Out</option>
-                </select>";
+            if(!isset($_COOKIE['flag'])){
+                echo "<a href=\"sign-in.html\">
+                        <font color=\"white\" face=\"times new roman\">Sign In</font>
+                    </a>";
+            }else{
+                $id =$_COOKIE['id'];
+                $row=UserInfo($id);
+                if($row['Role'] == "General User"){
+                    echo "<img src=\"../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                    <select name=\"profile\" onchange=\"location = this.value;\">
+                        <option disabled selected hidden> {$row['Username']} </option>
+                        <option value=\"user-profile.php\">Profile</option>
+                        <option value=\"watchlist.php\">Watchlist</option>
+                        <option value=\"settings.php\">Settings</option>
+                        <option value=\"logout-page.php\">Log Out</option>
+                    </select>";
+                }
+                else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
+                    echo "<img src=\"../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                    <select name=\"profile\" onchange=\"location = this.value;\">
+                        <option disabled selected hidden> {$row['Username']} </option>
+                        <option value=\"user-profile.php\">Profile</option>
+                        <option value=\"dashboard.php\">Dashboard</option>
+                        <option value=\"settings.php\">Settings</option>
+                        <option value=\"logout-page.php\">Log Out</option>
+                    </select>";
+                }
             }
             ?>
             </td>

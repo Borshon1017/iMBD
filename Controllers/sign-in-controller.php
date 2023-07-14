@@ -22,15 +22,15 @@
         
         if($status!=false){
             if($Remember=="true"){
-                setcookie("flag","true",time()+86000,"/");
+                setcookie("flag","true",time()+999999999,"/");
             }
             if($Remember=="false"){
-                setcookie("flag","false",time()+360,"/");
+                setcookie("flag","false",time()+3600,"/");
             }
            
 
             
-            setcookie("id",$status['UserID'],time()+86000,"/");
+            setcookie("id",$status['UserID'],time()+99999999999,"/");
 
             
 

@@ -1,5 +1,10 @@
 <?php
-    require_once('../Models/user-info-model.php');         
+    require_once('../Models/user-info-model.php'); 
+    require_once('../Models/content-info-model.php'); 
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You need to sign-in in order to access this page.");
+    }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -14,7 +19,7 @@
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
-                &nbsp;<img src="../Uploads/logo.png" width="80px">
+                &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
                 <input type="text" placeholder="Search iMBD" size="100px">
@@ -26,7 +31,7 @@
                     <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
-                    <option value="sign-in.html">Log Out</option>
+                    <option value="logout-page.php">Log Out</option>
                 </select>
             </td>
         </tr>
@@ -36,94 +41,11 @@
         <font color="F5C518" face="times new roman" size="12">Edit Content Info</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Title : </font>
-                </td>
-                <td>
-                    <input type="text" size="60px">
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <font color="white" face="times new roman" size="6">Description : </font>
-                </td>
-                <td>
-                    <textarea cols="59" rows="10"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Category : </font>
-                </td>
-                <td>
-                    <select>
-                        <option value="">Movie</option>
-                        <option value="">TV Show</option>
-                        <option value="">Anime</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Release Date : </font>
-                </td>
-                <td>
-                    <input type="date">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Upload Poster : </font>
-                </td>
-                <td>
-                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-                    <tr>
-                        <td>
-                            <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
-                        </td>
-                    </tr>
-                </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Upload Trailer : </font>
-                </td>
-                <td>
-                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-                    <tr>
-                        <td>
-                            <input type="file" name="myfile" accept=".mp4,.mkv,.webm"> <br> <br>
-                        </td>
-                    </tr>
-                </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Price : </font>
-                </td>
-                <td>
-                    <input type="text" size="60px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Download Link : </font>
-                </td>
-                <td>
-                    <input type="text" size="60px">
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <br><br><br>
-                    <input type="submit" value="Update">
-                </td>
-            </tr>
-        </table><br><br><br>
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+                    <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
+        </table>
+        
+        <br><br><br><br><br><br>
     </center>
     <br><br><br>
     <center>
