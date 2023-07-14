@@ -124,7 +124,7 @@
             echo '<font color="white" face="times new roman" size="6">Already added to Watchlist</font><br><br>';
             }
             else{
-            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="white" face="times new roman" size="6">Add to Watchlist</font></a><br><br>';
+            echo '<a href="../Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="white" face="times new roman" size="6">Add to Watchlist</font></a><br><br>';
             }
         }
         ?>
