@@ -5,8 +5,14 @@
         popup("Error!","You need to sign-in in order to access this page.");
     }   
     $id=$_COOKIE['id'];
-    $row=UserInfo($id); 
-    $userid=$_GET['id']; 
+    $row = UserInfo($id);
+    $flag = 0;
+    if(isset($_GET['id'])){
+    $id2 = $_GET['id'];
+    $row2 = UserInfo($id2);
+    if($id!=$id2) $flag = 1;
+    } 
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,16 +63,41 @@
 
     <center>
 
-        <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
+    <?php
+
+    if($flag==0) echo "<img src=\"../{$row['ProfilePicture']}\" width=\"100px\">";
+    else echo "<img src=\"../{$row2['ProfilePicture']}\" width=\"100px\">";
+
+    ?>
+        <br><br><br>
 
         <table width="40%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" bordercolor="F5C518">    
         <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Full Name : <?php echo $row['Fullname']; ?></font><br><br>
-                    <font color="white" face="times new roman" size="6">Username : <?php echo $row['Username']; ?></font><br><br>
-                    <font color="white" face="times new roman" size="6">Phone Number : <?php echo $row['Phone']; ?></font><br><br>
-                    <font color="white" face="times new roman" size="6">Email : <?php echo $row['Email']; ?></font><br>
-                </td>
+
+            <?php
+
+                if($flag==0){
+
+                    echo "<td>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Full Name : {$row['Fullname']} </font><br><br>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Username : {$row['Username']} </font><br><br>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Phone Number : {$row['Phone']} </font><br><br>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Email : {$row['Email']} </font><br>
+                </td>";
+
+                }else{
+
+                        echo "<td>
+                        <font color=\"white\" face=\"times new roman\" size=\"6\">Full Name : {$row2['Fullname']} </font><br><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"6\">Username : {$row2['Username']} </font><br><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"6\">Phone Number : {$row2['Phone']} </font><br><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"6\">Email : {$row2['Email']} </font><br>
+                    </td>";
+
+                }
+
+            ?>
+                
             </tr>
         </table><br><br><br>
         

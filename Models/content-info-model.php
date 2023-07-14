@@ -64,11 +64,11 @@ function showContent($cid, $site)
             }
             echo '<td valign="top" align="left">';
             if ($site=="index") {
-            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
             }
             else if ($site=="view")
             {
-                echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
             }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
@@ -141,11 +141,11 @@ function showMovies($cid, $site)
             }
             echo '<td valign="top" align="left">';
             if ($site=="index") {
-                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
                 else if ($site=="view")
                 {
-                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
@@ -199,11 +199,11 @@ function showAnime($cid, $site)
                 echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';            }
             echo '<td valign="top" align="left">';
             if ($site=="index") {
-                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
                 else if ($site=="view")
                 {
-                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
@@ -291,11 +291,11 @@ function showTVShow($cid, $site)
                 echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';            }
             echo '<td valign="top" align="left">';
             if ($site=="index") {
-                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
                 else if ($site=="view")
                 {
-                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';

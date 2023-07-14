@@ -19,15 +19,15 @@
 
     if ($result) {
         
-        $row = mysqli_fetch_assoc($result);
-        $title = $row['ContentTitle'];
-        $releaseDate = $row['ReleaseDate'];
-        $posterURL = $row['Poster'];
-        $trailer = $row['Trailer'];
-        $description = $row['ContentDescription'];
-        $director = $row['Director'];
-        $cast = $row['Cast'];
-        $price= $row['Price'];
+        $crow = mysqli_fetch_assoc($result);
+        $title = $crow['ContentTitle'];
+        $releaseDate = $crow['ReleaseDate'];
+        $posterURL = $crow['Poster'];
+        $trailer = $crow['Trailer'];
+        $description = $crow['ContentDescription'];
+        $director = $crow['Director'];
+        $cast = $crow['Cast'];
+        $price= $crow['Price'];
 
  
     } 
@@ -55,7 +55,7 @@
             <td>
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="user-profile.html">Profile</option>
                     <option value="watchlist.php">Watchlist</option>
                     <option value="settings.html">Settings</option>
