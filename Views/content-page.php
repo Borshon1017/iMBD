@@ -25,6 +25,8 @@
         $posterURL = $row['Poster'];
         $trailer = $row['Trailer'];
         $description = $row['ContentDescription'];
+        $director = $row['Director'];
+        $cast = $row['Cast'];
         $price= $row['Price'];
 
  
@@ -45,7 +47,10 @@
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <input type="text" placeholder="Search iMBD" size="100px">
+                <form action="search-content.php" method="post">
+                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="submit" value="Search">
+                </form>
             </td>
             <td>
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
@@ -98,12 +103,10 @@
             <td>
                 <font color="white" face="times new roman" size="6">Directors : </font><br>
                 <hr color="F5C518" width="150px" align="left"><br>
-                <font color="white" face="times new roman" size="6">Rianul Amin</font><br><br><br>
+                <font color="white" face="times new roman" size="6"><?php echo $director; ?></font><br><br><br>
                 <font color="white" face="times new roman" size="6">Casts : </font><br>
                 <hr color="F5C518" width="100px" align="left"><br>
-                <font color="white" face="times new roman" size="6">Borshon Alfred Gomes, </font>
-                <font color="white" face="times new roman" size="6">Tanvir Hasan Tamal, </font>
-                <font color="white" face="times new roman" size="6">Ferdous Sazid</font><br><br><br>
+                <font color="white" face="times new roman" size="6"><?php echo $cast; ?></font><br><br><br>
                 <hr color="F5C518" width="100%">
             </td>
         </tr>

@@ -1,18 +1,25 @@
 <?php
-    require_once('../Models/user-info-model.php');  
-    require_once('../Controllers/message-controller.php');  
+    require_once('../Models/user-info-model.php');
+    require_once('../Controllers/message-controller.php');
+    require_once('../Models/content-info-model.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }     
+    }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    
+
+    if(isset($_POST['submit'])) $title = $_POST['title'];
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD View Profile Info</title>
+    <title>iMBD Search</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -28,7 +35,6 @@
             </td>
             <td>
             <?php
-            
             if($row['Role'] == "General User"){
                 echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                 <select name=\"profile\" onchange=\"location = this.value;\">
@@ -53,23 +59,18 @@
             </td>
         </tr>
     </table><br><br><br>
-    <center>
-    <form action="../Controllers/upload-controller.php" method="POST" enctype="multipart/form-data">
-        <font color="F5C518" face="times new roman" size="12">Update Profile Picture</font><br><br><br>
-        <hr color="F5C518" width="530px">
-        <br><br><br><br><br>
-        <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
-            <tr>
-                <td>
-                    <input type="file" name="myfile" accept=".png,.jpg,.jpeg"> <br> <br>
-                    <input type="submit" value="Upload Image" name="submit">
-                </td>
-            </tr>
-        </table>
-    </form>
-    </center>
 
-    <br><br><br><br><br><br><br><br><br><br><br>
+    <center>
+        <font color="F5C518" face="times new roman" size="12">Search Results</font><br><br><br>
+        <hr color="F5C518" width="530px"><br><br><br>
+
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <?php searchContent($title); ?>
+        </table>
+
+        <br><br><br>
+    </center>
+    <br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

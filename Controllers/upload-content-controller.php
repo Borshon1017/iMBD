@@ -35,13 +35,15 @@
 
         $title = $_POST['title'];
         $description = $_POST['description'];
+        $director = $_POST['director'];
+        $cast = $_POST['cast'];
         $category = $_POST['category'];
         $releaseDate = $_POST['releaseDate'];
         $price = $_POST['price'];
         $downloadLink = $_POST['downloadLink'];
-        $id=$_COOKIE['id'];
+        $id = $_COOKIE['id'];
 
-        $status = uploadContent($id, $title, $description, $category, $releaseDate, $poster, $trailer, $price, $downloadLink);
+        $status = uploadContent($id, $title, $description, $director, $cast, $category, $releaseDate, $poster, $trailer, $price, $downloadLink);
         
         if($status) popup("Congratulations!", "Your content has been uploaded.");
         else popup("Error!", "Could not upload content.");

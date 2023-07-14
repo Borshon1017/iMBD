@@ -6,7 +6,7 @@
     }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-
+    $result=getAllUser();
 ?>
 
 
@@ -24,7 +24,10 @@
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <input type="text" placeholder="Search iMBD" size="100px">
+                <form action="search-content.php" method="post">
+                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="submit" value="Search">
+                </form>
             </td>
             <td>
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
@@ -61,20 +64,24 @@
 
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="5">Rianul Amin Rian</font>
-                </td>
-                <td>
-                    <font color="white" face="times new roman" size="5">ppsppspsspss</font>
-                </td>
-                <td>
-                    <font color="white" face="times new roman" size="5">ppsppspsspss@gmail.com</font>
-                </td>
-                <td>
-                    <a href="view-profile-info.php"><font color="5799EF" face="times new roman" size="5">Show Details</font></a>
-                </td>
-            </tr>
+            
+        <?php 
+            if(mysqli_num_rows($result)>0){
+                while($w=mysqli_fetch_assoc($result)){
+                    $userid=$w['UserID'];
+                    $name=$w['Fullname'];
+                    $username=$w['Username'];
+                    $email=$w['Email'];
+                    echo "    
+                    <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
+                    <td><a href=\"view-profile-info.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Show Details</font></a></td>          
+                    </tr>";
+                }
+            }
+        ?>
+            
         </table>
         
         <br><br><br>
