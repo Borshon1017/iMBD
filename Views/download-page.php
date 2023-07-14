@@ -1,11 +1,32 @@
 <?php
     require_once('../Models/user-info-model.php');
+    require_once('../Models/content-info-model.php');
+
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }         
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $cid=$_POST['cid'];
+    $result = getContentDeatils($cid);
+    if ($result) {
+        
+        $crow = mysqli_fetch_assoc($result);
+        $title = $crow['ContentTitle'];
+        $releaseDate = $crow['ReleaseDate'];
+        $posterURL = $crow['Poster'];
+        $trailer = $crow['Trailer'];
+        $description = $crow['ContentDescription'];
+        $director = $crow['Director'];
+        $cast = $crow['Cast'];
+        $price= $crow['Price'];
+        $category=$crow['Category'];
+
+        $downloadlink=$crow['DownloadLink'];
+
+ 
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +61,9 @@
     </table><br><br><br>
 
     <center>
-    <font color="F5C518" face="times new roman" size="12">Among Us: The last survivor</font><br><br><br>
-    <img src="../Uploads/Posters/Among_Us_poster.png" width="250px"><br><br><br>
-    <button>Download Link</button>
+    <font color="F5C518" face="times new roman" size="12"><?php echo $title ?></font><br><br><br>
+    <img src="../<?php echo $posterURL?>"> width="250px"><br><br><br>
+    <a href="<?php echo $downloadlink ?>" ><button>Download Link</button>
     </center>
     <br><br><br><br><br><br>
     <center>

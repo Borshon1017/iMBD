@@ -105,7 +105,9 @@
         </tr>
         <tr>
             <td>
-                <font color="white" face="times new roman" size="6">Purchase This : </font><a href=""><font color="white" face="times new roman" size="6"><?php echo $price; ?></font></a>
+              <font color="white" face="times new roman" size="6">Purchase This:</font>
+<a href="payment-info.php?cid=<?php echo $cid; ?>"><font color="white" face="times new roman" size="6"><?php echo $price; ?></font></a>
+
             </td>
         </tr>
         <tr>

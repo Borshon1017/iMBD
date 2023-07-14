@@ -1,11 +1,31 @@
 <?php
     require_once('../Models/user-info-model.php');
+    require_once('../Models/content-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }         
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $cid = $_GET['cid'];
+
+    $result = getContentDeatils($cid);
+    if ($result) {
+        
+        $crow = mysqli_fetch_assoc($result);
+        $title = $crow['ContentTitle'];
+        $releaseDate = $crow['ReleaseDate'];
+        $posterURL = $crow['Poster'];
+        $trailer = $crow['Trailer'];
+        $description = $crow['ContentDescription'];
+        $director = $crow['Director'];
+        $cast = $crow['Cast'];
+        $price= $crow['Price'];
+        $category=$crow['Category'];
+
+ 
+    } 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,13 +79,13 @@
         </tr>
         <tr>
             <td>
-                <font color="white" face="times new roman" size="5">Among Us: The last sus</font>
+                <font color="white" face="times new roman" size="5"><?php echo $title; ?></font>
             </td>
             <td>
-                <font color="white" face="times new roman" size="5">Anime</font>
+                <font color="white" face="times new roman" size="5"><?php echo $category; ?></font>
             </td>
             <td>
-                <font color="white" face="times new roman" size="5">420</font>
+                <font color="white" face="times new roman" size="5"><?php echo $price; ?></font>
             </td>
         </tr>
     </table><br><br><br><br><br><br>
@@ -74,7 +94,7 @@
     <table width="30%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <font color="F5C518" face="times new roman" size="12">Rianul Amin Rian</font><br><br>
+                <font color="F5C518" face="times new roman" size="12"><?php echo $row['Fullname'] ?></font><br><br>
             </td>
         </tr>
         <tr>
@@ -91,7 +111,10 @@
         <tr>
             <td>
                 <br><br><br>
+                <form action="download-page.php" method="post">
+                <input type="hidden" name="cid" value="<?php echo $cid; ?>">
                 <a href="download-page.php"><input type="submit" name="submit" value="Confirm Payment"></a>
+</form>
             </td>
         </tr>
     </table><br><br><br>

@@ -285,7 +285,20 @@ function searchContent($title){
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
+            $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+            $result = mysqli_query($con, $sql);
+            $count = mysqli_num_rows($result);
+                if ($count > 0) 
+            {
+            echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+            }
+            else{
+            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+            }
+        }
             echo '</td>';
             echo '</tr>';
         }
