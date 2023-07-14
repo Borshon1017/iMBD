@@ -1,13 +1,14 @@
 <?php
+$id =$_COOKIE['id'];
 
  require_once('database.php');
- $id =$_COOKIE['id'];
+ 
  
 
  $crow;
 
 function uploadContent($id, $title, $description, $category, $releaseDate, $poster, $trailer, $price, $downloadLink){
-
+    
     $con = dbConnection();
 
     $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' )";
@@ -29,7 +30,7 @@ function getContentDeatils($cid){
 
 function showContent($cid, $site)
 {
-   global $id;
+    $id =$_COOKIE['id'];
   global $crow;
   $con = dbConnection();
 
@@ -105,6 +106,18 @@ function countContent()
         return $count;
   
 }
+function countWatchlist()
+{
+    global $id;
+    $con = dbConnection();
+    $sql = "SELECT COUNT(w.ContentID) AS count FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    return $count;
+}
+
+
 function showMovies($cid, $site)
 {
    
@@ -277,5 +290,61 @@ function showTVShow($cid, $site)
         }
        
 }
+
+
+
+
+function showWatchlist($site)
+{
+    
+   global $id;
+
+    for ($cid = 1; $cid <=countWatchlist(); $cid++)
+    {
+        $con = dbConnection();
+    $query = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id' AND w.ContentID='$cid'";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = mysqli_num_rows($result);
+    
+    if($count==1)
+   {
+
+   
+    
+        
+        $posterURL = $row['Poster'];
+        $title = $row['ContentTitle'];
+        $description = $row['ContentDescription'];
+        $releaseDate = $row['ReleaseDate'];
+        
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+       
+            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+        
+        echo '<td valign="top" align="left">';
+        
+            
+        
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+        
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+        echo '</td>';
+        echo '</tr>';
+    }
+    else
+    {
+
+    }
+    }
+    
+}
+
+
 
 ?>
