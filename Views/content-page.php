@@ -19,15 +19,15 @@
 
     if ($result) {
         
-        $row = mysqli_fetch_assoc($result);
-        $title = $row['ContentTitle'];
-        $releaseDate = $row['ReleaseDate'];
-        $posterURL = $row['Poster'];
-        $trailer = $row['Trailer'];
-        $description = $row['ContentDescription'];
-        $director = $row['Director'];
-        $cast = $row['Cast'];
-        $price= $row['Price'];
+        $crow = mysqli_fetch_assoc($result);
+        $title = $crow['ContentTitle'];
+        $releaseDate = $crow['ReleaseDate'];
+        $posterURL = $crow['Poster'];
+        $trailer = $crow['Trailer'];
+        $description = $crow['ContentDescription'];
+        $director = $crow['Director'];
+        $cast = $crow['Cast'];
+        $price= $crow['Price'];
 
  
     } 
@@ -53,14 +53,29 @@
                 </form>
             </td>
             <td>
-                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
-                <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden>Username</option>
-                    <option value="user-profile.html">Profile</option>
-                    <option value="watchlist.php">Watchlist</option>
-                    <option value="settings.html">Settings</option>
-                    <option value="logout-page.php">Log Out</option>
-                </select>
+            <?php
+            
+            if($row['Role'] == "General User"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"watchlist.php\">Watchlist</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"logout-page.php\">Log Out</option>
+                </select>";
+            }
+            else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
+                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden> {$row['Username']} </option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"dashboard.php\">Dashboard</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"logout-page.php\">Log Out</option>
+                </select>";
+            }
+            ?>
             </td>
         </tr>
     </table><br>
