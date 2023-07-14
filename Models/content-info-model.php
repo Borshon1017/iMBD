@@ -1,6 +1,8 @@
 <?php
 
  require_once('database.php');
+ $id =$_COOKIE['id'];
+ 
 
  $crow;
 
@@ -12,7 +14,6 @@ function uploadContent($id, $title, $description, $category, $releaseDate, $post
 
     if(mysqli_query($con, $sql)) return true;
     else return false;
-    
 }
 
 function getContentDeatils($cid){
@@ -28,7 +29,7 @@ function getContentDeatils($cid){
 
 function showContent($cid, $site)
 {
-   
+   global $id;
   global $crow;
   $con = dbConnection();
 
@@ -55,21 +56,35 @@ function showContent($cid, $site)
             echo '<tr>';
             if ($site=="index")
             {
-            echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
             }
             else if ($site=="view")
             {
-                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
+                echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
             }
             echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="12"><a href="views/content-page.php?cid=' . $cid . '">' . $title . '</a></font><br><br>';
+            if ($site=="index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+            }
+            else if ($site=="view")
+            {
+                echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+            }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+            $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+$result = mysqli_query($con, $sql);
+$count = mysqli_num_rows($result);
+if ($count > 0) 
+{
+    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+
+}
+else{
+            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+}
             echo '</td>';
             echo '</tr>';
-        
-
         }
         else
         {
@@ -119,19 +134,25 @@ function showMovies($cid, $site)
             echo '<tr>';
             if ($site=="index")
             {
-            echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
             }
             else if ($site=="view")
             {
-                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
-
+                echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
             }
             echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
+            if ($site=="index") {
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
+                else if ($site=="view")
+                {
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
-            echo '</td>';
+            echo '</form>';
+              echo '</td>';
             echo '</tr>';
         
 
@@ -172,14 +193,19 @@ function showAnime($cid, $site)
             echo '<tr>';
             if ($site=="index")
             {
-            echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
             }
             else if ($site=="view")
             {
-                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
-            }
+                echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';            }
             echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
+            if ($site=="index") {
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
+                else if ($site=="view")
+                {
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
@@ -224,14 +250,19 @@ function showTVShow($cid, $site)
             echo '<tr>';
             if ($site=="index")
             {
-            echo '<td><img src="' . $posterURL . '" width="180px"></td>';
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
             }
             else if ($site=="view")
             {
-                echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
-            }
+                echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';            }
             echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
+            if ($site=="index") {
+                echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
+                else if ($site=="view")
+                {
+                    echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+                }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';

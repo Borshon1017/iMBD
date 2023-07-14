@@ -11,8 +11,6 @@
 
     require_once('../Models/database.php'); 
 
-    
-  
 
 
  
@@ -22,8 +20,6 @@
     if ($result) {
         
         $row = mysqli_fetch_assoc($result);
-
-       
         $title = $row['ContentTitle'];
         $releaseDate = $row['ReleaseDate'];
         $posterURL = $row['Poster'];
