@@ -67,7 +67,24 @@
     }
 
     function getAllUser(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='General User' and status='Active'";
+        $result=mysqli_query($con,$sql);
+        return $result;
+    }
 
+    function getAllContentWriter(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='Content Writer' and status='Active'";
+        $result=mysqli_query($con,$sql);
+        return $result;
+    }
+
+    function getAllCritic(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='Critic' and status='Active'";
+        $result=mysqli_query($con,$sql);
+        return $result;
     }
 
     function updateUserInfo( $id,$fullname, $username, $phone, $email){
