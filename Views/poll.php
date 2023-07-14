@@ -12,7 +12,10 @@
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <input type="text" placeholder="Search iMBD" size="100px">
+                <form action="search-content.php" method="post">
+                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="submit" value="Search">
+                </form>
             </td>
             <td>
                 <font color="white" face="times new roman">Watchlist</font>
@@ -28,13 +31,15 @@
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
+                <form action="../Controllers/poll-vote-controller.php" method="post">
                 <font color="F5C518" face="times new roman" size="6">Poll : Who is the GOAT actor?</font>
                 <br><br><br>
-                <input type="radio" name="poll">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Rianul Amin</font><br><br>
-                <input type="radio" name="poll">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Tanvir Tamal</font><br><br>
-                <input type="radio" name="poll">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Ferdous Sazid</font><br><br>
-                <input type="radio" name="poll">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Borshon Alfred</font><br><br><br>
+                <input type="radio" name="vote" value="Rianul Amin">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Rianul Amin</font><br><br>
+                <input type="radio" name="vote" value="Tanvir Tamal">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Tanvir Tamal</font><br><br>
+                <input type="radio" name="vote" value="Ferdous Sazid">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Ferdous Sazid</font><br><br>
+                <input type="radio" name="vote" value="Borshon Alfred">&nbsp;&nbsp;&nbsp;&nbsp;<font color="white" face="times new roman" size="5">Borshon Alfred</font><br><br><br>
                 <button align="center">Vote</button>
+                </form>
             </td>
             <br>
         </tr>

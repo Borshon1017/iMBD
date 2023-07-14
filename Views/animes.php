@@ -22,7 +22,10 @@ session_start();
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <input type="text" placeholder="Search iMBD" size="100px">
+                <form action="search-content.php" method="post">
+                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="submit" value="Search">
+                </form>
             </td>
             <td>
                 <font color="white" face="times new roman">Watchlist</font>
