@@ -309,7 +309,7 @@ function searchContent($title) {
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-
+            global $id;
             $row = UserInfo($id);
             if ($row['Role'] == "General User") {
                 $cid = $crow['ContentID'];
@@ -446,7 +446,7 @@ function showWatchlist($site)
             echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<form method="post" action="../remove-from-watchlist.php">';
+            echo '<form method="post" action="../Controllers/remove-from-watchlist.php">';
             echo '<input type="hidden" name="cid" value="' . $cid . '">';
             echo '<button type="submit">Remove</button>'; 
             echo '</form>';

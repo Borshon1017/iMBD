@@ -2,6 +2,7 @@
     require_once('../Models/content-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
+        
         popup("Error!","You need to sign-in in order to access this page.");
     }
 ?>
@@ -42,7 +43,7 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <?php ShowWatchlist($id, "view"); ?>
+            <?php ShowWatchlist("View"); ?>
         </table>
         
         <br><br><br>
