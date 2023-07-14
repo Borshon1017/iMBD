@@ -5,7 +5,13 @@
         popup("Error!","You need to sign-in in order to access this page.");
     }     
     $id=$_COOKIE['id'];
-    $row=UserInfo($id);
+    $row = UserInfo($id);
+    $flag = 0;
+    if(isset($_GET['id'])){
+        $id2 = $_GET['id'];
+        $row2 = UserInfo($id2);
+        if($id!=$id2) $flag = 1;
+    } 
 
 ?>  
 <!DOCTYPE html>
@@ -56,46 +62,100 @@
     </table><br><br><br>      
     <center>
 
-        <img src="../<?php echo $row['ProfilePicture']; ?>" width="100px"><br><br><br>
-        <form method=post>
-        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="25" bordercolor="F5C518">
+        <?php
+
+            if($flag==0) echo "<img src=\"../{$row['ProfilePicture']}\" width=\"100px\">";
+            else echo "<img src=\"../{$row2['ProfilePicture']}\" width=\"100px\">";
+
+        ?><br><br><br>
+        <?php
+            if($flag==0){
+            echo"
+        <form action=\"../Controllers/update-info-controller.php?id={$id}\" method=\"post\">
+        <table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"25\" bordercolor=\"F5C518\">
+            
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Full Name : 
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Full Name : 
                 </td>
                 <td>
-                    <input type="text" name="Fullname" value="<?php echo $row['Fullname']?>"></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Username : 
-                </td>
-                <td>
-                    <input type="text" name="Username" value="<?php echo  $row['Username']?>"></font>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Phone Number : 
-                </td>
-                <td>
-                    <input type="text" name="Phone" value="<?php echo  $row['Phone']?>"></font>
+                    <input type=\"text\" name=\"Fullname\" value=\"{$row['Fullname']}\"></font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Email : 
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Username : 
                 </td>
                 <td>
-                    <input type="text" name="Email" value="<?php echo  $row['Email']?>"></font>
+                    <input type=\"text\" name=\"Username\" value=\"{$row['Username']}\"></font>
                 </td>
             </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <input type="submit" name="updateinfo" value="Update Information">
+            <tr>
+                <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Phone Number : 
+                </td>
+                <td>
+                    <input type=\"text\" name=\"Phone\" value=\"{$row['Phone']}\"></font>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"6\">Email : 
+                </td>
+                <td>
+                    <input type=\"text\" name=\"Email\" value=\"{$row['Email']}\"></font>
+                </td>
+            </tr>
+            <tr align=\"center\">
+                <td colspan=\"2\">
+                    <input type=\"submit\" name=\"updateinfo\" value=\"Update Information\">
+                </td>
+            </tr>";
+            }else{
+                {
+                    echo"
+                    <form action=\"../Controllers/update-info-controller.php?id={$id2}\" method=\"post\">
+                    <table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"25\" bordercolor=\"F5C518\">
+                    <tr>
+                        <td>
+                            <font color=\"white\" face=\"times new roman\" size=\"6\">Full Name : 
+                        </td>
+                        <td>
+                            <input type=\"text\" name=\"Fullname\" value=\"{$row2['Fullname']}\"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color=\"white\" face=\"times new roman\" size=\"6\">Username : 
+                        </td>
+                        <td>
+                            <input type=\"text\" name=\"Username\" value=\"{$row2['Username']}\"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color=\"white\" face=\"times new roman\" size=\"6\">Phone Number : 
+                        </td>
+                        <td>
+                            <input type=\"text\" name=\"Phone\" value=\"{$row2['Phone']}\"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color=\"white\" face=\"times new roman\" size=\"6\">Email : 
+                        </td>
+                        <td>
+                            <input type=\"text\" name=\"Email\" value=\"{$row2['Email']}\"></font>
+                        </td>
+                    </tr>
+                    <tr align=\"center\">
+                        <td colspan=\"2\">
+                            <input type=\"submit\" name=\"updateinfo\" value=\"Update Information\">
+                        </td>
+                    </tr>";
+                    }
+            }
+            ?>
         </table>
         <br><br><br>
         </form>
@@ -115,16 +175,3 @@
 </body>
 </html>
 
-<?php
-if(isset($_POST['updateinfo'])){
-
-    $fullname = $_POST['Fullname'];
-    $username = $_POST['Username'];
-    $phone = $_POST['Phone'];
-    $email = $_POST['Email'];
-
-    if(updateUserInfo($id,$fullname, $username, $phone, $email)==true) popup("Success!", "Your information has been updated successfully");
-    else popup("Error!", "Could not update information. Please try again.");
-
-}
-?>

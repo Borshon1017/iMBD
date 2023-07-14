@@ -89,14 +89,15 @@
 
     function getAllPoll(){
         $con = dbConnection();
-        $sql="select PollTitle from poll";
+        $sql="select PollID,PollTitle from poll";
         $result=mysqli_query($con,$sql);
         return $result;
     }
+    
 
     function getAllDiscussion(){
         $con = dbConnection();
-        $sql="select DiscussionTitle from discussion";
+        $sql="select DiscussionID,DiscussionTitle from discussion";
         $result=mysqli_query($con,$sql);
         return $result;
     }

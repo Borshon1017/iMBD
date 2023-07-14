@@ -4,9 +4,10 @@
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }
+    $result=getAllUser();
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    $result=getAllUser();
+    
 ?>
 
 
