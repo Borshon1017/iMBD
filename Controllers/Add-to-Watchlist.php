@@ -1,5 +1,5 @@
 <?php
-require_once('../Controllers/message-controller.php');
+require_once('message-controller.php');
 require_once('../Models/database.php');
 
 $id = $_COOKIE['id'];
