@@ -85,6 +85,7 @@ function showContent($cid, $site)
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             if(isset($_COOKIE['flag']))
             {
+                global $id;
                             $row=UserInfo($id);
             if($row['Role'] == "General User")
             {
@@ -182,6 +183,7 @@ function showMovies($cid, $site)
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             if(isset($_COOKIE['flag']))
             {
+                global $id;
             $row=UserInfo($id);
             if(isset($_COOKIE['flag']))
             {
@@ -258,6 +260,7 @@ function showAnime($cid, $site)
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             if(isset($_COOKIE['flag']))
             {
+                global $id;
             $row=UserInfo($id);
             if($row['Role'] == "General User")
             {
