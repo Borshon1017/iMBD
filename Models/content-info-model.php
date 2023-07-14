@@ -2,6 +2,7 @@
 
  require_once('database.php');
  $id =$_COOKIE['id'];
+ 
 
  $crow;
 
@@ -28,7 +29,7 @@ function getContentDeatils($cid){
 
 function showContent($cid, $site)
 {
-   
+   global $id;
   global $crow;
   $con = dbConnection();
 
@@ -71,7 +72,17 @@ function showContent($cid, $site)
             }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+            $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+$result = mysqli_query($con, $sql);
+$count = mysqli_num_rows($result);
+if ($count > 0) 
+{
+    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+
+}
+else{
+            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+}
             echo '</td>';
             echo '</tr>';
         }
@@ -139,10 +150,7 @@ function showMovies($cid, $site)
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<form action="add-to-watchlist.php" method="post">';
-            echo '<input type="hidden" name="cid" value="' . $cid . '">';
-            echo '<input type="hidden" name="id" value="' . $id . '">';
-            echo '<input type="submit" value="Add to Watchlist">';
+            echo '<a href=""><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
             echo '</form>';
               echo '</td>';
             echo '</tr>';
