@@ -5,6 +5,8 @@
         
         popup("Error!","You need to sign-in in order to access this page.");
     }
+    $id =$_COOKIE['id'];
+    $row=UserInfo($id);
 ?>
 
 
@@ -33,6 +35,7 @@
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="user-profile.php">Profile</option>
                     <option value="watchlist.php">Watchlist</option>
+                    <option value="purchase-history.php">Purchase List</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
                 </select>

@@ -53,6 +53,7 @@
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="user-profile.php">Profile</option>
                     <option value="watchlist.php">Watchlist</option>
+                    <option value="purchase-history.php">Purchase List</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
                 </select>
@@ -62,8 +63,8 @@
 
     <center>
     <font color="F5C518" face="times new roman" size="12"><?php echo $title ?></font><br><br><br>
-    <img src="../<?php echo $posterURL?>"> width="250px"><br><br><br>
-    <a href="<?php echo $downloadlink ?>" ><button>Download Link</button>
+    <img src="../<?php echo $posterURL?>" width="250px"><br><br><br>
+    <a href="<?php echo $downloadlink ?>"><button>Download Link</button>
     </center>
     <br><br><br><br><br><br>
     <center>
