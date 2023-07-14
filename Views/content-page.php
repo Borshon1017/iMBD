@@ -1,7 +1,9 @@
 <?php
     require_once('../Models/user-info-model.php'); 
     require_once('../Models/content-info-model.php'); 
-    require_once('../Controllers/message-controller.php');  
+    require_once('../Controllers/message-controller.php'); 
+    require_once('../Models/database.php'); 
+
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }
@@ -112,7 +114,24 @@
         </tr>
         <tr>
             <td>
-                <a href=""><font color="white" face="times new roman" size="6">Add to Watchlist</font><br><br><br></a>
+                <?php
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
+                $con = dbConnection();
+            $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+            $result = mysqli_query($con, $sql);
+            $count = mysqli_num_rows($result);
+                if ($count > 0) 
+            {
+            echo '<font color="white" face="times new roman" size="6">Already added to Watchlist</font><br><br>';
+            }
+            else{
+            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="white" face="times new roman" size="6">Add to Watchlist</font></a><br><br>';
+            }
+        }
+        ?>
+               
                 <hr color="F5C518" width="100%">
             </td>
         </tr>
