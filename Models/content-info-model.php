@@ -73,6 +73,10 @@ function showContent($cid, $site)
             }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
+            
             $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
             $result = mysqli_query($con, $sql);
             $count = mysqli_num_rows($result);
@@ -83,6 +87,7 @@ function showContent($cid, $site)
             else{
             echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
             }
+        }
             echo '</td>';
             echo '</tr>';
             }
@@ -162,7 +167,12 @@ function showMovies($cid, $site)
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
             $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+            $row=UserInfo($id);
+            
             $result = mysqli_query($con, $sql);
             $count = mysqli_num_rows($result);
                 if ($count > 0) 
@@ -171,6 +181,7 @@ function showMovies($cid, $site)
             }
             else{
             echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+            }
             }
             echo '</td>';
             echo '</tr>';
@@ -226,6 +237,9 @@ function showAnime($cid, $site)
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
             $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
             $result = mysqli_query($con, $sql);
             $count = mysqli_num_rows($result);
@@ -236,6 +250,7 @@ function showAnime($cid, $site)
             else{
             echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
             }
+        }
             echo '</td>';
             echo '</tr>';
             }
@@ -326,6 +341,9 @@ $id =$_COOKIE['id'];
                 }
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+            $row=UserInfo($id);
+            if($row['Role'] == "General User")
+            {
             $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
             $result = mysqli_query($con, $sql);
             $count = mysqli_num_rows($result);
@@ -336,6 +354,7 @@ $id =$_COOKIE['id'];
             else{
             echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
             }
+        }
             echo '</td>';
             echo '</tr>';
             }
