@@ -1,6 +1,10 @@
 <?php
     require_once('Models/user-info-model.php'); 
-    require_once('Models/content-info-model.php'); 
+    require_once('Models/content-info-model.php');
+    require_once('Models/discussion-model.php');
+    require_once('Models/poll-model.php');
+    $prow = getPoll();
+    $drow = getDiscussion();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,13 +105,13 @@
                         {
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"12\">Check out todays poll</font><br>
                         <hr color=\"F5C518\" width=\"530px\" align=\"left\"><br>
-                        <font color=\"white\" face=\"times new roman\" size=\"12\">Who is the GOAT actor?</font><br><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"12\">{$prow["PollTitle"]}</font><br><br>
                         <a href=\"Views/poll.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Join poll</font></a><br><br><br>
                         
                         <font color=\"F5C518\" face=\"times new roman\" size=\"12\">Join our weekly discussion</font><br>
                         <hr color=\"F5C518\" width=\"530px\" align=\"left\"><br>
-                        <font color=\"white\" face=\"times new roman\" size=\"12\">Is among us the greatest game ever created?</font><br><br>
-                        <a href=\"Views/discussion.html\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">View discussion</font></a><br><br><br>";
+                        <font color=\"white\" face=\"times new roman\" size=\"12\">{$drow["DiscussionTitle"]}</font><br><br>
+                        <a href=\"Views/discussion.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">View discussion</font></a><br><br><br>";
                         }
                     }
                 ?>

@@ -1,3 +1,15 @@
+<?php
+    require_once('../Models/user-info-model.php');
+    require_once('../Models/discussion-model.php');
+    require_once('../Controllers/message-controller.php');  
+    if(!isset($_COOKIE['flag'])){
+        popup("Error!","You need to sign-in in order to access this page.");
+    }         
+    $id=$_COOKIE['id'];
+    $row=UserInfo($id);
+    $drow = getDiscussion();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
     <title>iMBD Discussion</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+<table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
@@ -18,12 +30,14 @@
                 </form>
             </td>
             <td>
-                <font color="white" face="times new roman">Watchlist</font>
-            </td>
-            <td>
-                <a href="sign-in.html">
-                    <font color="white" face="times new roman">Sign In</font>
-                </a>
+                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <select name="profile" onchange="location = this.value;">
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
+                    <option value="user-profile.php">Profile</option>
+                    <option value="watchlist.php">Watchlist</option>
+                    <option value="settings.php">Settings</option>
+                    <option value="logout-page.php">Log Out</option>
+                </select>
             </td>
         </tr>
     </table><br><br><br>
@@ -31,13 +45,9 @@
     <table width="80%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
-                <font color="F5C518" face="times new roman" size="6">Discussion : Is among us the greatest game ever created?</font>
+                <font color="F5C518" face="times new roman" size="6"><?php echo $drow["DiscussionTitle"]?></font>
                 <br><br><br>
-                <font color="white" face="times new roman" size="4">
-                    Among Us is a 2018 online multiplayer social deduction game developed and published by American game studio Innersloth. The game was inspired by the party game Mafia and the science fiction horror film The Thing. The game allows for cross-platform play, released on iOS and Android devices in June 2018 and on Windows later that year in November. The game was ported to the Nintendo Switch in December 2020 and on the PlayStation 4, PlayStation 5, Xbox One and Xbox Series X/S in December 2021. A virtual reality adaptation, Among Us VR, was released on November 10, 2022.
-                    Among Us takes place in space-themed settings where players are colorful, armless cartoon astronauts. Each player takes on one of two roles: most are Crewmates, but a small number are Impostors. Crewmates work to complete assigned tasks in the game while identifying and voting out suspected Impostors (which appear identical to Crewmates) using social deduction, while Impostors have the objective of killing the Crewmates.
-                    While the game was initially released in 2018 to little mainstream attention, it received a massive influx of popularity in 2020 due to many Twitch streamers and YouTubers playing it and the COVID-19 pandemic. It received favorable reviews from critics on account of its fun and entertaining gameplay. The game and its stylized characters have been the subject of various internet memes.
-                </font>
+                <font color="white" face="times new roman" size="4"><?php echo $drow["DiscussionDescription"]?></font>
                 <br><br><br>
                 <font color="F5C518" face="times new roman" size="5">Tanvir : </font>
                 <font color="white" face="times new roman" size="5">lol baler game.</font><br><br>

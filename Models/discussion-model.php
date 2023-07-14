@@ -13,4 +13,20 @@ function createDiscussion($discussionTitle, $description){
     
 }
 
+function getDiscussion(){
+
+    $con = dbConnection();
+
+    $sql = "select * from Discussion order by DiscussionID desc limit 1;";
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+        if($count == 1) 
+        {
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+
+        }
+        else return false;
+}
+
 ?>
