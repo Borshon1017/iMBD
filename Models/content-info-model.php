@@ -260,54 +260,53 @@ function showAnime($cid, $site)
             }
        
 }
-function searchContent($title){
-
-    
+function searchContent($title) {
     $con = dbConnection();
-    $sql = "SELECT * FROM ContentInfo WHERE ContentTitle like '%{$title}%'";
+    $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%'";
     $result = mysqli_query($con, $sql);
-    $crow = mysqli_fetch_assoc($result);
     $count = mysqli_num_rows($result);
-        if($count == 1) 
-        {
+
+    if ($count > 0) {
+        for ($i = 0; $i < $count; $i++) {
+            $crow = mysqli_fetch_assoc($result);
             $posterURL = $crow['Poster'];
             $title = $crow['ContentTitle'];
             $description = $crow['ContentDescription'];
             $releaseDate = $crow['ReleaseDate'];
+
             if (strlen($description) > 220) {
                 $description = substr($description, 0, 220) . '...';
             }
-    
-    
-            echo '<tr>
-            <td><img src="../' . $posterURL . '" width="180px"></td>';
+
+            echo '<tr>';
+            echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
             echo '<td valign="top" align="left">';
             echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            $row=UserInfo($id);
-            if($row['Role'] == "General User")
-            {
-            $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
-            $result = mysqli_query($con, $sql);
-            $count = mysqli_num_rows($result);
-                if ($count > 0) 
-            {
-            echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+
+            $row = UserInfo($id);
+            if ($row['Role'] == "General User") {
+                $cid = $crow['ContentID'];
+                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+                $result = mysqli_query($con, $sql);
+                $count = mysqli_num_rows($result);
+                if ($count > 0) {
+                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+                } else {
+                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+                }
             }
-            else{
-            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
-            }
-        }
+
             echo '</td>';
             echo '</tr>';
         }
-        else
-        {
-
-        }
-
+    } else {
+        echo '<tr><td colspan="2">No matching results found.</td></tr>';
+    }
 }
+
+
 
 function showTVShow($cid, $site)
 {
