@@ -28,12 +28,14 @@
                 </form>
             </td>
             <td>
-                <font color="white" face="times new roman">Watchlist</font>
-            </td>
-            <td>
-                <a href="sign-in.html">
-                    <font color="white" face="times new roman">Sign In</font>
-                </a>
+                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <select name="profile" onchange="location = this.value;">
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
+                    <option value="user-profile.php">Profile</option>
+                    <option value="watchlist.php">Watchlist</option>
+                    <option value="settings.php">Settings</option>
+                    <option value="logout-page.php">Log Out</option>
+                </select>
             </td>
         </tr>
     </table><br><br><br>
@@ -43,7 +45,7 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <?php ShowWatchlist("View"); ?>
+            <?php ShowWatchlist("view"); ?>
         </table>
         
         <br><br><br>

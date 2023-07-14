@@ -160,11 +160,13 @@
         </tr>
         <tr>
             <td>
+                <form action="../Controllers/comment-controller.php?cid=<?php echo $cid;?>" method="post">
                 <font color="white" face="times new roman" size="12">Comments : </font><br><br><br>
                 <textarea name="comment" rows="15" cols="174"></textarea><br><br>
                 <p align="right">
-                    <a href=""><font color="white" face="times new roman" size="6">Post Comment</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
+                </form>
             </td>
         </tr>
     </table>
