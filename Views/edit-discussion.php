@@ -1,6 +1,6 @@
 <?php
-
     require_once('../Models/user-info-model.php');
+    require_once('../Models/discussion-model.php');
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $result=getAllDiscussion();
@@ -56,10 +56,11 @@
             <?php 
                 if(mysqli_num_rows($result)>0){
                     while($w=mysqli_fetch_assoc($result)){
+                        $discussionid=$w['DiscussionID'];
                         $discussion=$w['DiscussionTitle'];
                         echo "    
                         <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\"> $discussion</font></td>
-                        <td><a href=\"view-profile-info.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Discussion</font></a></td>          
+                        <td><a href=\"edit-discussion-info.php?id={$discussionid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Discussion</font></a></td>          
                         </tr>";
                     }
                 }

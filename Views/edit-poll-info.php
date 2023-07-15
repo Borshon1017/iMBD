@@ -1,22 +1,18 @@
 <?php
-    require_once('../Models/user-info-model.php');
-    require_once('../Controllers/message-controller.php');  
-    if(!isset($_COOKIE['flag'])){
-        popup("Error!","You need to sign-in in order to access this page.");
-    }
+    require_once('../Models/user-info-model.php'); 
+    require_once('../Models/poll-model.php');        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    $result=getAllCritic();
-    
+    $pollid=$_GET['pollid'];
+    $poll=getAPoll($pollid);
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Edit Critic Info</title>
+    <title>iMBD Edit Poll</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -34,7 +30,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
@@ -44,46 +40,58 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Critics</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Edit Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-
-        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+        <form action="../Controllers/update-poll-controller.php?id=<?php echo $pollid;?>" method="POST">
+        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="F5C518" face="times new roman" size="5">Name</font>
-                    <hr color="F5C518" width="80px" align="left">
+                    <font color="white" face="times new roman" size="6">Poll Title : </font>
                 </td>
                 <td>
-                    <font color="F5C518" face="times new roman" size="5">Username</font>
-                    <hr color="F5C518" width="120px" align="left">
-                </td>
-                <td>
-                    <font color="F5C518" face="times new roman" size="5">Email</font>
-                    <hr color="F5C518" width="80px" align="left">
-                </td>
-                <td>
-
+                    <input type="text" size="40px" name="pollTitle" value="<?php echo $poll['PollTitle'] ?>" required>
                 </td>
             </tr>
-            <?php 
-                if(mysqli_num_rows($result)>0){
-                    while($w=mysqli_fetch_assoc($result)){
-                        $userid=$w['UserID'];
-                        $name=$w['Fullname'];
-                        $username=$w['Username'];
-                        $email=$w['Email'];
-                        echo "    
-                        <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
-                        <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
-                        <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
-                        <td><a href=\"edit-profile-info.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Critic Info</font></a></td>          
-                        </tr>";
-                    }
-                }
-            ?>
-        </table>
-        
-        <br><br><br>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 1 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option1" value="<?php echo $poll['OptionOne'] ?>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 2 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option2" value="<?php echo $poll['OptionTwo'] ?>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 3 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option3" value="<?php echo $poll['OptionThree'] ?>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Option 4 : </font>
+                </td>
+                <td>
+                    <input type="text" size="40px" name="option4" value="<?php echo $poll['OptionFour'] ?>" required>
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <br><br><br>
+                    <input type="submit" name="submit" value="Edit Poll">
+                </td>
+            </tr>
+        </table><br><br><br>
+        </form>
     </center>
     <br><br><br>
     <center>

@@ -62,9 +62,19 @@
         
     }
 
-    function deleteUser(){
+    function banUser($id){
+        $con = dbConnection();
+        $sql = "update UserInfo set status = 'Inactive' where UserID = '$id'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+
 
     }
+
 
     function getAllUser(){
         $con = dbConnection();
@@ -87,20 +97,7 @@
         return $result;
     }
 
-    function getAllPoll(){
-        $con = dbConnection();
-        $sql="select PollTitle from poll";
-        $result=mysqli_query($con,$sql);
-        return $result;
-    }
-
-    function getAllDiscussion(){
-        $con = dbConnection();
-        $sql="select DiscussionTitle from discussion";
-        $result=mysqli_query($con,$sql);
-        return $result;
-    }
-
+   
     function updateUserInfo( $id,$fullname, $username, $phone, $email){
 
         $con = dbConnection();

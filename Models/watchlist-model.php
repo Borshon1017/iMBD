@@ -1,8 +1,8 @@
 <?php
  require_once('database.php');
 
- $crow;
- $id = $_POST['id'];
+    $crow;
+    $id = $_POST['id'];
     $cid = $_POST['cid'];
 function AddtoWishlist($id, $cid)
 { 

@@ -6,8 +6,6 @@
     }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    $result=getAllContentWriter();
-
 ?>
 
 
@@ -66,9 +64,10 @@
                 </td>
             </tr>
         <?php 
+            $result=getAllContentWriter();
             if(mysqli_num_rows($result)>0){
                 while($w=mysqli_fetch_assoc($result)){
-                    $i=$w['UserID'];
+                    $userid=$w['UserID'];
                     $name=$w['Fullname'];
                     $username=$w['Username'];
                     $email=$w['Email'];
@@ -76,7 +75,7 @@
                     <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
                     <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
                     <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
-                    <td><a href=\"view-profile-info.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Show Details</font></a></td>          
+                    <td><a href=\"edit-profile-info.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Content Writer Info</font></a></td>          
                     </tr>";
                 }
             }

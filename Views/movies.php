@@ -1,11 +1,13 @@
 <?php
-session_start();
     require_once('../Models/user-info-model.php'); 
     require_once('../Models/content-info-model.php'); 
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }
+    $id =$_COOKIE['id'];
+    $row=UserInfo($id);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +29,15 @@ session_start();
                 </form>
             </td>
             <td>
-                <font color="white" face="times new roman">Watchlist</font>
-            </td>
-            <td>
-                <a href="sign-in.html">
-                    <font color="white" face="times new roman">Sign In</font>
-                </a>
+                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
+                <select name="profile" onchange="location = this.value;">
+                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
+                    <option value="user-profile.php">Profile</option>
+                    <option value="watchlist.php">Watchlist</option>
+                    <option value="purchase-history.php">Purchase List</option>
+                    <option value="settings.php">Settings</option>
+                    <option value="logout-page.php">Log Out</option>
+                </select>
             </td>
         </tr>
     </table><br><br><br>

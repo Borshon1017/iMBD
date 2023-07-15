@@ -2,7 +2,8 @@
     require_once('../Models/user-info-model.php'); 
     require_once('../Models/content-info-model.php'); 
     require_once('../Controllers/message-controller.php'); 
-    require_once('../Models/database.php'); 
+    require_once('../Models/database.php');
+    require_once('../Models/comment-info-model.php');
 
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
@@ -10,12 +11,7 @@
     $id = $_COOKIE['id'];
     $row = UserInfo($id);
     $cid = $_GET['cid'];
-
-    require_once('../Models/database.php'); 
-
-
-
- 
+    $resultC = getAllComments($cid);
     $result = getContentDetails($cid);
 
 
@@ -63,6 +59,7 @@
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"user-profile.php\">Profile</option>
                     <option value=\"watchlist.php\">Watchlist</option>
+                    <option value=\"purchase-history.php\">Purchase List</option>
                     <option value=\"settings.php\">Settings</option>
                     <option value=\"logout-page.php\">Log Out</option>
                 </select>";
@@ -127,7 +124,7 @@
             echo '<font color="white" face="times new roman" size="6">Already added to Watchlist</font><br><br>';
             }
             else{
-            echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="white" face="times new roman" size="6">Add to Watchlist</font></a><br><br>';
+            echo '<a href="../Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="white" face="times new roman" size="6">Add to Watchlist</font></a><br><br>';
             }
         }
         ?>
@@ -160,11 +157,25 @@
         </tr>
         <tr>
             <td>
+                <form action="../Controllers/comment-controller.php?cid=<?php echo $cid;?>" method="post">
                 <font color="white" face="times new roman" size="12">Comments : </font><br><br><br>
+                <?php 
+                if(mysqli_num_rows($resultC)>0){
+                    while($w=mysqli_fetch_assoc($resultC)){
+                        $uname=$w['Username'];
+                        $comment=$w['Comment'];
+                        echo "<font color=\"F5C518\" face=\"times new roman\" size=\"5\">{$uname} : </font>
+                        <font color=\"white\" face=\"times new roman\" size=\"5\">{$comment}</font><br><br>";
+                }
+            }
+        ?>
+                
+                <br><br><br>
                 <textarea name="comment" rows="15" cols="174"></textarea><br><br>
                 <p align="right">
-                    <a href=""><font color="white" face="times new roman" size="6">Post Comment</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
+                </form>
             </td>
         </tr>
     </table>

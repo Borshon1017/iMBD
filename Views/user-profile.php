@@ -36,6 +36,7 @@
                     <option disabled selected hidden> {$row['Username']} </option>
                     <option value=\"user-profile.php\">Profile</option>
                     <option value=\"watchlist.php\">Watchlist</option>
+                    <option value=\"purchase-history.php\">Purchase List</option>
                     <option value=\"settings.php\">Settings</option>
                     <option value=\"logout-page.php\">Log Out</option>
                 </select>";

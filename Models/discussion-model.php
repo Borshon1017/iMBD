@@ -29,4 +29,27 @@ function getDiscussion(){
         else return false;
 }
 
+function getAllDiscussion(){
+    $con = dbConnection();
+    $sql="select DiscussionID,DiscussionTitle from discussion";
+    $result=mysqli_query($con,$sql);
+    return $result;
+}
+
+    function getaDiscussion($id){
+        $con=dbConnection();
+        $sql="select* from discussion where DiscussionID='$id'";
+        $result=mysqli_query($con,$sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    function updateDiscussion($id,$discussionTitle,$description){
+        $con=dbConnection();
+        $sql="update discussion set DiscussionTitle='$discussionTitle',DiscussionDescription='$description' where DiscussionID='$id'";
+        $result=mysqli_query($con,$sql);
+        return true;
+    }
+
+
 ?>

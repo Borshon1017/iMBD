@@ -1,6 +1,7 @@
 <?php
     require_once('../Models/user-info-model.php');
     require_once('../Models/discussion-model.php');
+    require_once('../Models/discussion-comment-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
@@ -8,6 +9,8 @@
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $drow = getDiscussion();
+    $did = $drow['DiscussionID'];
+    $resultC = getAllComments($did);
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +38,7 @@
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
                     <option value="user-profile.php">Profile</option>
                     <option value="watchlist.php">Watchlist</option>
+                    <option value="purchase-history.php">Purchase List</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
                 </select>
@@ -42,6 +46,7 @@
         </tr>
     </table><br><br><br>
 
+    <form action="../Controllers/discussion-comment-controller.php?did=<?php echo $did; ?>" method="post">
     <table width="80%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
@@ -49,21 +54,26 @@
                 <br><br><br>
                 <font color="white" face="times new roman" size="4"><?php echo $drow["DiscussionDescription"]?></font>
                 <br><br><br>
-                <font color="F5C518" face="times new roman" size="5">Tanvir : </font>
-                <font color="white" face="times new roman" size="5">lol baler game.</font><br><br>
-                <font color="F5C518" face="times new roman" size="5">Rian : </font>
-                <font color="white" face="times new roman" size="5">ken kharap ki.</font><br><br>
-                <font color="F5C518" face="times new roman" size="5">Borshon : </font>
-                <font color="white" face="times new roman" size="5">shomudre 3 ta timi mas thake ahaha put.</font><br><br><br>
+                <?php 
+                if(mysqli_num_rows($resultC)>0){
+                    while($w=mysqli_fetch_assoc($resultC)){
+                        $uname=$w['Username'];
+                        $comment=$w['DiscussionComment'];
+                        echo "<font color=\"F5C518\" face=\"times new roman\" size=\"5\">{$uname} : </font>
+                        <font color=\"white\" face=\"times new roman\" size=\"5\">{$comment}</font><br><br>";
+                    }
+                }
+                ?>
+                <br><br><br>
                 <textarea name="comment" rows="15" cols="134"></textarea><br><br>
                 <p align="right">
-                    <a href=""><font color="white" face="times new roman" size="5">Post Comment</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
             </td>
             <br>
         </tr>
     </table>
-
+    </form>
     <br><br><br>
     <center>
         <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
