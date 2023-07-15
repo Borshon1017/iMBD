@@ -107,6 +107,17 @@
         else return false; 
         
     }
+    function getUsername( $email){
+
+        $con = dbConnection();
+        $sql = "Select * from UserInfo where Email = '$email'";
+             
+        $result = mysqli_query($con,$sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+        
+    }
+
     function updateProfilePicture( $imagename, $id){
 
         $con = dbConnection();

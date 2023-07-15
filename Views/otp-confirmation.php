@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +17,10 @@
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
+                <form action="../Controllers/otp-confirmation-controller.php" method="post">
                 <font color="F5C518" face="times new roman" size="6">Create New Password</font>
                 <br><br>
-                <font color="white" face="times new roman" size="4">To verify your email, we've sent a One Time Password (OTP) to rianulamin8@gmail.com</font> <a href="forgot-password.html"><font color="5799EF" face="times new roman" size="4">(Change)</font></a>
+                <font color="white" face="times new roman" size="4">To verify your email, we've sent a One Time Password (OTP) to <?php echo $_SESSION['mail']; ?></font> <a href="forgot-password.html"><font color="5799EF" face="times new roman" size="4">(Change)</font></a>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Enter OTP</font>
                 <br>
@@ -33,7 +37,8 @@
                 <br>
                 <input type="password" name="repassword" size="43px" required>
                 <br><br><br>
-                <button>Save changes and Sign-In</button>
+                <button name="submit">Save changes and Sign-In</button>
+                </form>
             </td>
             <br>
         </tr>
