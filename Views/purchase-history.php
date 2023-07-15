@@ -43,10 +43,10 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Sales History</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Purchase History</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 <?php
-        showPaymentInfo();
+        showPaymentInfoByID();
         ?>
         <br><br><br>
     </center>

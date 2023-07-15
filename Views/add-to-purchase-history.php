@@ -7,7 +7,8 @@ require_once('../Models/user-info-model.php');
 $id = $_COOKIE['id'];
 $cid = $_POST['cid'];
 
-
+$row=UserInfo($id);
+$username=$row['Username'];
 
 $contentResult = getContentDetails($cid);
 if ($contentResult) {
