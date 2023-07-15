@@ -75,6 +75,56 @@
 
     }
 
+    function getAllBanUser(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='General User' and status='Inactive'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+
+
+    }
+    function getAllBanContentwriter(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='Content Writer' and status='Inactive'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+
+
+    }
+
+    function getAllBanCritic(){
+        $con = dbConnection();
+        $sql="select* from UserInfo where Role='Critic' and status='Inactive'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+
+
+    }
+
+
+    function unbanUser($id){
+        $con = dbConnection();
+        $sql = "update UserInfo set status = 'Active' where UserID = '$id'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+    }
+
 
     function getAllUser(){
         $con = dbConnection();

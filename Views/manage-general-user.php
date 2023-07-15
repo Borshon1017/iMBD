@@ -54,6 +54,11 @@
                     <a href="ban-user.php"><font color="white" face="times new roman" size="6">Ban User</font></a>
                 </td>
             </tr>
+            <tr align="center">
+                <td>
+                    <a href="recover-user.php"><font color="white" face="times new roman" size="6">Recover User</font></a>
+                </td>
+            </tr>
         </table>
         
         <br><br><br>

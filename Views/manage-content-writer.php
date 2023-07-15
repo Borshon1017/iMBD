@@ -59,6 +59,11 @@
                     <a href="ban-content-writer.php"><font color="white" face="times new roman" size="6">Ban Content Writer</font></a>
                 </td>
             </tr>
+            <tr align="center">
+                <td>
+                    <a href="recover-content-writer.php"><font color="white" face="times new roman" size="6">Rocover Content Writer</font></a>
+                </td>
+            </tr>
         </table>
         
         <br><br><br>

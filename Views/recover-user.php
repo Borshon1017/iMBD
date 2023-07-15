@@ -1,12 +1,14 @@
 <?php
-    require_once('../Models/payment-info-model.php');
+    require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }
+    
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-
+    $result=getAllBanUser();
+    
 ?>
 
 
@@ -15,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Sales History</title>
+    <title>iMBD View Ban Users</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -33,7 +35,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.php">Profile</option>
+                    <option value="user-profile.html">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
@@ -43,11 +45,47 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Purchase History</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Ban General Users</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-<?php
-        showPaymentInfoByID();
+
+        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Name</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Username</font>
+                    <hr color="F5C518" width="120px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Email</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            
+        <?php 
+            if(mysqli_num_rows($result)>0){
+                while($w=mysqli_fetch_assoc($result)){
+                    $userid=$w['UserID'];
+                    $name=$w['Fullname'];
+                    $username=$w['Username'];
+                    $email=$w['Email'];
+                    echo "    
+                    <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
+                    <td><a href=\"../Controllers/recover-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Recover User</font></a></td>          
+                    </tr>";
+                }
+            }
         ?>
+            
+        </table>
+        
         <br><br><br>
     </center>
     <br><br><br>

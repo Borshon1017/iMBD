@@ -59,6 +59,11 @@
                     <a href="ban-critic.php"><font color="white" face="times new roman" size="6">Ban Critic</font></a>
                 </td>
             </tr>
+            <tr align="center">
+                <td>
+                    <a href="recover-critic.php"><font color="white" face="times new roman" size="6">Recover Critic</font></a>
+                </td>
+            </tr>
         </table>
         
         <br><br><br>
