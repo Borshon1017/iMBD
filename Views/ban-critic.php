@@ -77,13 +77,15 @@
                     <td><a href=\"../Controllers/ban-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Ban Critic</font></a></td>          
                     </tr>";
                 }
-            }
+            }else{
+                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Critics Found</font></td></tr>";
+            }  
         ?>
         </table>
         
         <br><br><br>
     </center>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
