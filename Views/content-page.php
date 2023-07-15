@@ -14,7 +14,6 @@
     $resultC = getAllComments($cid);
     $result = getContentDetails($cid);
 
-
     if ($result) {
         
         $crow = mysqli_fetch_assoc($result);
