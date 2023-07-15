@@ -9,7 +9,7 @@
     $row=UserInfo($id);
     $cid = $_GET['cid'];
 
-    $result = getContentDeatils($cid);
+    $result = getContentDetails($cid);
     if ($result) {
         
         $crow = mysqli_fetch_assoc($result);
