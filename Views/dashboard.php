@@ -112,6 +112,11 @@
                     <a href=\"sales-history.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Sales History</font></a>
                 </td>
             </tr>
+            <tr align=\"center\">
+                <td>
+                    <a href=\"helpline-message.php\"><font color=\"white\" face=\"times new roman\" size=\"6\">Helpline Messages</font></a>
+                </td>
+            </tr>
         </table>";
         }
 
