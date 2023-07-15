@@ -45,7 +45,7 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php for ($cid = 1; $cid <=countUploads($id); $cid++) showUploadsDelete($cid,"view"); ?>
+                    <?php showUploadsDelete($id, "view")?>
         </table>
         
         <br><br><br><br><br><br>

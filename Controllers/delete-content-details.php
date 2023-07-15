@@ -11,7 +11,7 @@ echo $cid;
 $sql = "DELETE FROM contentinfo WHERE ContentID = '$cid'";
 
 if (mysqli_query($con, $sql)) {
-    echo $cid;
+    popup("Deleted", "Content Deleted Sucessfully");
 
 } else {
     popup("Failed", "Failed to Delete");
