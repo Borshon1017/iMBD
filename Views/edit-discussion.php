@@ -42,19 +42,18 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Edit Discussion</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-
-        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <tr>
-                <td>
-                    <font color="F5C518" face="times new roman" size="5">Discussion Title</font>
-                    <hr color="F5C518" width="170px" align="left">
-                </td>
-                <td>
-
-                </td>
-            </tr>
             <?php 
                 if(mysqli_num_rows($result)>0){
+                 echo "<table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
+            <tr>
+                <td>
+                    <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Discussion Title</font>
+                    <hr color=\"F5C518\" width=\"170px\" align=\"left\">
+                </td>
+                <td>
+
+                </td>
+            </tr>";
                     while($w=mysqli_fetch_assoc($result)){
                         $discussionid=$w['DiscussionID'];
                         $discussion=$w['DiscussionTitle'];
@@ -63,7 +62,10 @@
                         <td><a href=\"edit-discussion-info.php?id={$discussionid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Discussion</font></a></td>          
                         </tr>";
                     }
-                }
+                }else{
+                    echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Discussion Found</font></td></tr>';
+                    }
+                
             ?>
         </table>
         
