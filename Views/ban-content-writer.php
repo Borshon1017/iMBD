@@ -76,14 +76,14 @@
                         </tr>";
                     }
                 }else{
-                    echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No User Found</font></td></tr>";
+                    echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Writer Found</font></td></tr>";
                 }       
             ?>
         </table>
         
         <br><br><br>
     </center>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
