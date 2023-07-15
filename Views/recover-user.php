@@ -1,18 +1,23 @@
 <?php
-    require_once('../Models/user-info-model.php');   
+    require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }      
+    }
+    
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $result=getAllBanUser();
+    
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Discussion</title>
+    <title>iMBD View Ban Users</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -40,20 +45,45 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Discussion</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Ban General Users</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <tr align="center">
+
+        <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
                 <td>
-                    <a href="create-discussion.php"><font color="white" face="times new roman" size="6">Create Discussion</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Name</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Username</font>
+                    <hr color="F5C518" width="120px" align="left">
+                </td>
+                <td>
+                    <font color="F5C518" face="times new roman" size="5">Email</font>
+                    <hr color="F5C518" width="80px" align="left">
+                </td>
+                <td>
+
                 </td>
             </tr>
-            <tr align="center">
-                <td>
-                    <a href="edit-discussion.php"><font color="white" face="times new roman" size="6">Edit Discussion</font></a>
-                </td>
-            </tr>
+            
+        <?php 
+            if(mysqli_num_rows($result)>0){
+                while($w=mysqli_fetch_assoc($result)){
+                    $userid=$w['UserID'];
+                    $name=$w['Fullname'];
+                    $username=$w['Username'];
+                    $email=$w['Email'];
+                    echo "    
+                    <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
+                    <td><a href=\"../Controllers/recover-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Recover User</font></a></td>          
+                    </tr>";
+                }
+            }
+        ?>
+            
         </table>
         
         <br><br><br>

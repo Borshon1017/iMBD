@@ -30,7 +30,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
@@ -52,6 +52,11 @@
             <tr align="center">
                 <td>
                     <a href="ban-user.php"><font color="white" face="times new roman" size="6">Ban User</font></a>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    <a href="recover-user.php"><font color="white" face="times new roman" size="6">Recover User</font></a>
                 </td>
             </tr>
         </table>

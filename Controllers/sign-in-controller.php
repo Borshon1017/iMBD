@@ -18,29 +18,58 @@
 
 
         $status = login($email, $password);
-        
+   
         
         if($status!=false){
-            if($Remember=="true"){
-                setcookie("flag","true",time()+999999999,"/");
+    
+            if($status['Role'] == "General User" and $status['Status'] == "Active"  ){
+
+                if($Remember=="true"){
+                    setcookie("flag","true",time()+999999999,"/");
+                }
+                if($Remember=="false"){
+                    setcookie("flag","false",time()+3600,"/");
+                }           
+                setcookie("id",$status['UserID'],time()+99999999999,"/");
+                header('location: ../index.php');
+
+            }else if($status['Role'] == "Administrator" and $status['Status'] == "Active" ){
+                
+                if($Remember=="true"){
+                    setcookie("flag","true",time()+999999999,"/");
+                }
+                if($Remember=="false"){
+                    setcookie("flag","false",time()+3600,"/");
+                }           
+                setcookie("id",$status['UserID'],time()+99999999999,"/");
+                header('location: ../index.php');
+            }else if($status['Role'] == "Content Writer" and  $status['Status'] == "Active"){
+                
+                if($Remember=="true"){
+                    setcookie("flag","true",time()+999999999,"/");
+                }
+                if($Remember=="false"){
+                    setcookie("flag","false",time()+3600,"/");
+                }           
+                setcookie("id",$status['UserID'],time()+99999999999,"/");
+                header('location: ../index.php');
+            }else if($status['Role'] == "Critic" and $status['Status'] == "Active"){
+                
+                if($Remember=="true"){
+                    setcookie("flag","true",time()+999999999,"/");
+                }
+                if($Remember=="false"){
+                    setcookie("flag","false",time()+3600,"/");
+                }           
+                setcookie("id",$status['UserID'],time()+99999999999,"/");
+                header('location: ../index.php');
+            }else{
+                popup("Error!", "Could not sign-in.Your are banned from the website.");
             }
-            if($Remember=="false"){
-                setcookie("flag","false",time()+3600,"/");
-            }
-           
 
-            
-            setcookie("id",$status['UserID'],time()+99999999999,"/");
-
-            
-
-            if($status['Role'] == "General User")header('location: ../index.php');
-            if($status['Role'] == "Administrator") header('location: ../index.php');
-            if($status['Role'] == "Content Writer") header('location: ../index.php');
-            if($status['Role'] == "Critic") header('location: ../index.php');
-           
-
-        }else popup("Error!", "Could not sign-in. Invalid sign-in credentials.");
+        }else{
+            popup("Error!", "Could not sign-in. Invalid sign-in credentials.");
+        }
         
     }
 
