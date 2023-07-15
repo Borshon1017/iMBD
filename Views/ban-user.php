@@ -33,7 +33,7 @@
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.html">Profile</option>
+                    <option value="user-profile.php">Profile</option>
                     <option value="dashboard.php">Dashboard</option>
                     <option value="settings.php">Settings</option>
                     <option value="logout-page.php">Log Out</option>
@@ -86,10 +86,10 @@
     </center>
     <br><br><br>
     <center>
-        <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="faq.html"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="terms-and-services.html"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
+        <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="faq.php"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="terms-and-services.php"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>

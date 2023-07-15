@@ -1,18 +1,20 @@
 <?php
-    require_once('../Models/user-info-model.php');   
-    require_once('../Controllers/message-controller.php');  
+    require_once('../Models/helpline-model.php');
+    require_once('../Models/helpline-model.php');
+    require_once('../Models/user-info-model.php');
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }      
+    }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $result=getAllMessages();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Manage Discussion</title>
+    <title>iMBD Helpline Message</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -40,22 +42,35 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Discussion</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Helpline Messages</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <tr align="center">
+           <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
                 <td>
-                    <a href="create-discussion.php"><font color="white" face="times new roman" size="6">Create Discussion</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Sender</font>
+                    <hr color="F5C518" width="80px" align="left">
                 </td>
-            </tr>
-            <tr align="center">
                 <td>
-                    <a href="edit-discussion.php"><font color="white" face="times new roman" size="6">Edit Discussion</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Message</font>
+                    <hr color="F5C518" width="120px" align="left">
                 </td>
+                
             </tr>
+            
+        <?php 
+            if(mysqli_num_rows($result)>0){
+                while($w=mysqli_fetch_assoc($result)){
+                    $sender=$w['Sender'];
+                    $message=$w['Message'];
+                    echo "    
+                    <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$sender</font></td>
+                    <td><font color=\"white\" face=\"times new roman\" size=\"5\">$message</font></td>  
+                    </tr>";
+                }
+            }
+        ?>
+            
         </table>
-        
         <br><br><br>
     </center>
     <br><br><br>

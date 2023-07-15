@@ -42,7 +42,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
         <hr color="F5C518" width="650px"><br><br><br>
-        <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
+        <form action="../Controllers/set-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
@@ -50,6 +50,10 @@
                 </td>
                 <td>
                     <input type="text" size="60px" name="rating" required>
+                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' required>
+                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' required>
+
+
                 </td>
             </tr>
             <tr>
@@ -71,10 +75,10 @@
     </center>
     <br><br><br>
     <center>
-        <a href="about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="faq.html"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="terms-and-services.html"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
+        <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="faq.php"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="terms-and-services.php"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>

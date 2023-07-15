@@ -328,7 +328,7 @@ function searchContent($title) {
             echo '</tr>';
         }
     } else {
-        echo '<tr><td colspan="2">No matching results found.</td></tr>';
+        echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Match Found</font></td></tr>';
     }
 }
 
@@ -418,50 +418,371 @@ function removeFromWatchlist($cid, $id)
     return $result;
 }
 
-function showWatchlist($site)
+function showWatchlist($id,$site)
+{
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
+
+    $sql = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id'";
+    $result = mysqli_query($con, $sql);
+
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
+
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
+            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+      
+            echo '<form action="../Controllers/remove-from-watchlist.php" method="POST" enctype="multipart/form-data">';
+            echo '<input type="hidden" name="cid" value="' . $cid . '">';
+            echo '<input type="submit" value="Remove">';
+            echo '</form>';
+        }
+        echo '</td>';
+        echo '</tr>';
+
+    }
+
+
+
+function showNewArrivals($cid, $site)
+{
+     
+    global $crow;
+    $con = dbConnection();
+  
+     
+      $sql = "SELECT * FROM contentinfo WHERE ContentID='$cid'";
+      $result = mysqli_query($con, $sql);
+  
+   
+   
+       
+          $crow = mysqli_fetch_assoc($result);
+          $count = mysqli_num_rows($result);
+          if($count == 1) 
+          {
+              $posterURL = $crow['Poster'];
+              $title = $crow['ContentTitle'];
+              $description = $crow['ContentDescription'];
+              $releaseDate = $crow['ReleaseDate'];
+              if (strlen($description) > 220) {
+                  $description = substr($description, 0, 220) . '...';
+              }
+      
+      
+              echo '<tr>';
+              if ($site=="index")
+              {
+              echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+              }
+              else if ($site=="view")
+              {
+                  echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+              }
+              echo '<td valign="top" align="left">';
+              if ($site=="index") {
+              echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+              }
+              else if ($site=="view")
+              {
+                  echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+              }
+              echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+              echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+              if(isset($_COOKIE['flag']))
+              {
+                  global $id;
+                              $row=UserInfo($id);
+              if($row['Role'] == "General User")
+              {
+              
+              $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+              $result = mysqli_query($con, $sql);
+              $count = mysqli_num_rows($result);
+                  if ($count > 0) 
+              {
+              echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+              }
+              else{
+              echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+              }
+          }
+              echo '</td>';
+              echo '</tr>';
+              }
+              else
+              {
+              
+              }
+          }
+         
+}
+
+function countUploads($cid)
 {
     global $id;
-
-    for ($cid = 1; $cid <= countWatchlist(); $cid++)
-    {
-        $con = dbConnection();
-        $query = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id' AND w.ContentID='$cid'";
-        $result = mysqli_query($con, $query);
-        $row = mysqli_fetch_assoc($result);
+    global $crow;
+    $con = dbConnection();
+    $sql = "SELECT * FROM contentinfo WHERE UserID='$id'"; 
+    $result = mysqli_query($con, $sql);
+   
         $count = mysqli_num_rows($result);
+        return $count;
 
-        if ($count == 1)
-        {
-            $posterURL = $row['Poster'];
-            $title = $row['ContentTitle'];
-            $description = $row['ContentDescription'];
-            $releaseDate = $row['ReleaseDate'];
+}
 
-            if (strlen($description) > 220) {
-                $description = substr($description, 0, 220) . '...';
-            }
+function showUploadsEdit($id, $site)
+{
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
 
-            echo '<tr>';
+    $sql = "SELECT * FROM contentinfo WHERE UserID='$userid'";
+    $result = mysqli_query($con, $sql);
+
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
+
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
             echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
-            echo '<td valign="top" align="left">';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
             echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
-            echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
-            echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<form method="post" action="../Controllers/remove-from-watchlist.php">';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+        if (isset($_COOKIE['flag'])) {
+            $row = UserInfo($id);
+            if ($row['Role'] == "General User") {
+                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+                $result = mysqli_query($con, $sql);
+                $count = mysqli_num_rows($result);
+                if ($count > 0) {
+                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+                } else {
+                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+                }
+            }
+            echo '<form action="edit-content-info-details.php" method="POST" enctype="multipart/form-data">';
             echo '<input type="hidden" name="cid" value="' . $cid . '">';
-            echo '<button type="submit">Remove</button>'; 
+            echo '<input type="submit" value="Update Content">';
             echo '</form>';
-            echo '</td>';
-            echo '</tr>';
         }
-        else
-        {
-
-        }
+        echo '</td>';
+        echo '</tr>';
     }
 }
 
 
+function showUploadsDelete($id, $site)
+{
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
+
+    $sql = "SELECT * FROM contentinfo WHERE UserID='$userid'";
+    $result = mysqli_query($con, $sql);
+
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
+
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
+            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+        if (isset($_COOKIE['flag'])) {
+            $row = UserInfo($id);
+            if ($row['Role'] == "General User") {
+                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+                $result = mysqli_query($con, $sql);
+                $count = mysqli_num_rows($result);
+                if ($count > 0) {
+                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+                } else {
+                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+                }
+            }
+            echo '<form action="../Controllers/delete-content-details.php" method="POST" enctype="multipart/form-data">';
+            echo '<input type="hidden" name="cid" value="' . $cid . '">';
+            echo '<input type="submit" value="Delete Content">';
+            echo '</form>';
+        }
+        echo '</td>';
+        echo '</tr>';
+    }
+}
 
 
+function pendingReview($id, $site)
+{
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
+
+
+    $sql = "SELECT c.* FROM ContentInfo c WHERE NOT EXISTS ( SELECT 1 FROM RatingReview r WHERE r.ContentID = c.ContentID AND r.UserID = '$userid' );";
+    $result = mysqli_query($con, $sql);
+
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
+
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
+            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+        if (isset($_COOKIE['flag'])) {
+            $row = UserInfo($id);
+            if ($row['Role'] == "General User") {
+                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+                $result = mysqli_query($con, $sql);
+                $count = mysqli_num_rows($result);
+                if ($count > 0) {
+                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+                } else {
+                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+                }
+            }
+            echo '<form action="rating-review-page.php" method="POST" enctype="multipart/form-data">';
+            echo '<input type="hidden" name="cid" value="' . $cid . '">';
+            echo '<input type="submit" value="Rating and Review">';
+            echo '</form>';
+        }
+        echo '</td>';
+        echo '</tr>';
+    }
+}
+
+
+function pastReview($id, $site)
+{
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
+
+
+    $sql = "SELECT c.* FROM ContentInfo c LEFT JOIN RatingReview r ON c.ContentID = r.ContentID AND r.UserID = '$userid' WHERE r.RatingReviewID IS NOT NULL;";
+    $result = mysqli_query($con, $sql);
+
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
+
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
+
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
+            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+        if (isset($_COOKIE['flag'])) {
+            $row = UserInfo($id);
+            if ($row['Role'] == "General User") {
+                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+                $result = mysqli_query($con, $sql);
+                $count = mysqli_num_rows($result);
+                if ($count > 0) {
+                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
+                } else {
+                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
+                }
+            }
+            echo '<form action="rating-review-page.php" method="POST" enctype="multipart/form-data">';
+            echo '<input type="hidden" name="cid" value="' . $cid . '">';
+            echo '<input type="submit" value="Rating and Review">';
+            echo '</form>';
+        }
+        echo '</td>';
+        echo '</tr>';
+    }
+}
 ?>

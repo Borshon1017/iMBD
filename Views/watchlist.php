@@ -47,13 +47,17 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <?php ShowWatchlist("view"); ?>
+            <?php ShowWatchlist($id,"view"); ?>
         </table>
         
         <br><br><br>
     </center>
     <br><br><br>
     <center>
+        <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="faq.php"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="terms-and-services.php"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
