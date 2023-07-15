@@ -1,10 +1,10 @@
 <?php
     require_once('../Models/user-info-model.php'); 
-    require_once('../Models/content-info-model.php');
+    require_once('../Models/content-info-model.php'); 
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }         
+    }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
 ?>
@@ -13,7 +13,7 @@
 <head>
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMBD Delete Content</title>
+    <title>iMBD Update Content Info</title>
 </head>
 <body bgcolor="black">
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
@@ -45,7 +45,7 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
+                    <?php for ($cid = 1; $cid <=countUploads($id); $cid++) showUploadsDelete($cid,"view"); ?>
         </table>
         
         <br><br><br><br><br><br>
