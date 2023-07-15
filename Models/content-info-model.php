@@ -27,7 +27,7 @@ function uploadContent($id, $title, $description, $director, $cast, $category, $
     else return false;
 }
 
-function getContentDeatils($cid){
+function getContentDetails($cid){
 
     $con = dbConnection();
 
@@ -286,6 +286,7 @@ function showAnime($cid, $site)
        
 }
 function searchContent($title) {
+    global $id;
     $con = dbConnection();
     $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%'";
     $result = mysqli_query($con, $sql);
@@ -394,7 +395,7 @@ function showTVShow($cid, $site)
             else{
             echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid  . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
             }
-        }
+            }
             echo '</td>';
             echo '</tr>';
             }
@@ -443,7 +444,7 @@ function showWatchlist($site)
             echo '<tr>';
             echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
             echo '<td valign="top" align="left">';
-            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="12">' . $title . '</font></a><br><br>';
+            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
             echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
             echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
             echo '<form method="post" action="../Controllers/remove-from-watchlist.php">';

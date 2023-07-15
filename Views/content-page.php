@@ -16,7 +16,7 @@
 
 
  
-    $result = getContentDeatils($cid);
+    $result = getContentDetails($cid);
 
 
     if ($result) {

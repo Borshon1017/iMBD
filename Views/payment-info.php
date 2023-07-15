@@ -111,9 +111,9 @@
         <tr>
             <td>
                 <br><br><br>
-                <form action="download-page.php" method="post">
+                <form action="add-to-purchase-history.php" method="post">
                 <input type="hidden" name="cid" value="<?php echo $cid; ?>">
-                <a href="download-page.php"><input type="submit" name="submit" value="Confirm Payment"></a>
+                <input type="submit" name="submit" value="Confirm Payment">
 </form>
             </td>
         </tr>
