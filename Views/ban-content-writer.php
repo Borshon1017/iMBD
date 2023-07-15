@@ -43,7 +43,7 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Content Writers</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Content Writers</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
         <?php 
                 if(mysqli_num_rows($result)>0){

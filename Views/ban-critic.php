@@ -43,7 +43,7 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Ban Critics</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Critics</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
         <?php 

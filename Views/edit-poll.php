@@ -46,12 +46,12 @@
             <?php 
                 if(mysqli_num_rows($result)>0){
                  echo"<table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
-                <tr>
-                <td>
+                    <tr>
+                    <td>
                     <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Poll Title</font>
-                    <hr color="F5C518" width="120px" align="left">
-                </td>
-                </tr>";
+                    <hr color=\"F5C518\" width=\"120px\" align=\"left\">
+                    </td>
+                    </tr>";
                     while($w=mysqli_fetch_assoc($result)){
                         $pollid=$w['PollID'];
                         $poll=$w['PollTitle'];
@@ -60,6 +60,8 @@
                         <td><a href=\"edit-poll-info.php?pollid={$pollid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Edit Poll</font></a></td>          
                         </tr>";
                     }
+                }else {
+                    echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Poll Found</font></td></tr>';
                 }
             ?>
         </table>
