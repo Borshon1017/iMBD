@@ -461,6 +461,7 @@ function showWatchlist($id,$site)
         }
         echo '</td>';
         echo '</tr>';
+        
     }
 
 
