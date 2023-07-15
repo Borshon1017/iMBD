@@ -456,7 +456,7 @@ function showWatchlist($id,$site)
       
             echo '<form action="../Controllers/remove-from-watchlist.php" method="POST" enctype="multipart/form-data">';
             echo '<input type="hidden" name="cid" value="' . $cid . '">';
-            echo '<input type="submit" value="Remove from watchlist">';
+            echo '<input type="submit" value="Remove">';
             echo '</form>';
         }
         echo '</td>';
