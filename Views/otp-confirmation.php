@@ -20,7 +20,7 @@ session_start();
                 <form action="../Controllers/otp-confirmation-controller.php" method="post">
                 <font color="F5C518" face="times new roman" size="6">Create New Password</font>
                 <br><br>
-                <font color="white" face="times new roman" size="4">To verify your email, we've sent a One Time Password (OTP) to <?php echo $_SESSION['mail']; ?></font> <a href="forgot-password.html"><font color="5799EF" face="times new roman" size="4">(Change)</font></a>
+                <font color="white" face="times new roman" size="4">To verify your email, we've sent a One Time Password (OTP) to <?php echo $_SESSION['mail']; ?></font> <a href="forgot-password.php"><font color="5799EF" face="times new roman" size="4">(Change)</font></a>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Enter OTP</font>
                 <br>

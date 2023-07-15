@@ -156,7 +156,7 @@
         else return false; 
         
     }
-    function getUsername( $email){
+    function getRowByMail( $email){
 
         $con = dbConnection();
         $sql = "Select * from UserInfo where Email = '$email'";

@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
     $otp = $_POST['otp'];
     $cotp = $_SESSION['otp'];
     $id = $_SESSION['id'];
-    if($otp!=$cotp ) popup("Error!", "Wrong OTP, Unable to change password.");
+    if($otp!=$cotp) popup("Error!", "Wrong OTP, Unable to change password.");
     
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];

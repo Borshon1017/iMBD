@@ -104,7 +104,7 @@
         <tr>
             <td>
               <font color="white" face="times new roman" size="6">Purchase This:</font>
-<a href="payment-info.php?cid=<?php echo $cid; ?>"><font color="white" face="times new roman" size="6"><?php echo $price; ?></font></a>
+                <a href="payment-info.php?cid=<?php echo $cid; ?>"><font color="white" face="times new roman" size="6"><?php echo $price; ?></font></a>
 
             </td>
         </tr>
@@ -156,20 +156,24 @@
         </tr>
         <tr>
             <td>
-                <form action="../Controllers/comment-controller.php?cid=<?php echo $cid;?>" method="post">
                 <font color="white" face="times new roman" size="12">Comments : </font><br><br><br>
                 <?php 
                 if(mysqli_num_rows($resultC)>0){
                     while($w=mysqli_fetch_assoc($resultC)){
                         $uname=$w['Username'];
                         $comment=$w['Comment'];
+                        $commentID = $w['CommentID'];
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"5\">{$uname} : </font>
                         <font color=\"white\" face=\"times new roman\" size=\"5\">{$comment}</font><br><br>";
+                        if($id == $w['UserID']){
+                        echo "<a href=\"edit-comment.php?id={$commentID}&cid={$cid}\"><button>Edit Comment</button></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../Controllers/delete-comment-controller.php?id={$commentID}&cid={$cid}\"><button>Delete Comment</button></a><br><br>";
+                    }
                 }
             }
         ?>
                 
                 <br><br><br>
+                <form action="../Controllers/comment-controller.php?cid=<?php echo $cid;?>" method="post">
                 <textarea name="comment" rows="15" cols="174"></textarea><br><br>
                 <p align="right">
                     <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;

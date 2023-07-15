@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $sendTo = $_POST['mail'];
     $otp = random_int(1000, 9999);
     if(uniqueEmail($sendTo)) popup("Error!", "The email you provided does not exist in our database");
-    $row = getUsername($sendTo);
+    $row = getRowByMail($sendTo);
     $username = $row['Username'];
     $id = $row['UserID'];
     $_SESSION['mail'] = $sendTo;

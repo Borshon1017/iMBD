@@ -21,3 +21,33 @@ function getAllComments($cID){
     $result=mysqli_query($con,$sql);
     return $result;
 }
+function deleteComment($commentID){
+
+    $con = dbConnection();
+    
+    $sql="DELETE FROM CommentInfo WHERE CommentID='$commentID'";
+
+    if(mysqli_query($con, $sql)) return true;
+    else return false;
+
+}
+function getComment($commentID){
+
+    $con = dbConnection();
+    
+    $sql = "select* from CommentInfo where CommentID = '{$commentID}'";
+    $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_assoc($result);
+    return $row;
+
+}
+function updateComment($commentID, $message){
+
+    $con = dbConnection();
+    $sql = "update CommentInfo set Comment='$message' where CommentID ='$commentID'";
+    $result = mysqli_query($con, $sql);
+    return true;
+
+}
+
+?>
