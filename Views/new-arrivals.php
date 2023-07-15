@@ -47,7 +47,10 @@ session_start();
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php for ($cid = 1; $cid <=countContent(); $cid++) showTVShow($cid, "view"); ?>
+                    <?php $totalContent = countContent();
+for ($cid = $totalContent; $cid >= 1; $cid--) {
+  showNewArrivals($cid, "view");
+} ?>
                 </table><br><br><br>
     </center>
     <br><br><br>

@@ -36,10 +36,7 @@ function showPaymentInfoByID()
 
     echo '<table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">';
     echo '<tr>';
-    echo '<td>';
-    echo '<font color="F5C518" face="times new roman" size="5">Username</font>';
-    echo '<hr color="F5C518" width="120px" align="left">';
-    echo '</td>';
+
     echo '<td>';
     echo '<font color="F5C518" face="times new roman" size="5">Content Title</font>';
     echo '<hr color="F5C518" width="150px" align="left">';
@@ -56,7 +53,7 @@ function showPaymentInfoByID()
 
     while ($row = mysqli_fetch_assoc($paymentInfo)) 
     {
-        $username = $row['Username'];
+        
         $contentTitle = $row['ContentTitle'];
         $price = $row['Price'];
         $purchaseDate = $row['PurchaseDate'];
