@@ -14,12 +14,14 @@
     <table width="30%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
+                <form action="../Controllers/forgot-password-controller.php" method="post">
                 <font color="F5C518" face="times new roman" size="6">Password Assistance</font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="email" size="43px" required><br><br>
-                <a href="otp-confirmation.html"><button size="250px" name="submit">Continue</button></a>
+                <input type="email" name="mail" size="43px" required><br><br>
+                <button size="250px" name="submit">Continue</button>
+                </form>
                 <br>
             </td>
             <br>
