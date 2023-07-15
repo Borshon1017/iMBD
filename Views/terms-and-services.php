@@ -49,6 +49,10 @@ require_once('../Models/user-info-model.php');
                         <option value=\"logout-page.php\">Log Out</option>
                         </select> ";
                     }
+                }else{
+                    echo "<a href=\"sign-in.html\">
+                        <font color=\"white\" face=\"times new roman\">Sign In</font>
+                    </a>";
                 }
             ?>
             </td>
