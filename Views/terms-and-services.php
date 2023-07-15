@@ -21,7 +21,7 @@ require_once('../Models/user-info-model.php');
                 <input type="submit" name="submit" value="Search">
                 </form>
             </td>
-            
+            <td> 
             <?php
                 if(isset($_COOKIE['flag'])){
                     $id=$_COOKIE['id'];
@@ -29,7 +29,7 @@ require_once('../Models/user-info-model.php');
               
             
                     if($row['Role'] == "General User"){
-                        echo "<td> <img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                        echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
                         <select name=\"profile\" onchange=\"location = this.value;\">
                         <option disabled selected hidden> {$row['Username']} </option>
                         <option value=\"user-profile.php\">Profile</option>
@@ -47,11 +47,11 @@ require_once('../Models/user-info-model.php');
                         <option value=\"dashboard.php\">Dashboard</option>
                         <option value=\"settings.php\">Settings</option>
                         <option value=\"logout-page.php\">Log Out</option>
-                        </select> </td>";
+                        </select> ";
                     }
                 }
             ?>
-            
+            </td>
         </tr>
     </table><br><br><br>
         <center>
