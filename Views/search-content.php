@@ -7,8 +7,6 @@
     }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    
-
     if(isset($_POST['submit'])) $title = $_POST['title'];
 
 ?>

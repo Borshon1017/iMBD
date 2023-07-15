@@ -328,7 +328,7 @@ function searchContent($title) {
             echo '</tr>';
         }
     } else {
-        echo '<tr><td colspan="2">No matching results found.</td></tr>';
+        echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Match Found</font></td></tr>';
     }
 }
 
