@@ -42,26 +42,26 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Content Writers</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Content Writers</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
 
         <?php 
             $result=getAllContentWriter();
             if(mysqli_num_rows($result)>0){
                 echo "
-                <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+                <table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
                 <tr>
                 <td>
-                <font color="F5C518" face="times new roman" size="5">Name</font>
-                <hr color="F5C518" width="80px" align="left">
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Name</font>
+                <hr color=\"F5C518\" width=\"80px\" align=\"left\">
                 </td>
                 <td>
-                <font color="F5C518" face="times new roman" size="5">Username</font>
-                <hr color="F5C518" width="120px" align="left">
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Username</font>
+                <hr color=\"F5C518\" width=\"120px\" align=\"left\">
                 </td>
                 <td>
-                <font color="F5C518" face="times new roman" size="5">Email</font>
-                <hr color="F5C518" width="80px" align="left">
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Email</font>
+                <hr color=\"F5C518\" width=\"80px\" align=\"left\">
                 </td>
                 <td>
 
@@ -87,7 +87,7 @@
         
         <br><br><br>
     </center>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

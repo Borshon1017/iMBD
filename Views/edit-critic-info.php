@@ -44,7 +44,7 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Critics</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">List Of Critics</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
             <?php 
                 if(mysqli_num_rows($result)>0){
@@ -83,7 +83,7 @@
         
         <br><br><br>
     </center>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
