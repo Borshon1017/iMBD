@@ -418,48 +418,53 @@ function removeFromWatchlist($cid, $id)
     return $result;
 }
 
-function showWatchlist($site)
+function showWatchlist($id,$site)
 {
-    global $id;
+    global $crow;
+    $con = dbConnection();
+    $row = UserInfo($id);
+    $userid= $row['UserID'] ;
 
-    for ($cid = 1; $cid <= countWatchlist(); $cid++)
-    {
-        $con = dbConnection();
-        $query = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id' AND w.ContentID='$cid'";
-        $result = mysqli_query($con, $query);
-        $row = mysqli_fetch_assoc($result);
-        $count = mysqli_num_rows($result);
+    $sql = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id'";
+    $result = mysqli_query($con, $sql);
 
-        if ($count == 1)
-        {
-            $posterURL = $row['Poster'];
-            $title = $row['ContentTitle'];
-            $description = $row['ContentDescription'];
-            $releaseDate = $row['ReleaseDate'];
+    while ($crow = mysqli_fetch_assoc($result)) {
+        $cid = $crow['ContentID'];
+        $posterURL = $crow['Poster'];
+        $title = $crow['ContentTitle'];
+        $description = $crow['ContentDescription'];
+        $releaseDate = $crow['ReleaseDate'];
 
-            if (strlen($description) > 220) {
-                $description = substr($description, 0, 220) . '...';
-            }
+        if (strlen($description) > 220) {
+            $description = substr($description, 0, 220) . '...';
+        }
 
-            echo '<tr>';
+        echo '<tr>';
+        if ($site == "index") {
+            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
+        } else if ($site == "view") {
             echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
-            echo '<td valign="top" align="left">';
+        }
+        echo '<td valign="top" align="left">';
+        if ($site == "index") {
+            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
+        } else if ($site == "view") {
             echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
-            echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
-            echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            echo '<form method="post" action="../Controllers/remove-from-watchlist.php">';
+        }
+        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
+        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
+      
+            echo '<form action="../Controllers/remove-from-watchlist.php" method="POST" enctype="multipart/form-data">';
             echo '<input type="hidden" name="cid" value="' . $cid . '">';
-            echo '<button type="submit">Remove</button>'; 
+            echo '<input type="submit" value="Remove">';
             echo '</form>';
-            echo '</td>';
-            echo '</tr>';
         }
-        else
-        {
-
-        }
+        echo '</td>';
+        echo '</tr>';
+        
     }
-}
+
+
 
 function showNewArrivals($cid, $site)
 {
