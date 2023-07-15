@@ -1,5 +1,4 @@
 <?php
-//session_start();
     require_once('../Models/user-info-model.php'); 
     require_once('../Models/content-info-model.php'); 
     require_once('../Controllers/message-controller.php');  
