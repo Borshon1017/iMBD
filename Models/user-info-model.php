@@ -8,8 +8,8 @@
         global $row;
 
         $con = dbConnection();
-
-        $sql = "select * from UserInfo where email ='{$email}' and password ='{$password}' and status ='Active'";
+        //$sql = "select * from UserInfo where email ='{$email}' and password ='{$password}' and status ='Active'";
+        $sql = "select * from UserInfo where email ='{$email}' and password ='{$password}'";
         $result = mysqli_query($con, $sql);
         $count = mysqli_num_rows($result);
 
