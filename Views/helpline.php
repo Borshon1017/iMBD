@@ -1,6 +1,5 @@
 <?php
-    $id =$_COOKIE['id'];
-    $row=UserInfo($id);
+    require_once('../Models/user-info-model.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +20,24 @@
                 <input type="submit" name="submit" value="Search">
                 </form>
             </td>
+            <?php
+            if(isset($_COOKIE['flag'])){
+                $id=$_COOKIE['id'];
+                $row = UserInfo($id);
+              
+            echo"
             <td>
-                <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
-                <select name="profile" onchange="location = this.value;">
-                    <option disabled selected hidden><?php echo $row['Username']; ?></option>
-                    <option value="user-profile.php">Profile</option>
-                    <option value="watchlist.php">Watchlist</option>
-                    <option value="purchase-history.php">Purchase List</option>
-                    <option value="settings.php">Settings</option>
-                    <option value="logout-page.php">Log Out</option>
+            <img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                <select name=\"profile\" onchange=\"location = this.value;\">
+                    <option disabled selected hidden>{$row['Username']}</option>
+                    <option value=\"user-profile.php\">Profile</option>
+                    <option value=\"watchlist.php\">Watchlist</option>
+                    <option value=\"purchase-history.php\">Purchase List</option>
+                    <option value=\"settings.php\">Settings</option>
+                    <option value=\"logout-page.php\">Log Out</option>
                 </select>
-            </td>
+            </td>";} 
+            ?>
         </tr>
     </table><br><br><br>
         
