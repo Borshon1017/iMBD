@@ -46,7 +46,7 @@
         </tr>
     </table><br><br><br>
 
-    <form action="../Controllers/discussion-comment-controller.php?did=<?php echo $did; ?>" method="post">
+    
     <table width="80%" bgcolor="black" border="1" cellspacing="0" cellpadding="25" align="center" bordercolor="F5C518">
         <tr>
             <td>
@@ -59,21 +59,26 @@
                     while($w=mysqli_fetch_assoc($resultC)){
                         $uname=$w['Username'];
                         $comment=$w['DiscussionComment'];
+                        $commentID = $w['DiscussionCommentID'];
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"5\">{$uname} : </font>
                         <font color=\"white\" face=\"times new roman\" size=\"5\">{$comment}</font><br><br>";
+                        if($id == $w['UserID']){
+                            echo "<a href=\"edit-discussion-comment.php?id={$commentID}&did={$did}\"><button>Edit Comment</button></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../Controllers/delete-discussion-comment-controller.php?id={$commentID}&did={$did}\"><button>Delete Comment</button></a><br><br>";
+                        }
                     }
                 }
                 ?>
                 <br><br><br>
+                <form action="../Controllers/discussion-comment-controller.php?did=<?php echo $did; ?>" method="post">
                 <textarea name="comment" rows="15" cols="134"></textarea><br><br>
                 <p align="right">
                 <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
+                </form>
             </td>
             <br>
         </tr>
     </table>
-    </form>
     <br><br><br>
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
