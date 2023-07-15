@@ -1,3 +1,7 @@
+<?php
+require_once('../Models/user-info-model.php'); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,32 +21,37 @@
                 <input type="submit" name="submit" value="Search">
                 </form>
             </td>
-            <td>
-            <?php
             
-            if($row['Role'] == "General User"){
-                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
-                <select name=\"profile\" onchange=\"location = this.value;\">
-                    <option disabled selected hidden> {$row['Username']} </option>
-                    <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"watchlist.php\">Watchlist</option>
-                    <option value=\"purchase-history.php\">Purchase List</option>
-                    <option value=\"settings.php\">Settings</option>
-                    <option value=\"logout-page.php\">Log Out</option>
-                </select>";
-            }
-            else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
-                echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
-                <select name=\"profile\" onchange=\"location = this.value;\">
-                    <option disabled selected hidden> {$row['Username']} </option>
-                    <option value=\"user-profile.php\">Profile</option>
-                    <option value=\"dashboard.php\">Dashboard</option>
-                    <option value=\"settings.php\">Settings</option>
-                    <option value=\"logout-page.php\">Log Out</option>
-                </select>";
-            }
+            <?php
+                if(isset($_COOKIE['flag'])){
+                    $id=$_COOKIE['id'];
+                    $row = UserInfo($id);
+              
+            
+                    if($row['Role'] == "General User"){
+                        echo "<td> <img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                        <select name=\"profile\" onchange=\"location = this.value;\">
+                        <option disabled selected hidden> {$row['Username']} </option>
+                        <option value=\"user-profile.php\">Profile</option>
+                        <option value=\"watchlist.php\">Watchlist</option>
+                        <option value=\"purchase-history.php\">Purchase List</option>
+                        <option value=\"settings.php\">Settings</option>
+                        <option value=\"logout-page.php\">Log Out</option>
+                        </select>";
+                    }
+                    else if($row['Role'] == "Content Writer" || $row['Role'] == "Administrator" || $row['Role'] == "Critic"){
+                        echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">&nbsp;&nbsp;&nbsp;
+                        <select name=\"profile\" onchange=\"location = this.value;\">
+                        <option disabled selected hidden> {$row['Username']} </option>
+                        <option value=\"user-profile.php\">Profile</option>
+                        <option value=\"dashboard.php\">Dashboard</option>
+                        <option value=\"settings.php\">Settings</option>
+                        <option value=\"logout-page.php\">Log Out</option>
+                        </select> </td>";
+                    }
+                }
             ?>
-            </td>
+            
         </tr>
     </table><br><br><br>
         <center>
