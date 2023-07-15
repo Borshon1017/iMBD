@@ -76,6 +76,8 @@
                     <td><a href=\"view-profile-info.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Show Details</font></a></td>          
                     </tr>";
                 }
+            }else{
+                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No General User Found</font></td></tr>";
             }
         ?>
             
