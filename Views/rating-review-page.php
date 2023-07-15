@@ -42,7 +42,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
         <hr color="F5C518" width="650px"><br><br><br>
-        <form action="../Controllers/upload-content-controller.php" method="POST" enctype="multipart/form-data">
+        <form action="../Controllers/set-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
@@ -50,6 +50,10 @@
                 </td>
                 <td>
                     <input type="text" size="60px" name="rating" required>
+                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' required>
+                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' required>
+
+
                 </td>
             </tr>
             <tr>
