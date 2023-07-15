@@ -19,7 +19,7 @@
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <form action="search-content.php" method="post">
+                <form method="post">
                 <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" name="submit" value="Search">
                 </form>
@@ -61,10 +61,10 @@
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <center>
-        <a href="Views/about-us.html"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="Views/helpline.html"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="Views/faq.html"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="Views/terms-and-services.html"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
+        <a href="Views/about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="Views/helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="Views/faq.php"><font color="white" face="times new roman" size="4">FAQ</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="Views/terms-and-services.php"><font color="white" face="times new roman" size="4">Terms and Services</font></a><br><br><br>
         <font color="white" face="times new roman" size="3">iMBD</font><br><br>
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com,  Inc.</font><br><br>
