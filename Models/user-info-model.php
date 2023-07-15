@@ -62,9 +62,19 @@
         
     }
 
-    function deleteUser(){
+    function banUser($id){
+        $con = dbConnection();
+        $sql = "update UserInfo set status = 'Inactive' where UserID = '$id'";
+        $result=mysqli_query($con,$sql);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+
 
     }
+
 
     function getAllUser(){
         $con = dbConnection();

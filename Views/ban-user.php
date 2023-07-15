@@ -67,7 +67,7 @@
             <?php 
                 if(mysqli_num_rows($result)>0){
                     while($w=mysqli_fetch_assoc($result)){
-                        $i=$w['UserID'];
+                        $userid=$w['UserID'];
                         $name=$w['Fullname'];
                         $username=$w['Username'];
                         $email=$w['Email'];
@@ -75,7 +75,7 @@
                         <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
                         <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
                         <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
-                        <td><a href=\"view-profile-info.php\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Ban User</font></a></td>          
+                        <td><a href=\"../Controllers/ban-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Ban User</font></a></td>          
                         </tr>";
                     }
                 }
