@@ -728,7 +728,7 @@ function pastReview($id, $site)
                     echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
                 }
             }
-            echo '<form action="rating-review-page.php" method="POST" enctype="multipart/form-data">';
+            echo '<form action="edit-rating-review-page.php" method="POST" enctype="multipart/form-data">';
             echo '<input type="hidden" name="cid" value="' . $cid . '">';
             echo '<input type="submit" value="Rating and Review">';
             echo '</form>';
