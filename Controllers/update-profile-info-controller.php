@@ -49,7 +49,7 @@
     if(count($checking1) == 2){
         $checking2 = explode('.', $checking1[1]);
         $c = count($checking2);
-        if(count($checking2) <= 2){
+        if(count($checking2) < 2){
             popup("Error!", "Invalid email, Please try again.");
             return;
         }

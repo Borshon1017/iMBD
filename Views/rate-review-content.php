@@ -74,7 +74,7 @@
                                     </tr>";
                                 }    
                             }else{
-
+                                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Found</font></td></tr>";
                             }
                         ?>
         </table>
