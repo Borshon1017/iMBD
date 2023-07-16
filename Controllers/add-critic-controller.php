@@ -43,24 +43,24 @@
             return;
         }
 
-        //Email validation 
-        $checking1 = explode('@', $sender);
-        if(count($checking1) == 2){
-            $checking2 = explode('.', $checking1[1]);
-            $c = count($checking2);
-            if(count($checking2) <= 2){
-                popup("Error!", "Invalid email, Please try again.");
-                return;
-            }
-        }
-        else {
-            popup("Error!", "Invalid email, Please try again.");
+         //Email validation 
+    $checking1 = explode('@', $email);
+    if(count($checking1) == 2){
+        $checking2 = explode('.', $checking1[1]);
+        $c = count($checking2);
+        if(count($checking2) < 2){
+            popup("Error!", "Invalid email, Please 55 try again.");
             return;
         }
-        if($email[strlen($sender)-1] == "."){
-            popup("Error!", "Invalid email, Please try again.");
-            return;
-        }
+    }
+    else {
+        popup("Error!", "Invalid email, Please 11 try again.");
+        return;
+    }
+    if($email[strlen($email)-1] == "."){
+        popup("Error!", "Invalid email, Please 33 try again.");
+        return;
+    }
 
         //Password validation
         if(strlen($password)<8) popup("Error!", "Password must be atleast 8 characters long.");
