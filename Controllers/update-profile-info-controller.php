@@ -50,16 +50,16 @@
         $checking2 = explode('.', $checking1[1]);
         $c = count($checking2);
         if(count($checking2) < 2){
-            popup("Error!", "Invalid email, Please 55 try again.");
+            popup("Error!", "Invalid email, Please try again.");
             return;
         }
     }
     else {
-        popup("Error!", "Invalid email, Please 11 try again.");
+        popup("Error!", "Invalid email, Please try again.");
         return;
     }
     if($email[strlen($email)-1] == "."){
-        popup("Error!", "Invalid email, Please 33 try again.");
+        popup("Error!", "Invalid email, Please try again.");
         return;
     }
     
