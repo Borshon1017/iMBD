@@ -46,7 +46,7 @@
                     <font color="white" face="times new roman" size="6">Poll Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="pollTitle" required>
+                    <input type="text" size="40px" name="pollTitle">
                 </td>
             </tr>
             <tr>
@@ -54,7 +54,7 @@
                     <font color="white" face="times new roman" size="6">Option 1 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option1" required>
+                    <input type="text" size="40px" name="option1">
                 </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
                     <font color="white" face="times new roman" size="6">Option 2 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option2" required>
+                    <input type="text" size="40px" name="option2">
                 </td>
             </tr>
             <tr>
@@ -70,7 +70,7 @@
                     <font color="white" face="times new roman" size="6">Option 3 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option3" required>
+                    <input type="text" size="40px" name="option3">
                 </td>
             </tr>
             <tr>
@@ -78,7 +78,7 @@
                     <font color="white" face="times new roman" size="6">Option 4 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option4" required>
+                    <input type="text" size="40px" name="option4">
                 </td>
             </tr>
             <tr align="center">

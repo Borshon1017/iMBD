@@ -53,7 +53,7 @@
                     <font color="white" face="times new roman" size="6">Discussion Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="discussionTitle" value="<?php echo $dis['DiscussionTitle'] ?>" required>
+                    <input type="text" size="60px" name="discussionTitle" value="<?php echo $dis['DiscussionTitle'] ?>">
                 </td>
             </tr>
             <tr>
@@ -61,7 +61,7 @@
                     <font color="white" face="times new roman" size="6">Description : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10" name="description" required><?php echo $dis['DiscussionDescription'] ?></textarea>
+                    <textarea cols="59" rows="10" name="description"><?php echo $dis['DiscussionDescription'] ?></textarea>
                 </td>
             </tr>
             <tr align="center">

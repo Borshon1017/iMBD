@@ -10,8 +10,16 @@ if(isset($_POST['submit'])){
     $newpass=$_POST['newpass'];
     $repass=$_POST['repass'];
 
+    //Null value checking
+    if(strlen(trim($oldpass)) == 0 || strlen(trim($newpass)) == 0 || strlen(trim($repass)) == 0) popup("Error!", "You can not leave any fields empty.");
+
+    //Old password validation
     if($oldpass!=$row['Password']) popup("Error!", "Old password invalid");
+
+    //Password cross checking
     else if($newpass!=$repass) popup("Error!", "Passwords does not match. Please check again.");
+
+    //Password validation
     else if(strlen($newpass)<8)popup("Error!", "Password must be atleast 8 characters long.");
     else{
 

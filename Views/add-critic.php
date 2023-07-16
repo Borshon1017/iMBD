@@ -49,7 +49,7 @@
                     <font color="white" face="times new roman" size="6">Fullname : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="fullname" required>
+                    <input type="text" size="40px" name="fullname">
                 </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@
                     <font color="white" face="times new roman" size="6">Username : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="username" required>
+                    <input type="text" size="40px" name="username">
                 </td>
             </tr>
             <tr>
@@ -65,7 +65,7 @@
                     <font color="white" face="times new roman" size="6">Phone Number : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="phone" required>
+                    <input type="text" size="40px" name="phone">
                 </td>
             </tr>
             <tr>
@@ -73,7 +73,7 @@
                     <font color="white" face="times new roman" size="6">Email : </font>
                 </td>
                 <td>
-                    <input type="mail" size="40px" name="email" required>
+                    <input type="mail" size="40px" name="email">
                 </td>
             </tr>
             <tr>
@@ -81,7 +81,7 @@
                     <font color="white" face="times new roman" size="6">Password : </font>
                 </td>
                 <td>
-                    <input type="password" size="40px" name="password" required>
+                    <input type="password" size="40px" name="password">
                 </td>
             </tr>
             <tr>
@@ -89,7 +89,7 @@
                     <font color="white" face="times new roman" size="6">Confirm Password : </font>
                 </td>
                 <td>
-                    <input type="password" size="40px" name="repassword" required>
+                    <input type="password" size="40px" name="repassword">
                 </td>
             </tr>
             <tr align="center">

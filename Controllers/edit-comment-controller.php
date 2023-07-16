@@ -8,6 +8,8 @@
         $comment = $_POST['comment'];
         $cID = $_GET['cid'];
 
+        //Null value check
+        if(empty($comment))  popup("Error!", "Comment can not be empty");
         
         if(updateComment($commentID, $comment)) header('location:../Views/content-page.php?cid='.$cID);
         else popup("Error!", "Could not edit comment. Please try again.");

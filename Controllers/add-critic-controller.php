@@ -13,8 +13,58 @@
         $repassword = $_POST['repassword'];
         $role = 'Critic';
 
+        //Null value checking
+        if(strlen(trim($fullname)) == 0 || strlen(trim($username)) == 0 || strlen(trim($phone)) == 0 || strlen(trim($email)) == 0 || strlen(trim($password)) == 0 || strlen(trim($repassword)) == 0) popup("Error!", "You can not leave any fields empty.");
+
+        //Fullname validation
+        $namepart = explode(' ', $fullname);
+
+        if(count($namepart) < 2) {
+            popup("Error!", "Name needs to be atleast two words.");
+            return;
+        }
+        else if(!ctype_alpha($fullname[0])) {
+            popup("Error!", "Name can not start with a digit.");
+            return;
+        }
+        else if((!ctype_alnum(str_replace(array('.', ' '), '', $fullname)))) {
+            popup("Error!", "Name can only contain A-Z, a-z and . (dot).");
+            return;
+        }
+
+        //Phone number validation
+        if(strlen($phone)!=11) {
+            popup("Error!", "Invalid phone number, Please try again.");
+            return;
+        }
+        if($phone[0] == "0" && $phone[1] == "1") {}
+        else{
+            popup("Error!", "Invalid phone number, Please try again.");
+            return;
+        }
+
+        //Email validation 
+        $checking1 = explode('@', $email);
+        if(count($checking1) == 2){
+            $checking2 = explode('.', $checking1[1]);
+        }
+        else {
+            popup("Error!", "Invalid email, Please try again.");
+            return;
+        }
+        if(count($checking2) == 2){}
+        else {
+            popup("Error!", "Invalid email, Please try again.");
+            return;
+        }
+
+        //Password validation
         if(strlen($password)<8) popup("Error!", "Password must be atleast 8 characters long.");
+
+        //Unique email validation
         else if(uniqueEmail($email)==false) popup("Error!", "Email already exists.");
+
+        //Password cross check validation
         else if($password!=$repassword) popup("Error!", "Passwords does not match.");
         else{
 

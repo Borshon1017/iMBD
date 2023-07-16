@@ -50,7 +50,7 @@
                     <font color="white" face="times new roman" size="6">Discussion Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="discussionTitle" required>
+                    <input type="text" size="60px" name="discussionTitle">
                 </td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
                     <font color="white" face="times new roman" size="6">Description : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10" name="description" required></textarea>
+                    <textarea cols="59" rows="10" name="description"></textarea>
                 </td>
             </tr>
             <tr align="center">

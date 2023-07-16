@@ -11,6 +11,10 @@ if(isset($_POST['submit'])){
     $username = $row['Username'];
     $dID = $_GET['did'];
     $comment = $_POST['comment'];
+
+    //Null value check
+    if(empty($comment))  popup("Error!", "Comment can not be empty");
+
     $status = addComment($dID, $uID, $username, $comment);
     if($status) header('location:../Views/discussion.php?did='.$dID);
     else popup("Error!", "Unable to post. Please try again");

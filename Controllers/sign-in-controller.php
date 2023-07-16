@@ -16,6 +16,8 @@
             $Remember="false";
         }
 
+        //Null value checking
+        if(strlen(trim($email)) == 0 || strlen(trim($password)) == 0) popup("Error!", "You can not leave any fields empty.");
 
         $status = login($email, $password);
    
