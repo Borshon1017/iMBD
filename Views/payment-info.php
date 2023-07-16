@@ -103,14 +103,13 @@
         </tr>
         <tr>
             <td>
-                <form action="../Controllers/confirm-purchase-controller.php" method="POST"  >
-                <font color="white" face="times new roman" size="4" name="cardNo">Enter Card Info</font>
+                <form action="../Controllers/confirm-purchase-controller.php?cid=<?php echo $cid; ?>" method="post">
+                <font color="white" face="times new roman" size="4">Enter 11 Digit Card No</font>
                 <br>
-                <input type="text" name="cardInfo" size="43px"><br><br>
-                <input type="hidden" name="cid" value="<?php echo $cid; ?>">
-                <font color="white" face="times new roman" size="4" name="pinNo">Enter Pin Number</font>
+                <input type="text" name="cardNo" size="43px"><br><br>
+                <font color="white" face="times new roman" size="4">Enter 4 Digit Pin Number</font>
                 <br>
-                <input type="password" name="pin" size="43px">
+                <input type="password" name="pinNo" size="43px">
             </td>
         </tr>
         <tr>

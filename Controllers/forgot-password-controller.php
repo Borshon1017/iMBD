@@ -13,9 +13,10 @@ if(isset($_POST['submit'])){
     $sendTo = $_POST['mail'];
 
     //Null value checking
+    if(strlen(trim($sendTo)) == 0) popup("Error!", "Email field can not be null.");
 
     $otp = random_int(1000, 9999);
-    if(uniqueEmail($sendTo)) popup("Error!", "The email you provided does not exist in our database");
+    if(uniqueEmail($sendTo)) popup("Error!", "The email you provided does not exist in our database.");
     $row = getRowByMail($sendTo);
     $username = $row['Username'];
     $id = $row['UserID'];
