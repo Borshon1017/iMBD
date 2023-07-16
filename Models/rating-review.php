@@ -35,7 +35,16 @@ function setContentIDStatus($cid)
     $sql = "UPDATE contentinfo SET Status = 'SET' WHERE ContentID = '$cid'";
     mysqli_query($con, $sql);
 }
+function getRatingDetails($cid){
 
+    $con = dbConnection();
+
+    $sql = "SELECT * FROM ratingreview WHERE ContentID = '$cid'";
+
+    $result = mysqli_query($con, $sql);
+    return $result;
+    
+}
 
  
 
