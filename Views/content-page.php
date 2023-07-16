@@ -4,6 +4,7 @@
     require_once('../Controllers/message-controller.php'); 
     require_once('../Models/database.php');
     require_once('../Models/comment-info-model.php');
+    require_once('../Models/rating-review.php');
 
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
@@ -13,6 +14,7 @@
     $cid = $_GET['cid'];
     $resultC = getAllComments($cid);
     $result = getContentDetails($cid);
+    $resultR = showRatingReview($cid);
 
     if ($result) {
         
@@ -24,6 +26,7 @@
         $description = $crow['ContentDescription'];
         $director = $crow['Director'];
         $cast = $crow['Cast'];
+        $category = $crow['Category'];
         $price= $crow['Price'];
 
  
@@ -82,7 +85,7 @@
         <tr>
             <td>
                 <font color="white" face="times new roman" size="12"><?php echo $title; ?></font><br><br>
-                <font color="white" face="times new roman" size="4">Movie |</font>
+                <font color="white" face="times new roman" size="4"><?php echo $category; ?> |</font>
                 <font color="white" face="times new roman" size="4">Release Date: <?php echo $releaseDate; ?></font><br><br>
             </td>
         </tr>
@@ -147,10 +150,12 @@
                 <font color="white" face="times new roman" size="12">Critic's Opinion : </font><br><br><br>
                 <font color="white" face="times new roman" size="6">Rating : </font>
                 <hr color="F5C518" width="120px" align="left"><br>
-                <font color="white" face="times new roman" size="6">3.5/5</font><br><br><br>
+                <font color="white" face="times new roman" size="6"><?php if($resultR != false) echo $resultR['Rating'];
+                                                                          else echo "Not yet rated"; ?></font><br><br><br>
                 <font color="white" face="times new roman" size="6">Review : </font>
                 <hr color="F5C518" width="130px" align="left"><br>
-                <font color="white" face="times new roman" size="6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minus iusto obcaecati adipisci iste mollitia officia earum eligendi quam assumenda, impedit quod odio modi dolorem! Architecto delectus veritatis explicabo debitis?</font><br><br><br>
+                <font color="white" face="times new roman" size="6"><?php if($resultR != false) echo $resultR['Review'];
+                                                                          else echo "Not yet reviewed"; ?></font><br><br><br>
                 <hr color="F5C518" width="100%">
             </td>
         </tr>

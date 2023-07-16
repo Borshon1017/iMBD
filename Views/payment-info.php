@@ -100,22 +100,21 @@
         </tr>
         <tr>
             <td>
-                <font color="white" face="times new roman" size="4">Enter Card Info</font>
+                <form action="../Controllers/confirm-purchase-controller.php".$cid>
+                <font color="white" face="times new roman" size="4" name="cardNo">Enter Card Info</font>
                 <br>
-                <input type="text" name="cardInfo" size="43px" required><br><br>
+                <input type="text" name="cardInfo" size="43px"><br><br>
 
-                <font color="white" face="times new roman" size="4">Enter Pin Number</font>
+                <font color="white" face="times new roman" size="4" name="pinNo">Enter Pin Number</font>
                 <br>
-                <input type="password" name="pin" size="43px" required>
+                <input type="password" name="pin" size="43px">
             </td>
         </tr>
         <tr>
             <td>
                 <br><br><br>
-                <form action="add-to-purchase-history.php" method="post">
-                <input type="hidden" name="cid" value="<?php echo $cid; ?>">
                 <input type="submit" name="submit" value="Confirm Payment">
-</form>
+                </form>
             </td>
         </tr>
     </table><br><br><br>
