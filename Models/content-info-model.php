@@ -418,51 +418,6 @@ function removeFromWatchlist($cid, $id)
     return $result;
 }
 
-function showWatchlist($id,$site)
-{
-    global $crow;
-    $con = dbConnection();
-    $row = UserInfo($id);
-    $userid= $row['UserID'] ;
-
-    $sql = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id'";
-    $result = mysqli_query($con, $sql);
-
-    while ($crow = mysqli_fetch_assoc($result)) {
-        $cid = $crow['ContentID'];
-        $posterURL = $crow['Poster'];
-        $title = $crow['ContentTitle'];
-        $description = $crow['ContentDescription'];
-        $releaseDate = $crow['ReleaseDate'];
-
-        if (strlen($description) > 220) {
-            $description = substr($description, 0, 220) . '...';
-        }
-
-        echo '<tr>';
-        if ($site == "index") {
-            echo '<td><a href="views/content-page.php?cid=' . $cid . '"><img src="' . $posterURL . '" width="180px"></a></td>';
-        } else if ($site == "view") {
-            echo '<td><a href="../views/content-page.php?cid=' . $cid . '"><img src="../' . $posterURL . '" width="180px"></a></td>';
-        }
-        echo '<td valign="top" align="left">';
-        if ($site == "index") {
-            echo '<a href="views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
-        } else if ($site == "view") {
-            echo '<a href="../views/content-page.php?cid=' . $cid . '"> <font color="white" face="times new roman" size="6">' . $title . '</font></a><br><br>';
-        }
-        echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
-        echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-      
-            echo '<form action="../Controllers/remove-from-watchlist.php" method="POST" enctype="multipart/form-data">';
-            echo '<input type="hidden" name="cid" value="' . $cid . '">';
-            echo '<input type="submit" value="Remove">';
-            echo '</form>';
-        }
-        echo '</td>';
-        echo '</tr>';
-
-    }
 
 
 

@@ -1,9 +1,8 @@
 <?php
  require_once('database.php');
+    
+ $id = $_COOKIE['id'];
 
-    $crow;
-    $id = $_POST['id'];
-    $cid = $_POST['cid'];
 function AddtoWishlist($id, $cid)
 { 
    
@@ -27,6 +26,14 @@ function getContentDeatils($cid, $id){
     $result = mysqli_query($con, $sql);
     return $result;
     
+}
+
+function showWatchlist($id)
+{
+    $con = dbConnection();
+    $sql = "SELECT * FROM ContentInfo c, Watchlist w WHERE c.ContentID = w.ContentID AND w.UserID = '$id'";
+    $result = mysqli_query($con, $sql);
+     return $result;
 }
 
 ?>
