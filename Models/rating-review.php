@@ -29,6 +29,13 @@ function updateRatingandReview($cid, $id, $review, $rating) {
         return false;
     }
 }
+function setContentIDStatus($cid)
+{
+    $con = dbConnection();
+    $sql = "UPDATE contentinfo SET Status = 'SET' WHERE ContentID = '$cid'";
+    mysqli_query($con, $sql);
+}
+
 
  
 

@@ -6,6 +6,8 @@
     }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $cid = $_POST['cid'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
