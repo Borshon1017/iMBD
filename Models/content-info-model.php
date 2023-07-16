@@ -1,9 +1,6 @@
 <?php
-
-
  require_once('database.php');
  require_once('user-info-model.php');
- //$id =$_COOKIE['id'];
  if(isset($_COOKIE['flag']))
  {
     $id=$_COOKIE['id'];
@@ -18,10 +15,9 @@
  $crow;
 
 function uploadContent($id, $title, $description, $director, $cast, $category, $releaseDate, $poster, $trailer, $price, $downloadLink){
-
+    $status="Inactive";
     $con = dbConnection();
-
-    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$director}', '{$cast}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' )";
+    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$director}', '{$cast}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}','{$status}' )";
 
     if(mysqli_query($con, $sql)) return true;
     else return false;
