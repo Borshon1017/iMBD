@@ -75,7 +75,7 @@
                     echo"<tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
                     <td><font color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
                     <td><font color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
-                    <td><a href=\"../Controllers/recover-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Recover Content Writer</font></a></td>          
+                    <td><a href=\"../Controllers/recover-controller.php?id={$userid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Recover Critic</font></a></td>          
                     </tr>";
                 }
             }else{

@@ -6,7 +6,7 @@
     }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-
+    $paymentInfo = getAllPaymentInfo();
 ?>
 
 
@@ -45,8 +45,55 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Sales History</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <?php
-        showAllPaymentInfo();
+            <?php
+                if(mysqli_num_rows($paymentInfo)>0){
+                echo"
+                <table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
+                <tr>
+                <td>
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Username</font>
+                <hr color=\"F5C518\" width=\"120px\" align=\"left\">
+                </td>
+                <td>
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Content Title</font>
+                <hr color=\"F5C518\" width=\"150px\" align=\"left\">
+                </td>
+                <td>
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Price</font>
+                <hr color=\"F5C518\" width=\"75px\" align=\"left\">
+                </td>
+                <td>
+                <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Purchase Date</font>
+                <hr color=\"F5C518\" width=\"160px\" align=\"left\">
+                </td>
+                </tr>";
+
+                while ($row = mysqli_fetch_assoc($paymentInfo)) 
+                {
+                    $username = $row['Username'];
+                    $contentTitle = $row['ContentTitle'];
+                    $price = $row['Price'];
+                    $purchaseDate = $row['PurchaseDate'];
+                    echo"
+                    <tr>
+                    <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"5\">$username </font>
+                    </td>
+                    <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"5\">$contentTitle</font>
+                    </td>
+                    <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"5\">$price</font>
+                    </td>
+                    <td>
+                    <font color=\"white\" face=\"times new roman\" size=\"5\">$purchaseDate</font>
+                    </td>
+                    </tr>";
+                }
+            }else{
+                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Sales History Found</font></td></tr>";
+            }
+    
         ?>
         <br><br><br>
     </center>
