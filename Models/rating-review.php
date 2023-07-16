@@ -49,8 +49,19 @@ function pendingReview()
     $result = mysqli_query($con, $sql);
     return $result;
 }
+function showRatingReview($cid){
 
+    $con = dbConnection();
+    $sql = "SELECT * FROM RatingReview WHERE ContentID ='{$cid}'";    
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+    if($count == 1){
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+    else return false;
 
+}
 function pastReview($id)
 {
     $con = dbConnection();
