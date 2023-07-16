@@ -61,7 +61,7 @@
                         </tr>";
                     }
                 }else {
-                    echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Poll Found</font></td></tr>';
+                    echo '<tr><td align="center"><font color="white" face="times new roman" size="6">No Poll Found</font></td></tr>';
                 }
             ?>
         </table>
