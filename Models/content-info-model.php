@@ -3,7 +3,7 @@
 
  require_once('database.php');
  require_once('user-info-model.php');
- //$id =$_COOKIE['id'];
+
  if(isset($_COOKIE['flag']))
  {
     $id=$_COOKIE['id'];
@@ -21,7 +21,7 @@ function uploadContent($id, $title, $description, $director, $cast, $category, $
 
     $con = dbConnection();
 
-    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$director}', '{$cast}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' )";
+    $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$director}', '{$cast}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' , 'Inactive' )";
 
     if(mysqli_query($con, $sql)) return true;
     else return false;
@@ -632,7 +632,7 @@ function pendingReview($id, $site)
     $userid= $row['UserID'] ;
 
 
-    $sql = "SELECT * FROM ContentInfo WHERE Status ='N/A';";
+    $sql = "SELECT * FROM ContentInfo WHERE Status ='Inactive';";
 
     $result = mysqli_query($con, $sql);
 
@@ -692,8 +692,7 @@ function pastReview($id, $site)
     $userid= $row['UserID'] ;
 
 
-    $sql = "SELECT c.* FROM ContentInfo c LEFT JOIN RatingReview r ON c.ContentID = r.ContentID AND r.UserID = '$userid' WHERE r.RatingReviewID IS NOT NULL;";
-    $result = mysqli_query($con, $sql);
+    $sql = "SELECT * FROM ContentInfo WHERE Status ='Active';";    $result = mysqli_query($con, $sql);
 
     while ($crow = mysqli_fetch_assoc($result)) {
         $cid = $crow['ContentID'];

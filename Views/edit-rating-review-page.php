@@ -1,5 +1,6 @@
 <?php
     require_once('../Models/user-info-model.php');
+    require_once('../Models/content-info-model.php');
     require_once('../Models/rating-review.php'); 
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
@@ -8,11 +9,11 @@
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $cid = $_POST['cid'];
-    $result = getContentDetails($cid);
+    $result = getRatingDetails($cid);
     if ($result) {
         $crow = mysqli_fetch_assoc($result);
-        $rating = $crow['rating'];
-        $review = $crow['Review'];
+        $rating = $crow['Rating'];
+    $review = $crow['Review'];
      
     }
 ?>
@@ -51,7 +52,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
         <hr color="F5C518" width="650px"><br><br><br>
-        <form action="../Controllers/set-review.php" method="POST" enctype="multipart/form-data">
+        <form action="../Controllers/update-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
@@ -70,7 +71,7 @@
                     <font color="white" face="times new roman" size="6">Review : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10" name="review" valuer="<?php echo "review"?>" equired></textarea>
+                <textarea cols="59" rows="10" name="review" required><?php echo $review; ?></textarea>
                 </td>
             </tr>
             <tr align="center">

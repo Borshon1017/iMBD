@@ -32,7 +32,7 @@ function updateRatingandReview($cid, $id, $review, $rating) {
 function setContentIDStatus($cid)
 {
     $con = dbConnection();
-    $sql = "UPDATE contentinfo SET Status = 'SET' WHERE ContentID = '$cid'";
+    $sql = "UPDATE contentinfo SET Status = 'Active' WHERE ContentID = '$cid'";
     mysqli_query($con, $sql);
 }
 function getRatingDetails($cid){
