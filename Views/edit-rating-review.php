@@ -7,7 +7,7 @@
     }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    $result=pastReview($id);
+    $result= pastReview($id);
     
 ?>
 <!DOCTYPE html>
