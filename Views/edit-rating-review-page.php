@@ -59,9 +59,9 @@
                     <font color="white" face="times new roman" size="6">Rating [1-5] : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="rating" value="<?php echo $rating?>" required>
-                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' required>
-                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' required>
+                    <input type="text" size="60px" name="rating" value="<?php echo $rating?>">
+                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' >
+                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' >
 
 
                 </td>
@@ -71,7 +71,7 @@
                     <font color="white" face="times new roman" size="6">Review : </font>
                 </td>
                 <td>
-                <textarea cols="59" rows="10" name="review" required><?php echo $review; ?></textarea>
+                <textarea cols="59" rows="10" name="review"><?php echo $review; ?></textarea>
                 </td>
             </tr>
             <tr align="center">

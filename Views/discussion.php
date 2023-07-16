@@ -7,7 +7,7 @@
         popup("Error!","You need to sign-in in order to access this page.");
     }         
     $id=$_COOKIE['id'];
-    $row=UserInfo($id);
+    $row= UserInfo($id);
     $drow = getDiscussion();
     $did = $drow['DiscussionID'];
     $resultC = getAllComments($did);

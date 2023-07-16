@@ -24,6 +24,17 @@ function uploadContent($id, $title, $description, $director, $cast, $category, $
     if(mysqli_query($con, $sql)) return true;
     else return false;
 }
+function updateContent($cid, $title, $description, $director, $cast, $category, $releaseDate, $poster, $trailer, $price, $downloadLink) {
+    $con = dbConnection();
+
+    $sql = "UPDATE ContentInfo SET ContentTitle = '{$title}', ContentDescription = '{$description}', Director = '{$director}', Cast = '{$cast}', Category = '{$category}', ReleaseDate = '{$releaseDate}', Poster = '{$poster}', Trailer = '{$trailer}', Price = '{$price}', DownloadLink = '{$downloadLink}' , Status='Inactive' WHERE ContentID = '{$cid}'";
+
+    if (mysqli_query($con, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function getContentDetails($cid){
 
