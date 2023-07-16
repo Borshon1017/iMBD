@@ -46,7 +46,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Rating [1-5] : </font>
+                    <font color="white" face="times new roman" size="6">Rating [0-5] : </font>
                 </td>
                 <td>
                     <input type="text" size="60px" name="rating" required>

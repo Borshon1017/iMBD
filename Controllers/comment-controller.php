@@ -7,7 +7,7 @@ require_once('message-controller.php');
 if(isset($_POST['submit'])){
 
     $uID = $_COOKIE['id'];
-    $row=UserInfo($uID);
+    $row = UserInfo($uID);
     $username = $row['Username'];
     $cID = $_GET['cid'];
     $comment = $_POST['comment'];

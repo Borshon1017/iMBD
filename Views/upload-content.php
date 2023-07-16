@@ -49,7 +49,7 @@
                     <font color="white" face="times new roman" size="6">Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="title" required>
+                    <input type="text" size="60px" name="title">
                 </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@
                     <font color="white" face="times new roman" size="6">Description : </font>
                 </td>
                 <td>
-                    <textarea cols="59" rows="10" name="description" required></textarea>
+                    <textarea cols="59" rows="10" name="description"></textarea>
                 </td>
             </tr>
             <tr>
@@ -65,7 +65,7 @@
                     <font color="white" face="times new roman" size="6">Director : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="director" required>
+                    <input type="text" size="60px" name="director">
                 </td>
             </tr>
             <tr>
@@ -73,7 +73,7 @@
                     <font color="white" face="times new roman" size="6">Cast : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="cast" required>
+                    <input type="text" size="60px" name="cast">
                 </td>
             </tr>
             <tr>
@@ -104,7 +104,7 @@
                 <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
                     <tr>
                         <td>
-                            <input type="file" name="poster" accept=".png,.jpg,.jpeg" required> <br> <br>
+                            <input type="file" name="poster" accept=".png,.jpg,.jpeg"> <br> <br>
                         </td>
                     </tr>
                 </table>
@@ -118,7 +118,7 @@
                 <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
                     <tr>
                         <td>
-                            <input type="file" name="trailer" accept=".mp4,.mkv,.webm" required> <br> <br>
+                            <input type="file" name="trailer" accept=".mp4,.mkv,.webm"> <br> <br>
                         </td>
                     </tr>
                 </table>
@@ -129,7 +129,7 @@
                     <font color="white" face="times new roman" size="6">Price : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="price" required>
+                    <input type="text" size="60px" name="price">
                 </td>
             </tr>
             <tr>
@@ -137,7 +137,7 @@
                     <font color="white" face="times new roman" size="6">Download Link : </font>
                 </td>
                 <td>
-                    <input type="text" size="60px" name="downloadLink" requied>
+                    <input type="text" size="60px" name="downloadLink">
                 </td>
             </tr>
             <tr align="center">
