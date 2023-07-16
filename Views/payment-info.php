@@ -100,11 +100,11 @@
         </tr>
         <tr>
             <td>
-                <form action="../Controllers/confirm-purchase-controller.php".$cid>
+                <form action="../Controllers/confirm-purchase-controller.php" method="POST"  >
                 <font color="white" face="times new roman" size="4" name="cardNo">Enter Card Info</font>
                 <br>
                 <input type="text" name="cardInfo" size="43px"><br><br>
-
+                <input type="hidden" name="cid" value="<?php echo $cid; ?>">
                 <font color="white" face="times new roman" size="4" name="pinNo">Enter Pin Number</font>
                 <br>
                 <input type="password" name="pin" size="43px">
