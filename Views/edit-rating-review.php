@@ -1,5 +1,5 @@
 <?php
-    require_once('../Models/user-info-model.php'); 
+    require_once('../Models/rating-review.php'); 
     require_once('../Models/content-info-model.php'); 
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
