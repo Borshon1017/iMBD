@@ -3,7 +3,7 @@ require_once('message-controller.php');
 require_once('../Models/database.php');
 
 $id = $_COOKIE['id'];
-$cid = $_GET['cid'];
+$cid = $_POST['cid'];
 
 $con = dbConnection();
 
