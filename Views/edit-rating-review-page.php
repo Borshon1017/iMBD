@@ -10,6 +10,11 @@
     $row=UserInfo($id);
     $cid = $_GET['cid'];
     $result = getRatingDetails($cid);
+    $title=getContentDetails($cid);
+    if ($title){
+        $name=mysqli_fetch_assoc($title);
+        $t=$name['ContentTitle'];
+    }
     if ($result) {
         $crow = mysqli_fetch_assoc($result);
         $rating = $crow['Rating'];
@@ -50,7 +55,7 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Rate/Review:<?php echo "$t";?></font><br><br><br>
         <hr color="F5C518" width="650px"><br><br><br>
         <form action="../Controllers/update-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">

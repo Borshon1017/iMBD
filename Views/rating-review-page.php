@@ -1,11 +1,18 @@
 <?php
     require_once('../Models/user-info-model.php'); 
-    require_once('../Controllers/message-controller.php');  
+    require_once('../Controllers/message-controller.php'); 
+    require_once('../Models/content-info-model.php'); 
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $cid = $_GET['cid'];
+    $title=getContentDetails($cid);
+    if ($title){
+        $name=mysqli_fetch_assoc($title);
+        $t=$name['ContentTitle'];
+    }
    
 ?>
 <!DOCTYPE html>
@@ -41,7 +48,7 @@
     </table><br><br><br>
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Rate/Review: Movie Title</font><br><br><br>
+        <font color="F5C518" face="times new roman" size="12">Rate/Review: <?php echo "$t";?></font><br><br><br>
         <hr color="F5C518" width="650px"><br><br><br>
         <form action="../Controllers/set-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">

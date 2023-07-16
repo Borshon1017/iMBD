@@ -66,7 +66,7 @@
                                     <a href=\"content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                     <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                     <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>
-                                    <form action=\"rating-review-page.php\" method=\"POST\" enctype=\"multipart/form-data\">
+                                    <form action=\"rating-review-page.php?cid={$cid}\" method=\"POST\">
                                     <input type=\"hidden\" name=\"cid\" value=\"$cid\">
                                     <input type=\"submit\" value=\"Rating and Review\">
                                     </form>
