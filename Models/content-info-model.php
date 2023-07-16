@@ -89,13 +89,21 @@ function showAnime()
 }
 
 
-function searchContent($title) {
+function searchContent($title, $category='') {
     global $id;
     $con = dbConnection();
-    $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%'";
+    if (!empty($category))
+    {
+    $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%' AND Category = '$category'";
+    }
+    
+    else
+    {
+        $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%' ";
+    }
+
     $result = mysqli_query($con, $sql);
     return $result;
-
 }
 
 
