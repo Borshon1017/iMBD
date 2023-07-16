@@ -158,46 +158,8 @@ function searchContent($title) {
     $con = dbConnection();
     $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$title%'";
     $result = mysqli_query($con, $sql);
-    $count = mysqli_num_rows($result);
+    return $result;
 
-    if ($count > 0) {
-        for ($i = 0; $i < $count; $i++) {
-            $crow = mysqli_fetch_assoc($result);
-            $posterURL = $crow['Poster'];
-            $title = $crow['ContentTitle'];
-            $description = $crow['ContentDescription'];
-            $releaseDate = $crow['ReleaseDate'];
-
-            if (strlen($description) > 220) {
-                $description = substr($description, 0, 220) . '...';
-            }
-
-            echo '<tr>';
-            echo '<td><img src="../' . $posterURL . '" width="180px"></td>';
-            echo '<td valign="top" align="left">';
-            echo '<font color="white" face="times new roman" size="6">' . $title . '</font><br><br>';
-            echo '<font color="white" face="times new roman" size="4">' . $description . '</font><br><br>';
-            echo '<font color="white" face="times new roman" size="4">Release Date: ' . $releaseDate . '</font><br><br>';
-            global $id;
-            $row = UserInfo($id);
-            if ($row['Role'] == "General User") {
-                $cid = $crow['ContentID'];
-                $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
-                $result = mysqli_query($con, $sql);
-                $count = mysqli_num_rows($result);
-                if ($count > 0) {
-                    echo '<font color="5799EF" face="times new roman" size="4">Already added to Watchlist</font><br><br>';
-                } else {
-                    echo '<a href="Controllers/Add-to-Watchlist.php?cid=' . $cid . '"><font color="5799EF" face="times new roman" size="4">Add to Watchlist</font></a><br><br>';
-                }
-            }
-
-            echo '</td>';
-            echo '</tr>';
-        }
-    } else {
-        echo '<tr><td align="center"><font color="white" face="times new roman" size="12">No Match Found</font></td></tr>';
-    }
 }
 
 
