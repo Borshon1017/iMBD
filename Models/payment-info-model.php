@@ -1,16 +1,9 @@
 <?php
-
-
  require_once('database.php');
  require_once('user-info-model.php');
- //$id =$_COOKIE['id'];
  if(isset($_COOKIE['flag']))
  {
     $id=$_COOKIE['id'];
- }
- else
- {
-   
  }
 
  function getPaymentInfoByUserID($userID)
