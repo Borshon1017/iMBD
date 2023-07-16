@@ -24,18 +24,18 @@ session_start();
                 <br><br>
                 <font color="white" face="times new roman" size="4">Enter OTP</font>
                 <br>
-                <input type="text" name="otp" size="43px" required><br><br>
+                <input type="text" name="otp" size="43px"><br><br>
                 <hr color="F5C518" width="auto">
                 <br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
-                <input type="password" name="password" size="43px" required>
+                <input type="password" name="password" size="43px">
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Re-enter password</font>
                 <br>
-                <input type="password" name="repassword" size="43px" required>
+                <input type="password" name="repassword" size="43px">
                 <br><br><br>
                 <button name="submit">Save changes and Sign-In</button>
                 </form>

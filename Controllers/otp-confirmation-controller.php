@@ -13,7 +13,11 @@ if(isset($_POST['submit'])){
     
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
+
+    //Cross password validation
     if($password!=$repassword) popup("Error!", "Passwords do not match. Please check again.");
+
+    //Password validation
     else if(strlen($repassword)<8)popup("Error!", "Password must be atleast 8 characters long.");
     else{
         if(changePassword($id,$password)==true) popup("Congratulations!", "Your password has been changed.");

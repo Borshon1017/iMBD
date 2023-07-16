@@ -19,7 +19,7 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="mail" size="43px" required><br><br>
+                <input type="email" name="mail" size="43px"><br><br>
                 <button size="250px" name="submit">Continue</button>
                 </form>
                 <br>

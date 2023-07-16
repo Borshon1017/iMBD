@@ -7,7 +7,14 @@
     }
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    if(isset($_POST['submit'])) $title = $_POST['title'];
+    if(isset($_POST['submit'])){
+
+        $title = $_POST['title'];
+        if(empty($title)){
+            popup("Error!","Please enter what you want to search.");
+        }
+
+    } 
 
 ?>
 

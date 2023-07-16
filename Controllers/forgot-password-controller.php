@@ -5,12 +5,15 @@ require_once('message-controller.php');
 require "../Vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 if(isset($_POST['submit'])){
-        
+
+    
     session_start();
     $sendTo = $_POST['mail'];
+
+    //Null value checking
+
     $otp = random_int(1000, 9999);
     if(uniqueEmail($sendTo)) popup("Error!", "The email you provided does not exist in our database");
     $row = getRowByMail($sendTo);
@@ -41,8 +44,5 @@ if(isset($_POST['submit'])){
     $mail->send();
     header('location:../Views/otp-confirmation.php');
 }
-
-
-
 
 ?>
