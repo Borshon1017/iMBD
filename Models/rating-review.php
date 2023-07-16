@@ -62,7 +62,7 @@ function showRatingReview($cid){
     else return false;
 
 }
-function pastReview($id, $site)
+function pastReview($id)
 {
     $con = dbConnection();
     $sql = "SELECT * FROM ContentInfo WHERE Status ='Active';";
