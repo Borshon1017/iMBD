@@ -8,6 +8,7 @@ session_start();
     }
     $id =$_COOKIE['id'];
     $row=UserInfo($id);
+    $result=showNewArrivals();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,10 +48,39 @@ session_start();
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php $totalContent = countContent();
-for ($cid = $totalContent; $cid >= 1; $cid--) {
-  showNewArrivals($cid, "view");
-} ?>
+                    <?php
+                                if(mysqli_num_rows($result)>0){
+                                    while($crow=mysqli_fetch_assoc($result)){
+                                        $cid=$crow['ContentID'];
+                                        $posterURL = $crow['Poster'];
+                                        $title = $crow['ContentTitle'];
+                                        $description = $crow['ContentDescription'];
+                                        $releaseDate = $crow['ReleaseDate'];
+                                        if (strlen($description) > 220) {
+                                        $description = substr($description, 0, 220) . '...';
+                                        }
+                                        echo "<tr>                          
+                                        <td><a href=\"content-page.php?cid=$cid\"><img src=\"../$posterURL\" width=\"180px\"></a></td>
+                                        <td valign=\"top\" align=\"left\">
+                                        <a href=\"content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
+                                        <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
+                                        <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                        if($row['Role'] == "General User")
+                                        {
+                                            $content=watchlistcheck($id,$cid);
+                                            $count = mysqli_num_rows($content);
+                                            if ($count > 0) 
+                                            {
+                                             echo"<font color=\"5799EF\" face=\"times new roman\" size=\"4\">Already added to Watchlist</font><br><br>";
+                                            }
+                                            else{
+                                             echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                            ?> 
                 </table><br><br><br>
     </center>
     <br><br><br>

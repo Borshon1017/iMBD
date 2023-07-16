@@ -9,6 +9,7 @@
     $id =$_COOKIE['id'];
     $row=UserInfo($id);
     $result=showMovies();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

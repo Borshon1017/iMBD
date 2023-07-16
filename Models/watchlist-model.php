@@ -1,7 +1,6 @@
 <?php
  require_once('database.php');
-    
- $id = $_COOKIE['id'];
+
 
 function AddtoWishlist($id, $cid)
 { 
