@@ -70,7 +70,7 @@
                         <font color="white" face="times new roman" size="6">Title:</font>
                     </td>
                     <td>
-                        <input type="text" size="60px" name="title" value="<?php echo $title; ?>" required>
+                        <input type="text" size="60px" name="title" value="<?php echo $title; ?>" >
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +78,7 @@
                         <font color="white" face="times new roman" size="6">Description:</font>
                     </td>
                     <td>
-                        <textarea cols="59" rows="10" name="description" required><?php echo $description; ?></textarea>
+                        <textarea cols="59" rows="10" name="description" ><?php echo $description; ?></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +86,7 @@
                         <font color="white" face="times new roman" size="6">Director:</font>
                     </td>
                     <td>
-                        <input type="text" size="60px" name="director" value="<?php echo $director; ?>" required>
+                        <input type="text" size="60px" name="director" value="<?php echo $director; ?>" >
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <font color="white" face="times new roman" size="6">Cast:</font>
                     </td>
                     <td>
-                        <input type="text" size="60px" name="cast" value="<?php echo $cast; ?>" required>
+                        <input type="text" size="60px" name="cast" value="<?php echo $cast; ?>">
                     </td>
                 </tr>
                 <tr>
@@ -150,7 +150,7 @@
                         <font color="white" face="times new roman" size="6">Price:</font>
                     </td>
                     <td>
-                        <input type="text" size="60px" name="price" value="<?php echo $price; ?>" required>
+                        <input type="text" size="60px" name="price" value="<?php echo $price; ?>">
                     </td>
                 </tr>
                 <tr>
@@ -158,7 +158,7 @@
                         <font color="white" face="times new roman" size="6">Download Link:</font>
                     </td>
                     <td>
-                        <input type="text" size="60px" name="downloadLink" value="<?php echo $downloadLink;?>" required>
+                        <input type="text" size="60px" name="downloadLink" value="<?php echo $downloadLink;?>">
                     </td>
                 </tr>
                 <tr align="center">

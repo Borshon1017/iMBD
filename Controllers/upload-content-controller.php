@@ -47,6 +47,9 @@
         //Null value checking
         if(strlen(trim($title)) == 0 || strlen(trim($description)) == 0 || strlen(trim($director)) == 0 || strlen(trim($cast)) == 0 || strlen(trim($category)) == 0 || strlen(trim($releaseDate)) == 0 || strlen(trim($price)) == 0 || strlen(trim($downloadLink)) == 0) popup("Error!", "You can not leave any fields empty.");
 
+        //Price validation
+        if(!is_numeric($price)) popup("Error!", "Price has to be a number.");
+
         $status = uploadContent($id, $title, $description, $director, $cast, $category, $releaseDate, $poster, $trailer, $price, $downloadLink);
         
         if($status) popup("Congratulations!", "Your content has been uploaded.");

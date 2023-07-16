@@ -95,6 +95,7 @@
                                                 <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                                if(isset($_COOKIE['flag'])){
                                                 if($row['Role'] == "General User")
                                                 {
                                                 $content=watchlistcheck($id,$cid);
@@ -106,6 +107,7 @@
                                                 else{
                                                 echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
                                                 }
+                                            }
                                             }
                                         }
                                     
@@ -137,6 +139,7 @@
                                                 <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                                if(isset($_COOKIE['flag'])){
                                                 if($row['Role'] == "General User")
                                                 {
                                                 $content=watchlistcheck($id,$cid);
@@ -148,6 +151,7 @@
                                                 else{
                                                 echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
                                                 }
+                                            }
                                             }
                                         }
                                     
@@ -179,6 +183,7 @@
                                                 <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                                 <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                                if(isset($_COOKIE['flag'])){
                                                 if($row['Role'] == "General User")
                                                 {
                                                 $content=watchlistcheck($id,$cid);
@@ -189,7 +194,7 @@
                                                 }
                                                 else{
                                                 echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
-                                                }
+                                                }}
                                             }
                                         }
                                     
@@ -245,6 +250,7 @@
                                         <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                         <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                         <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                        if(isset($_COOKIE['flag'])){
                                         if($row['Role'] == "General User")
                                         {
                                             $content=watchlistcheck($id,$cid);
@@ -255,6 +261,7 @@
                                             }
                                             else{
                                              echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
+                                            }
                                             }
                                         }
                                     }

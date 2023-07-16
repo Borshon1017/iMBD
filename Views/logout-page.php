@@ -73,7 +73,7 @@
 </html>
 
 <?php
-
+    session_start();
     session_destroy();
     setcookie("flag","",time()-100000000,"/");
     setcookie("id","",time()-100000000,"/");
