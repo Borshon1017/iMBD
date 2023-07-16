@@ -20,14 +20,12 @@ if ($contentResult) {
 $row=UserInfo($id);
 
     $username=$row['Username'];
-    
-
-
-
-
-
-addToPurchase($id, $username, $title, $price, $purchaseDate);
-popup("Purchased", "Content purchased sucessfully");
-    
+    $role=$row['Role'];
+    if($role=="General User"){
+    addToPurchase($id, $username, $title, $price, $purchaseDate);
+    popup("Purchased", "Content purchased sucessfully");
+    }else{
+        popup("Error", "You can't purchase Content"); 
+    }
 
 ?>

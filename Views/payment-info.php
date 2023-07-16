@@ -8,6 +8,9 @@
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $cid = $_GET['cid'];
+    if($row['Role']!="General User"){
+        popup("Error", "You can't purchase Content"); 
+    }
 
     $result = getContentDetails($cid);
     if ($result) {
