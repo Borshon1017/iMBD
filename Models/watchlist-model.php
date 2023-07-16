@@ -36,4 +36,11 @@ function showWatchlist($id)
      return $result;
 }
 
+function watchlistcheck($id,$cid){
+    $con = dbConnection();
+    $sql = "SELECT * FROM watchlist WHERE UserID = '$id' AND ContentID = '$cid'";
+    $result = mysqli_query($con, $sql);
+    return $result;
+}
+
 ?>

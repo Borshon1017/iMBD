@@ -3,8 +3,10 @@
     require_once('Models/content-info-model.php');
     require_once('Models/discussion-model.php');
     require_once('Models/poll-model.php');
+    require_once('Models/watchlist-model.php'); 
     $prow = getPoll();
     $drow = getDiscussion();
+    $result=showMovies();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,10 +72,42 @@
                 <a href="Views/movies.php"><font color="F5C518" face="times new roman" size="12">Movies</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href="Views/movies.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
-                <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                
-                <?php for ($cid = 1; $cid <=6; $cid++) showMovies($cid, "index"); ?>
-                   
+                <table width="90%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">             
+                            <?php  $counter=0;
+                                if(mysqli_num_rows($result)>0){
+                                    while($crow=mysqli_fetch_assoc($result)){
+                                                if($counter===3) break;
+                                                else $counter++;
+                                                $cid=$crow['ContentID'];
+                                                $posterURL = $crow['Poster'];
+                                                $title = $crow['ContentTitle'];
+                                                $description = $crow['ContentDescription'];
+                                                $releaseDate = $crow['ReleaseDate'];
+                                                if (strlen($description) > 220) {
+                                                $description = substr($description, 0, 220) . '...';
+                                                }
+                                                echo "<tr>                          
+                                                <td><a href=\"Views/content-page.php?cid=$cid\"><img src=\"$posterURL\" width=\"180px\"></a></td>
+                                                <td valign=\"top\" align=\"left\">
+                                                <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
+                                                <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
+                                                <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
+                                                if($row['Role'] == "General User")
+                                                {
+                                                $movie=watchlistcheck($id,$cid);
+                                                $count = mysqli_num_rows($movie);
+                                                if ($count > 0) 
+                                                {
+                                                echo"<font color=\"5799EF\" face=\"times new roman\" size=\"4\">Already added to Watchlist</font><br><br>";
+                                                }
+                                                else{
+                                                echo"<a href=\"Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
+                                                }
+                                            }
+                                        }
+                                    
+                                }         
+                            ?>
                 </table><br><br><br>
 
                 <a href="Views/tv-shows.php"><font color="F5C518" face="times new roman" size="12">TV Shows</font></a><br>
