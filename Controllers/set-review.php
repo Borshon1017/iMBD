@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rating=$_POST['rating'];
 
     giveRatingandReview($cid, $id,$review, $rating);
+    setContentIDStatus($cid);
 
     popup("Rating/Review", "Rating and Review has been set");
     

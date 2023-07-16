@@ -632,7 +632,8 @@ function pendingReview($id, $site)
     $userid= $row['UserID'] ;
 
 
-    $sql = "SELECT c.* FROM ContentInfo c WHERE NOT EXISTS ( SELECT 1 FROM RatingReview r WHERE r.ContentID = c.ContentID AND r.UserID = '$userid' );";
+    $sql = "SELECT * FROM ContentInfo WHERE Status ='N/A';";
+
     $result = mysqli_query($con, $sql);
 
     while ($crow = mysqli_fetch_assoc($result)) {
