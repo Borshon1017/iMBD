@@ -44,16 +44,20 @@
         }
 
         //Email validation 
-        $checking1 = explode('@', $email);
+        $checking1 = explode('@', $sender);
         if(count($checking1) == 2){
             $checking2 = explode('.', $checking1[1]);
+            $c = count($checking2);
+            if(count($checking2) <= 2){
+                popup("Error!", "Invalid email, Please try again.");
+                return;
+            }
         }
         else {
             popup("Error!", "Invalid email, Please try again.");
             return;
         }
-        if(count($checking2) == 2){}
-        else {
+        if($email[strlen($sender)-1] == "."){
             popup("Error!", "Invalid email, Please try again.");
             return;
         }

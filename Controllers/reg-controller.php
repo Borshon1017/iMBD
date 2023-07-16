@@ -57,6 +57,10 @@
             popup("Error!", "Invalid email, Please try again.");
             return;
         }
+        if($email[strlen($email)-1] == "."){
+            popup("Error!", "Invalid email, Please try again.");
+            return;
+        }
 
         //Password validation
         if(strlen($password)<8) popup("Error!", "Password must be atleast 8 characters long.");
