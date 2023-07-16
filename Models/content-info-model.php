@@ -1,6 +1,4 @@
 <?php
-
-
  require_once('database.php');
  require_once('user-info-model.php');
 
@@ -18,7 +16,7 @@
  $crow;
 
 function uploadContent($id, $title, $description, $director, $cast, $category, $releaseDate, $poster, $trailer, $price, $downloadLink){
-
+    $status="Inactive";
     $con = dbConnection();
 
     $sql = "insert into ContentInfo values('','{$id}' ,'{$title}' ,'{$description}', '{$director}', '{$cast}', '{$category}', '{$releaseDate}', '{$poster}', '{$trailer}', '{$price}' ,'{$downloadLink}' , 'Inactive' )";
