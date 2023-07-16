@@ -7,6 +7,8 @@
     }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    $result=pastReview($id);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +47,33 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                    <?php pastReview($id, "view"); ?>
+                    <?php  
+                            if(mysqli_num_rows($result)>0){
+                                    while ($crow = mysqli_fetch_assoc($result)) {
+                                    $cid = $crow['ContentID'];
+                                    $posterURL = $crow['Poster'];
+                                    $title = $crow['ContentTitle'];
+                                    $description = $crow['ContentDescription'];
+                                    $releaseDate = $crow['ReleaseDate'];
+
+                                    if (strlen($description) > 220) {
+                                    $description = substr($description, 0, 220) . '...';
+                                    }
+                                    echo"
+                                    <tr>
+                                    <td><a href=\"content-page.php?cid=$cid\"><img src=\"../$posterURL\" width=\"180px\"></a></td>
+                                    <td valign=\"top\" align=\"left\">
+                                    <a href=\"content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
+                                    <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br> 
+                                    <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>
+                                    <form action=\"edit-rating-review-page.php?cid={$cid}\" method=\"POST\" enctype=\"multipart/form-data\">
+                                    <input type=\"submit\" value=\"Edit Rating and Review\">
+                                    
+                                    </form>";
+                                }    
+                                    
+                            }
+                    ?>
         </table>
         
         <br><br><br><br><br><br>

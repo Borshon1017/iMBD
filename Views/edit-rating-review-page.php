@@ -8,12 +8,12 @@
     }        
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
-    $cid = $_POST['cid'];
+    $cid = $_GET['cid'];
     $result = getRatingDetails($cid);
     if ($result) {
         $crow = mysqli_fetch_assoc($result);
         $rating = $crow['Rating'];
-    $review = $crow['Review'];
+        $review = $crow['Review'];
      
     }
 ?>

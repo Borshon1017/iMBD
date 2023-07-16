@@ -9,7 +9,6 @@
     $id =$_COOKIE['id'];
     $row=UserInfo($id);
     $result=showMovies();
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +48,7 @@
         <hr color="F5C518" width="530px"><br><br><br>
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-                            <?php 
+                        <?php 
                                 if(mysqli_num_rows($result)>0){
                                     while($crow=mysqli_fetch_assoc($result)){
                                         $cid=$crow['ContentID'];
@@ -68,8 +67,8 @@
                                         <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
                                         if($row['Role'] == "General User")
                                         {
-                                            $content=watchlistcheck($id,$cid);
-                                            $count = mysqli_num_rows($content);
+                                            $movie=watchlistcheck($id,$cid);
+                                            $count = mysqli_num_rows($movie);
                                             if ($count > 0) 
                                             {
                                              echo"<font color=\"5799EF\" face=\"times new roman\" size=\"4\">Already added to Watchlist</font><br><br>";
@@ -81,7 +80,7 @@
                                     }
                                     
                                 }
-                            ?>
+                                ?>
                 </table><br><br><br>
     </center>
     <br><br><br>
