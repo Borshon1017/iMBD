@@ -240,9 +240,9 @@
                                         $description = substr($description, 0, 220) . '...';
                                         }
                                         echo "<tr>                          
-                                        <td><a href=\"content-page.php?cid=$cid\"><img src=\"$posterURL\" width=\"180px\"></a></td>
+                                        <td><a href=\"Views/content-page.php?cid=$cid\"><img src=\"$posterURL\" width=\"180px\"></a></td>
                                         <td valign=\"top\" align=\"left\">
-                                        <a href=\"content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
+                                        <a href=\"Views/content-page.php?cid=$cid\"> <font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                                         <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
                                         <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>";
                                         if($row['Role'] == "General User")
