@@ -26,7 +26,7 @@
         $price= $crow['Price'];
         $category=$crow['Category'];
 
- 
+
     } 
 
 ?>

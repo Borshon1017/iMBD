@@ -13,7 +13,6 @@
 
     if(move_uploaded_file($src, $des)){ 
 
-    $info = $_SESSION['info'];
     updateProfilePicture($fileName, $id);
     popup("Success!", "Your profile picture has been updated.");
 

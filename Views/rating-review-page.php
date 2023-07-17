@@ -58,8 +58,8 @@
                 </td>
                 <td>
                     <input type="text" size="60px" name="rating">
-                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' required>
-                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' required>
+                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>'>
+                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>'>
 
 
                 </td>
