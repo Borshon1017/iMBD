@@ -64,7 +64,7 @@
     <center>
     <font color="F5C518" face="times new roman" size="12"><?php echo $title ?></font><br><br><br>
     <img src="../<?php echo $posterURL?>" width="250px"><br><br><br>
-    <a href="<?php echo $downloadlink ?>"><button>Download Link</button>
+    <a href="../../<?php echo $downloadlink ?>"><button>Download Link</button>
     </center>
     <br><br><br><br><br><br>
     <center>

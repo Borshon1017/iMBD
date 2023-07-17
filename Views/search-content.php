@@ -2,6 +2,7 @@
     require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');
     require_once('../Models/content-info-model.php');  
+    require_once('../Models/watchlist-model.php');
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
     }
@@ -98,12 +99,20 @@
                         <td valign=\"top\" align=\"left\">
                             <a href=\"content-page.php?cid={$cid}\"><font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
                             <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
-                            <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date: $releaseDate</font><br><br>
-                            <form action=\"../Controllers/remove-from-watchlist.php\" method=\"POST\" enctype=\"multipart/form-data\">
-                                <input type=\"hidden\" name=\"cid\" value=\"$cid\">
-                                <input type=\"submit\" value=\"Remove\">
-                            </form>
-                        </td>
+                            <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date: $releaseDate</font><br><br>";
+                            if($row['Role'] == "General User")
+                                                {
+                                                $content=watchlistcheck($id,$cid);
+                                                $count = mysqli_num_rows($content);
+                                                if ($count > 0) 
+                                                {
+                                                echo"<font color=\"5799EF\" face=\"times new roman\" size=\"4\">Already added to Watchlist</font><br><br>";
+                                                }
+                                                else{
+                                                echo"<a href=\"../Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
+                                                }
+                                            }
+                       echo " </td>
                     </tr>";
                 }
             } else {

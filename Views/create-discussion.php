@@ -47,7 +47,7 @@
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font color="white" face="times new roman" size="6">Discussion Title : </font>
+                    <font color="white" face="times new roman" size="6">Discussion Title: </font>
                 </td>
                 <td>
                     <input type="text" size="60px" name="discussionTitle">
