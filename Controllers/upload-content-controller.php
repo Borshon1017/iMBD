@@ -2,7 +2,7 @@
 
     require_once('message-controller.php');
     require_once('../Models/content-info-model.php');
-    session_start();        
+    session_start(); 
     
     if(isset($_POST['Upload'])){
 
