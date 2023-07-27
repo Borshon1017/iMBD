@@ -19,31 +19,45 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Full Name</font>
                 <br>
-                <input type="text" name="fullname" placeholder="First and Last name" size="43px">
+                <input type="text" name="fullname" placeholder="First and Last name" size="43px" onkeyup="validateForm()">
+                <br>
+                <font color="white" face="times new roman" size="3" id="fnameError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Username</font>
                 <br>
                 <input type="text" name="username" size="43px">
-                <br><br>
+                <br><br><br>
                 <font color="white" face="times new roman" size="4">Phone number</font>
                 <br>
                 <input type="text" name="phone" size="43px">
+                <br>
+                <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
                 <input type="email" name="email" size="43px">
+                <br>
+                <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
                 <input type="password" name="password" size="43px">
+                <br>
+                <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Re-enter password</font>
                 <br>
                 <input type="password" name="repassword" size="43px">
+                <br>
+                <font color="white" face="times new roman" size="3"></font>
                 <br><br>
+<<<<<<< Updated upstream
                 <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the <a href="terms-and-services.php">Terms and Conditioms</a></font><br><br>
+=======
+                <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the Terms and Conditioms</font><br><br><br>
+>>>>>>> Stashed changes
                 <button size="250px" name="submit">Create your iMBD account</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
@@ -57,6 +71,20 @@
     </table>
     </form>
     <br><br><br>
+
+    <script>
+
+        function validateForm(){
+
+            document.getElementById('fnameError').innerHTML = "bhul naam";
+            return;
+
+        }
+
+
+    </script>
+
+
     <center>
         <a href="about-us.php"><font color="white" face="times new roman" size="4">About Us</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="helpline.php"><font color="white" face="times new roman" size="4">Helpline</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

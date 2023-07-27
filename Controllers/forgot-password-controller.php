@@ -5,6 +5,7 @@ require_once('message-controller.php');
 require "../Vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 if(isset($_POST['submit'])){
 
@@ -33,7 +34,7 @@ if(isset($_POST['submit'])){
     $mail->Port = 587;
 
     $mail->Username = "helpline.imbd@gmail.com";
-    $mail->Password = "hipwkbqpjfyvpdww";
+    $mail->Password = "tqkdteyhzbsazypb";
 
     $mail->setFrom("helpline.imbd@gmail.com", "iMBD");
 
