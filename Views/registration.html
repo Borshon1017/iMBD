@@ -37,9 +37,9 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="email" id="email"  size="43px" onkeyup="checkEmail">
+                <input type="email" name="email" id="email"  size="43px" onkeyup="checkMail()">
                 <br>
-                <font color="white" face="times new roman" size="3"></font>
+                <font color="white" face="times new roman" size="3" id="mailError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
@@ -169,7 +169,18 @@ for(let i=0; i<name.length; i++){
                 document.getElementById('passwordError').innerHTML = "";
             }
         }
+        function checkMail(){
+            let mail = document.getElementById('email').value;
+            let atPos = mail.indexOf('@');
+            let dotPos = mail.lastIndexOf('.');
 
+            if(!mail) document.getElementById('mailError').innerHTML = "email can not be empty";
+            else if (atPos === -1 || atPos === 0 || dotPos === -1 || dotPos <= atPos + 1 || dotPos === mail.length - 1) {
+                document.getElementById('mailError').innerHTML = "invalid email address";
+            }else {
+                document.getElementById('mailError').innerHTML = "";
+            }
+        }
 
     </script>
 
