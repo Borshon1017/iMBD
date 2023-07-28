@@ -19,45 +19,43 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Full Name</font>
                 <br>
-                <input type="text" name="fullname" placeholder="First and Last name" size="43px" onkeyup="validateForm()">
+                <input type="text" name="fullname" id="fullname" placeholder="First and Last name" size="43px" onkeyup="validateForm()">
                 <br>
                 <font color="white" face="times new roman" size="3" id="fnameError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Username</font>
                 <br>
-                <input type="text" name="username" size="43px">
-                <br><br><br>
+                <input type="text" name="username" id="username" size="43px" onkeyup="checkFullName()">
+                <br>
+                <font color="white" face="times new roman" size="3" id="usernameError"></font>
+                <br><br>
                 <font color="white" face="times new roman" size="4">Phone number</font>
                 <br>
-                <input type="text" name="phone" size="43px">
+                <input type="text" name="phone" id="phone" size="43px" onkeyup="">
                 <br>
-                <font color="white" face="times new roman" size="3"></font>
+                <font color="white" face="times new roman" size="3" id="phoneError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="email" size="43px">
+                <input type="email" name="email" id="email"  size="43px" onkeyup="">
                 <br>
                 <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
-                <input type="password" name="password" size="43px">
+                <input type="password" name="password" id="password" size="43px" onkeyup="">
                 <br>
                 <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
-                <font color="white" face="times new roman" size="4">Re-enter password</font>
+                <font color="white" face="times new roman" id="repassword" size="4">Re-enter password</font>
                 <br>
-                <input type="password" name="repassword" size="43px">
+                <input type="password" name="repassword" size="43px" onkeyup="">
                 <br>
-                <font color="white" face="times new roman" size="3"></font>
+                <font color="white" face="times new roman" size="3" id="passwordError"></font>
                 <br><br>
-<<<<<<< Updated upstream
-                <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the <a href="terms-and-services.php">Terms and Conditioms</a></font><br><br>
-=======
                 <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the Terms and Conditioms</font><br><br><br>
->>>>>>> Stashed changes
                 <button size="250px" name="submit">Create your iMBD account</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
@@ -74,12 +72,30 @@
 
     <script>
 
-        function validateForm(){
+function checkFullName() {
+            let name = document.getElementById('fullname').value;
+            let nameLen = name.split(' ');
 
-            document.getElementById('fnameError').innerHTML = "bhul naam";
-            return;
+            if (nameLen.length < 2) {
+                document.getElementById('fnameError').innerHTML = "Name must contain at least 2 words";
+            } else {
+                document.getElementById('fnameError').innerHTML = "";
+            }
 
+           
+            for (let i = 0; i < name.length; i++) {
+                if (!checkChar(name[i])) {
+                    document.getElementById('fnameError').innerHTML = "Name can only contain letters, dots, underscores, or spaces.";
+                    break; 
+                }
+            }
         }
+        function checkChar(ch) {
+            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch === '.' || ch === '_' || ch === ' ';
+        }
+       
+
+        
 
 
     </script>
