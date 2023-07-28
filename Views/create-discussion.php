@@ -45,29 +45,33 @@
         <hr color="F5C518" width="530px"><br><br><br>
         <form action="../Controllers/create-discussion-controller.php" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Discussion Title: </font>
-                </td>
-                <td>
-                    <input type="text" size="60px" name="discussionTitle">
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <font color="white" face="times new roman" size="6">Description : </font>
-                </td>
-                <td>
-                    <textarea cols="59" rows="10" name="description"></textarea>
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <br><br><br>
-                    <input type="submit" name="submit" value="Create Discussion">
-                </td>
-            </tr>
-        </table><br><br><br>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Discussion Title: </font>
+                    </td>
+                    <td>
+                        <input type="text" size="60px" name="discussionTitle" id="discussionTitle" onkeyup="checkTitleLength()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="titleError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <font color="white" face="times new roman" size="6">Description : </font>
+                    </td>
+                    <td>
+                        <textarea cols="59" rows="10" name="description" id="description" onkeyup="checkDescriptionLength()"></textarea>
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="descriptionError"></font>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <br><br><br>
+                        <input type="submit" name="submit" value="Create Discussion">
+                    </td>
+                </tr>
+            </table><br><br><br>
         </form>
     </center>
     <br><br><br>
@@ -80,6 +84,24 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+    <script>
+        function checkTitleLength() {
+            let title = document.getElementById('discussionTitle').value;
+            if (title.length > 50) {
+                document.getElementById('titleError').innerHTML = "Title cannot be more than 50 characters.";
+            } else {
+                document.getElementById('titleError').innerHTML = "";
+            }
+        }
 
+        function checkDescriptionLength() {
+            let description = document.getElementById('description').value;
+            if (description.length > 700) {
+                document.getElementById('descriptionError').innerHTML = "Description cannot be more than 700 characters.";
+            } else {
+                document.getElementById('descriptionError').innerHTML = "";
+            }
+        }
+    </script>
 </body>
 </html>
