@@ -149,15 +149,16 @@ for(let i=0; i<name.length; i++){
         }
 
         function checkPassword() {
-            let password = document.getElementById('password').value;
+        let password = document.getElementById('password').value;
 
-            if (password === '') {
-                document.getElementById('passwordError').innerHTML = "Password cannot be empty.";
-            } else {
-                document.getElementById('passwordError').innerHTML = "";
-                
-            }
+        if (password === '') {
+            document.getElementById('passwordError').innerHTML = "Password cannot be empty.";
+        } else if (password.length < 8) {
+            document.getElementById('passwordError').innerHTML = "Password must be at least 8 characters long.";
+        } else {
+            document.getElementById('passwordError').innerHTML = "";
         }
+    }
 
         function checkRepassword() {
             let password = document.getElementById('password').value;
