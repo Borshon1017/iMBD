@@ -25,25 +25,25 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Username</font>
                 <br>
-                <input type="text" name="username" id="username" size="43px" onkeyup="checkFullName()">
+                <input type="text" name="username" id="username" size="43px" onkeyup="checkUserName()">
                 <br>
                 <font color="white" face="times new roman" size="3" id="usernameError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Phone number</font>
                 <br>
-                <input type="text" name="phone" id="phone" size="43px" onkeyup="">
+                <input type="text" name="phone" id="phone" size="43px" onkeyup="checkPhone()">
                 <br>
                 <font color="white" face="times new roman" size="3" id="phoneError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Email</font>
                 <br>
-                <input type="email" name="email" id="email"  size="43px" onkeyup="">
+                <input type="email" name="email" id="email"  size="43px" onkeyup="checkEmail">
                 <br>
                 <font color="white" face="times new roman" size="3"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="4">Password</font>
                 <br>
-                <input type="password" name="password" id="password" size="43px" onkeyup="">
+                <input type="password" name="password" id="password" size="43px" onkeyup="checkPassword()">
                 <br>
                 <font color="white" face="times new roman" size="3"></font>
                 <br><br>
@@ -51,7 +51,7 @@
                 <br><br>
                 <font color="white" face="times new roman" id="repassword" size="4">Re-enter password</font>
                 <br>
-                <input type="password" name="repassword" size="43px" onkeyup="">
+                <input type="password" name="repassword" size="43px" onkeyup="checkRepassword()">
                 <br>
                 <font color="white" face="times new roman" size="3" id="passwordError"></font>
                 <br><br>
@@ -92,7 +92,83 @@ for(let i=0; i<name.length; i++){
         }
         
 
+
+
+
     }
+
+    function checkChar(ch) {
+            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch === '.' || ch === ' ') {
+                return true;
+            }
+            return false;
+        }
+
+        function checkUserName() {
+            let username = document.getElementById('username').value;
+
+            if (username === '') {
+                document.getElementById('usernameError').innerHTML = "Username cannot be empty.";
+            } else {
+                for (let i = 0; i < username.length; i++) {
+                    if (!checkChar(username[i])) {
+                        document.getElementById('usernameError').innerHTML = "Username can only contain letters, numbers, dots, or spaces.";
+                        return;
+                    }
+                }
+
+                if (username.split(' ').length > 1) {
+                    document.getElementById('usernameError').innerHTML = "Username cannot contain more than one word.";
+                } else if (username.length > 15) {
+                    document.getElementById('usernameError').innerHTML = "Username cannot exceed 15 characters.";
+                } else {
+                    document.getElementById('usernameError').innerHTML = "";
+                }
+            }
+        }
+
+        function checkPhone() {
+            let phone = document.getElementById('phone').value;
+
+            if (phone === '') {
+                document.getElementById('phoneError').innerHTML = "Phone number cannot be empty.";
+            } else {
+                for (let i = 0; i < phone.length; i++) {
+                    if (!Number.isInteger(parseInt(phone[i]))) {
+                        document.getElementById('phoneError').innerHTML = "Phone number can only contain numbers.";
+                        return;
+                    }
+                }
+
+                if (phone.length > 11) {
+                    document.getElementById('phoneError').innerHTML = "Phone number cannot exceed 11 characters.";
+                } else {
+                    document.getElementById('phoneError').innerHTML = "";
+                }
+            }
+        }
+
+        function checkPassword() {
+            let password = document.getElementById('password').value;
+
+            if (password === '') {
+                document.getElementById('passwordError').innerHTML = "Password cannot be empty.";
+            } else {
+                document.getElementById('passwordError').innerHTML = "";
+                
+            }
+        }
+
+        function checkRepassword() {
+            let password = document.getElementById('password').value;
+            let repassword = document.getElementById('repassword').value;
+
+            if (repassword !== password) {
+                document.getElementById('passwordError').innerHTML = "Passwords do not match.";
+            } else {
+                document.getElementById('passwordError').innerHTML = "";
+            }
+        }
 
 
     </script>
