@@ -19,7 +19,7 @@
                 <br><br>
                 <font color="white" face="times new roman" size="4">Full Name</font>
                 <br>
-                <input type="text" name="fullname" id="fullname" placeholder="First and Last name" size="43px" onkeyup="validateForm()">
+                <input type="text" name="fullname" id="fullname" placeholder="First and Last name" size="43px" onkeyup="checkFullName()">
                 <br>
                 <font color="white" face="times new roman" size="3" id="fnameError"></font>
                 <br><br>
@@ -71,31 +71,28 @@
     <br><br><br>
 
     <script>
-
-function checkFullName() {
+function checkFullName(){
             let name = document.getElementById('fullname').value;
             let nameLen = name.split(' ');
 
-            if (nameLen.length < 2) {
-                document.getElementById('fnameError').innerHTML = "Name must contain at least 2 words";
-            } else {
-                document.getElementById('fnameError').innerHTML = "";
-            }
-
-           
-            for (let i = 0; i < name.length; i++) {
-                if (!checkChar(name[i])) {
-                    document.getElementById('fnameError').innerHTML = "Name can only contain letters, dots, underscores, or spaces.";
-                    break; 
-                }
-            }
-        }
-        function checkChar(ch) {
-            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch === '.' || ch === '_' || ch === ' ';
-        }
-       
-
+            
+            if(nameLen.length < 2){document.getElementById('fnameError').innerHTML = "Can not be less than 2 words";}
+            else{document.getElementById('fnameError').innerHTML = "";
         
+        
+        
+        }
+for(let i=0; i<name.length; i++){
+                if(!checkChar(name[i])){document.getElementById('fnameError').innerHTML = "Name can only contain letters, dots, or spaces."}
+                
+            } 
+        
+        function checkChar(ch){
+            if(ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z' || ch == '.' || ch == ' ') return true;
+        }
+        
+
+    }
 
 
     </script>
