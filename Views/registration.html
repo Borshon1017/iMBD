@@ -56,7 +56,7 @@
                 <font color="white" face="times new roman" size="3" id="passwordError"></font>
                 <br><br>
                 <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the Terms and Conditioms</font><br><br><br>
-                <button size="250px" name="submit">Create your iMBD account</button>
+                <button size="250px" name="submit" id="submitButton" disabled>Create your iMBD account</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
                 <p align="center">
@@ -140,7 +140,7 @@ for(let i=0; i<name.length; i++){
                     }
                 }
 
-                if (phone.length > 11) {
+                if (phone.length != 11) {
                     document.getElementById('phoneError').innerHTML = "Phone number cannot exceed 11 characters.";
                 } else {
                     document.getElementById('phoneError').innerHTML = "";
@@ -182,6 +182,32 @@ for(let i=0; i<name.length; i++){
                 document.getElementById('mailError').innerHTML = "";
             }
         }
+
+        function updateSubmitButton() {
+    let submitButton = document.getElementById('submitButton');
+    if (
+        document.getElementById('username').value === '' ||
+        document.getElementById('fullname').value === '' ||
+        document.getElementById('phone').value === '' ||
+        document.getElementById('email').value === '' ||
+        document.getElementById('password').value === '' ||
+        document.getElementById('repassword').value === ''
+    ) {
+        submitButton.disabled = true;
+    } else {
+        submitButton.disabled = false;
+    }
+}
+
+
+    
+    document.getElementById('fullname').onkeyup = updateSubmitButton;
+    document.getElementById('username').onkeyup = updateSubmitButton;
+    document.getElementById('phone').onkeyup = updateSubmitButton;
+    document.getElementById('email').onkeyup = updateSubmitButton;
+    document.getElementById('password').onkeyup = updateSubmitButton;
+    document.getElementById('repassword').onkeyup = updateSubmitButton;
+
 
     </script>
 
