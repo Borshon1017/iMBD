@@ -107,7 +107,7 @@
         <tr align="center">
             <td colspan="2">
                 <br><br><br>
-                <input type="submit" name="submit" value="Add Content Writer">
+                <input type="submit" name="submit" id="submitButton" value="Add Content Writer">
             </td>
         </tr>
     </table><br><br><br>
@@ -233,6 +233,48 @@
         function checkChar(ch) {
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch === '.' || ch === ' ';
         }
+
+        function updateSubmitButton() {
+        let submitButton = document.getElementById('submitButton');
+        let fullname = document.getElementById('fullname').value;
+        let username = document.getElementById('username').value;
+        let phone = document.getElementById('phone').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let repassword = document.getElementById('repassword').value;
+
+       
+        if (
+            fullname === '' ||
+            username === '' ||
+            phone === '' ||
+            email === '' ||
+            password === '' ||
+            repassword === '' ||
+            document.getElementById('fnameError').innerText !== '' ||
+            document.getElementById('usernameError').innerText !== '' ||
+            document.getElementById('phoneError').innerText !== '' ||
+            document.getElementById('mailError').innerText !== '' ||
+            document.getElementById('passwordError').innerText !== '' ||
+            document.getElementById('repasswordError').innerText !== '' ||
+            password !== repassword
+        ) {
+            submitButton.disabled = true;
+        } else {
+            submitButton.disabled = false;
+        }
+    }
+
+   
+    document.getElementById('fullname').onkeyup = updateSubmitButton;
+    document.getElementById('username').onkeyup = updateSubmitButton;
+    document.getElementById('phone').onkeyup = updateSubmitButton;
+    document.getElementById('email').onkeyup = updateSubmitButton;
+    document.getElementById('password').onkeyup = updateSubmitButton;
+    document.getElementById('repassword').onkeyup = updateSubmitButton;
+
+   
+    updateSubmitButton();
     </script>
 </body>
 </html>
