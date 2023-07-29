@@ -107,7 +107,7 @@
                 <tr align="center">
                     <td colspan="2">
                         <br><br><br>
-                        <input type="submit" name="submit" value="Add Critic">
+                        <input type="submit" name="submit" id="submitButton" value="Add Critic">
                     </td>
                 </tr>
             </table>
@@ -141,6 +141,7 @@
                     break;
                 }
             }
+            updateSubmitButton()
         }
 
         function checkUserName() {
@@ -165,6 +166,7 @@
                     document.getElementById('usernameError').innerHTML = "";
                 }
             }
+            updateSubmitButton()
         }
 
         function checkPhone() {
@@ -187,6 +189,7 @@
                     document.getElementById('phoneError').innerHTML = "";
                 }
             }
+            updateSubmitButton()
         }
 
         function checkMail() {
@@ -202,6 +205,7 @@
             } else {
                 document.getElementById('mailError').innerHTML = "";
             }
+            updateSubmitButton()
         }
 
         function checkPassword() {
@@ -214,6 +218,7 @@
         } else {
             document.getElementById('passwordError').innerHTML = "";
         }
+        updateSubmitButton()
     }
         function checkRepassword() {
             
@@ -225,12 +230,44 @@
             } else {
                 document.getElementById('repasswordError').innerHTML = "";
             }
+            updateSubmitButton()
         }
 
 
         function checkChar(ch) {
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch === '.' || ch === ' ';
+            updateSubmitButton()
         }
+        function updateSubmitButton() {
+        let submitButton = document.getElementById('submitButton');
+        let fullname = document.getElementById('fullname').value;
+        let username = document.getElementById('username').value;
+        let phone = document.getElementById('phone').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let repassword = document.getElementById('repassword').value;
+
+       
+        if (
+            fullname == '' ||
+            username == '' ||
+            phone == '' ||
+            email == '' ||
+            password == '' ||
+            repassword == '' ||
+            document.getElementById('fnameError').innerText !== '' ||
+            document.getElementById('usernameError').innerText !== '' ||
+            document.getElementById('phoneError').innerText !== '' ||
+            document.getElementById('mailError').innerText !== '' ||
+            document.getElementById('passwordError').innerText !== '' ||
+            document.getElementById('repasswordError').innerText !== '' ||
+            password != repassword
+        ) {
+            submitButton.disabled = true;
+        } else {
+            submitButton.disabled = false;
+        }
+    }
     </script>
 </body>
 </html>
