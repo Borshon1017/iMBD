@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iMBD Add Content Writer</title>
 </head>
@@ -22,8 +22,8 @@
             </td>
             <td>
                 <form action="search-content.php" method="post">
-                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="submit" value="Search">
+                    <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="submit" value="Search">
                 </form>
             </td>
             <td>
@@ -43,76 +43,74 @@
         <font color="F5C518" face="times new roman" size="12">Add Content Writer</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
         <form action="../Controllers/add-content-writer-controller.php" method="POST">
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Fullname : </font>
-            </td>
-            <td>
-                <input type="text" size="40px" name="fullname" id="fullname" onkeyup="checkFullName()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="fnameError"></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Username : </font>
-            </td>
-            <td>
-                <input type="text" size="40px" name="username" id="username" onkeyup="checkUserName()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="usernameError"></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Phone Number : </font>
-            </td>
-            <td>
-                <input type="text" size="40px" name="phone" id="phone" onkeyup="checkPhone()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="phoneError"></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Email : </font>
-            </td>
-            <td>
-                <input type="email" size="40px" name="email" id="email" onkeyup="checkMail()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="mailError"></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Password : </font>
-            </td>
-            <td>
-                <input type="password" size="40px" name="password" id="password" onkeyup="checkPassword()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="passwordError"></font>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <font color="white" face="times new roman" size="6">Confirm Password : </font>
-            </td>
-            <td>
-                <input type="password" size="40px" name="repassword" id="repassword" onkeyup="checkRepassword()">
-                <br>
-                <font color="red" face="times new roman" size="3" id="repasswordError"></font>
-            </td>
-        </tr>
-        <tr align="center">
-            <td colspan="2">
-                <br><br><br>
-                <input type="submit" name="submit" id="submitButton" value="Add Content Writer">
-            </td>
-        </tr>
-    </table><br><br><br>
-
-
+            <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Fullname : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="fullname" id="fullname" onkeyup="checkFullName()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="fnameError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Username : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="username" id="username" onkeyup="checkUserName()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="usernameError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Phone Number : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="phone" id="phone" onkeyup="checkPhone()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="phoneError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Email : </font>
+                    </td>
+                    <td>
+                        <input type="email" size="40px" name="email" id="email" onkeyup="checkMail()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="mailError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Password : </font>
+                    </td>
+                    <td>
+                        <input type="password" size="40px" name="password" id="password" onkeyup="checkPassword()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="passwordError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Confirm Password : </font>
+                    </td>
+                    <td>
+                        <input type="password" size="40px" name="repassword" id="repassword" onkeyup="checkRepassword()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="repasswordError"></font>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <br><br><br>
+                        <input type="submit" name="submit" id="submitButton" value="Add Content Writer">
+                    </td>
+                </tr>
+            </table>
         </form>
     </center>
     <br><br><br>
@@ -125,7 +123,7 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
-<script>
+    <script>
         function checkFullName() {
             
             let name = document.getElementById('fullname').value;
