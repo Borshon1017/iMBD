@@ -70,12 +70,16 @@
                 ?>
                 <br><br><br>
                 <form action="../Controllers/discussion-comment-controller.php?did=<?php echo $did; ?>" method="post">
-                <textarea name="comment" rows="15" cols="134"></textarea><br><br>
+                <textarea name="comment" id="commentInput" oninput="checkCommentLength()" rows="15" cols="134"></textarea><br><br>
+                <font color="red" face="times new roman" size="3" id="commentError"></font>
                 <p align="right">
+
                 <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            
                 </p>
                 </form>
             </td>
+            
             <br>
         </tr>
     </table>
@@ -89,5 +93,21 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com,  Inc.</font><br><br>
     </center>
+    <script>
+    function checkCommentLength() {
+        let commentInput = document.getElementById('commentInput');
+        let commentError = document.getElementById('commentError');
+        let maxLength = 500;
+
+        if (commentInput.value.length > maxLength) {
+            commentError.textContent = 'Comment cannot exceed 500 characters.';
+            
+        } else {
+            commentError.textContent = '';
+            
+        }
+    }
+</script>
+
 </body>
 </html>
