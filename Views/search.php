@@ -33,9 +33,9 @@ function search($value){
                     <tr>
                         <td><a href=\"content-page.php?cid={$cid}\"><img src=\"../$posterURL\" width=\"180px\"></a></td>
                         <td valign=\"top\" align=\"left\">
-                        <a href=\"content-page.php?cid={$cid}\"><font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
-                        <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
-                        <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date: $releaseDate</font><br><br>";
+                        <a href=\"content-page.php?cid={$cid}\"><font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br>
+                        <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date: $releaseDate</font><br>";
                         if($row['Role'] == "General User"){
                             $content=watchlistcheck($id,$cid);
                             $count = mysqli_num_rows($content);
@@ -47,8 +47,7 @@ function search($value){
                             echo"<a href=\"../Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
                             }
                         }
-                       echo " </td>
-                    </tr>";
+                       echo " </td></tr><tr><td><br></td></tr> ";
                 }
             
             }else{
