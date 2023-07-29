@@ -141,6 +141,7 @@
                     break;
                 }
             }
+            updateSubmitButton()
         }
 
         function checkUserName() {
@@ -165,6 +166,7 @@
                     document.getElementById('usernameError').innerHTML = "";
                 }
             }
+            updateSubmitButton()
         }
 
         function checkPhone() {
@@ -187,6 +189,7 @@
                     document.getElementById('phoneError').innerHTML = "";
                 }
             }
+            updateSubmitButton()
         }
 
         function checkMail() {
@@ -202,6 +205,7 @@
             } else {
                 document.getElementById('mailError').innerHTML = "";
             }
+            updateSubmitButton()
         }
 
         function checkPassword() {
@@ -214,6 +218,7 @@
         } else {
             document.getElementById('passwordError').innerHTML = "";
         }
+        updateSubmitButton()
     }
 
         function checkRepassword() {
@@ -225,11 +230,14 @@
                 document.getElementById('repasswordError').innerHTML = "Passwords do not match.";
             } else {
                 document.getElementById('repasswordError').innerHTML = "";
+                
             }
+            updateSubmitButton()
         }
 
         function checkChar(ch) {
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch === '.' || ch === ' ';
+            updateSubmitButton();
         }
 
         function updateSubmitButton() {
@@ -243,19 +251,19 @@
 
        
         if (
-            fullname === '' ||
-            username === '' ||
-            phone === '' ||
-            email === '' ||
-            password === '' ||
-            repassword === '' ||
+            fullname == '' ||
+            username == '' ||
+            phone == '' ||
+            email == '' ||
+            password == '' ||
+            repassword == '' ||
             document.getElementById('fnameError').innerText !== '' ||
             document.getElementById('usernameError').innerText !== '' ||
             document.getElementById('phoneError').innerText !== '' ||
             document.getElementById('mailError').innerText !== '' ||
             document.getElementById('passwordError').innerText !== '' ||
             document.getElementById('repasswordError').innerText !== '' ||
-            password !== repassword
+            password != repassword
         ) {
             submitButton.disabled = true;
         } else {
@@ -264,12 +272,6 @@
     }
 
    
-    document.getElementById('fullname').onkeyup = updateSubmitButton;
-    document.getElementById('username').onkeyup = updateSubmitButton;
-    document.getElementById('phone').onkeyup = updateSubmitButton;
-    document.getElementById('email').onkeyup = updateSubmitButton;
-    document.getElementById('password').onkeyup = updateSubmitButton;
-    document.getElementById('repassword').onkeyup = updateSubmitButton;
 
    
     updateSubmitButton();
