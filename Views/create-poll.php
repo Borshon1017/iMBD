@@ -41,53 +41,66 @@
         <hr color="F5C518" width="530px"><br><br><br>
         <form action="../Controllers/create-poll-controller.php" method="POST">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Poll Title : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="pollTitle">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Option 1 : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="option1">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Option 2 : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="option2">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Option 3 : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="option3">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Option 4 : </font>
-                </td>
-                <td>
-                    <input type="text" size="40px" name="option4">
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <br><br><br>
-                    <input type="submit" name="submit" value="Create Poll">
-                </td>
-            </tr>
-        </table><br><br><br>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Poll Title : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="pollTitle" id="pollTitle" onkeyup="checkPollTitleLength()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="titleError"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Option 1 : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="option1" id="option1" onkeyup="checkOptionLength(1)">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="option1Error"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Option 2 : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="option1" id="option2" onkeyup="checkOptionLength(2)">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="option2Error"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Option 3 : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="option3" id="option3" onkeyup="checkOptionLength(3)">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="option3Error"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Option 4 : </font>
+                    </td>
+                    <td>
+                        <input type="text" size="40px" name="option4" id="option4" onkeyup="checkOptionLength(4)">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="option4Error"></font>
+                    </td>
+                </tr>
+                <tr>
+                    
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <br><br><br>
+                        <input type="submit" name="submit" value="Create Poll">
+                    </td>
+                </tr>
+            </table><br><br><br>
         </form>
     </center>
     <br><br><br>
@@ -100,6 +113,25 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+    <script>
+    function checkPollTitleLength() {
+        let pollTitle = document.getElementById('pollTitle').value;
+        if (pollTitle.length > 100) {
+            document.getElementById('titleError').innerHTML = "Poll title cannot be more than 100 characters.";
+        } else {
+            document.getElementById('titleError').innerHTML = "";
+        }
+    }
+
+    function checkOptionLength(optionId) {
+            let option = document.getElementById('option' + optionId).value;
+            if (option.length > 50) {
+                document.getElementById('option' + optionId + 'Error').innerText = "Option cannot be more than 50 characters.";
+            } else {
+                document.getElementById('option' + optionId + 'Error').innerText = "";
+            }
+        }
+</script>
 
 </body>
 </html>

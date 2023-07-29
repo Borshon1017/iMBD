@@ -54,12 +54,13 @@
         </tr>
         <tr>
             <td>
-                <textarea name="comment" cols="57" rows="20"><?php echo $commentInfo['Comment']; ?></textarea>
+                <textarea name="comment" id="commentInput" oninput="checkCommentLength()" cols="57" rows="20"><?php echo $commentInfo['Comment']; ?></textarea>
+                <font color="red" face="times new roman" size="3" id="commentError"></font>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="submit" value="Edit Comment">
+                <input type="submit" name="submit" id="'submitButton'" value="Edit Comment">
             </td>
         </tr>
     </table></form>
@@ -75,6 +76,21 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+    <script>
+    function checkCommentLength() {
+        let commentInput = document.getElementById('commentInput');
+        let commentError = document.getElementById('commentError');
+        let maxLength = 500;
 
+        if (commentInput.value.length > maxLength) {
+            commentError.textContent = 'Comment cannot exceed 300 characters.';
+           
+            document.getElementById('submitButton').disabled = true;
+        } else {
+            commentError.textContent = '';
+            document.getElementById('submitButton').disabled = false;
+        }
+    }
+</script>
 </body>
 </html>

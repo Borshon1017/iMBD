@@ -49,7 +49,9 @@
                     <font color="white" face="times new roman" size="6">Poll Title : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="pollTitle" value="<?php echo $poll['PollTitle'] ?>" required>
+                    <input type="text" size="40px" name="pollTitle" id="pollTitle" value="<?php echo $poll['PollTitle'] ?>"  onkeyup="checkPollTitleLength()" required>
+                    <br>
+                        <font color="red" face="times new roman" size="3" id="titleError"></font>
                 </td>
             </tr>
             <tr>
@@ -57,7 +59,9 @@
                     <font color="white" face="times new roman" size="6">Option 1 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option1" value="<?php echo $poll['OptionOne'] ?>" required>
+                    <input type="text" size="40px" name="option1" id="option1" value="<?php echo $poll['OptionOne'] ?>" onkeyup="checkOptionLength(1)" required>
+                <br>
+                        <font color="red" face="times new roman" size="3" id="option1Error"></font>
                 </td>
             </tr>
             <tr>
@@ -65,7 +69,9 @@
                     <font color="white" face="times new roman" size="6">Option 2 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option2" value="<?php echo $poll['OptionTwo'] ?>" required>
+                    <input type="text" size="40px" name="option2" id="option2" value="<?php echo $poll['OptionTwo'] ?>" onkeyup="checkOptionLength(2)" required>
+                    <br>
+                        <font color="red" face="times new roman" size="3" id="option2Error"></font>
                 </td>
             </tr>
             <tr>
@@ -73,7 +79,9 @@
                     <font color="white" face="times new roman" size="6">Option 3 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option3" value="<?php echo $poll['OptionThree'] ?>" required>
+                    <input type="text" size="40px" name="option3" id="option3" value="<?php echo $poll['OptionThree'] ?> " onkeyup="checkOptionLength(3)" required>
+                    <br>
+                        <font color="red" face="times new roman" size="3" id="option3Error"></font>
                 </td>
             </tr>
             <tr>
@@ -81,7 +89,9 @@
                     <font color="white" face="times new roman" size="6">Option 4 : </font>
                 </td>
                 <td>
-                    <input type="text" size="40px" name="option4" value="<?php echo $poll['OptionFour'] ?>" required>
+                    <input type="text" size="40px" name="option4" id="option4" value="<?php echo $poll['OptionFour'] ?>" onkeyup="checkOptionLength(4)" required>
+                    <br>
+                        <font color="red" face="times new roman" size="3" id="option4Error"></font>
                 </td>
             </tr>
             <tr align="center">
@@ -103,6 +113,26 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+
+    <script>
+    function checkPollTitleLength() {
+        let pollTitle = document.getElementById('pollTitle').value;
+        if (pollTitle.length > 100) {
+            document.getElementById('titleError').innerHTML = "Poll title cannot be more than 100 characters.";
+        } else {
+            document.getElementById('titleError').innerHTML = "";
+        }
+    }
+
+    function checkOptionLength(optionId) {
+            let option = document.getElementById('option' + optionId).value;
+            if (option.length > 50) {
+                document.getElementById('option' + optionId + 'Error').innerText = "Option cannot be more than 50 characters.";
+            } else {
+                document.getElementById('option' + optionId + 'Error').innerText = "";
+            }
+        }
+</script>
 
 </body>
 </html>
