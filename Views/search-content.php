@@ -14,11 +14,7 @@
         if(empty($title)){
             popup("Error!","Please enter what you want to search.");
         }
-
     } 
-    
-
-
 ?>
 
 <!DOCTYPE html>
@@ -35,16 +31,17 @@
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
             <td>
-                <form action="search-content.php" method="post">
-                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="category"> 
-        <option value="">Select Category</option>
-        <option value="Movie">Movie</option>
-        <option value="TV Show">TV Show</option>
-        <option value="Anime">Anime</option>
-    </select> &nbsp;&nbsp;&nbsp;
-    <input type="submit" name="submit" value="Search">
-                </form>
+                
+                <input type="text" id="livesearch" onkeyup="search(this.value)" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="category"> 
+                <option value="">Select Category</option>
+                <option value="Movie">Movie</option>
+                <option value="TV Show">TV Show</option>
+                <option value="Anime">Anime</option>
+                </select> &nbsp;&nbsp;&nbsp;
+                <input type="submit" name="submit" value="Search">
+                
+                
             </td>
             <td>
                 <?php
@@ -76,49 +73,23 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Search Results</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-
-        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <?php
-            $category = $_POST['category'];
-            $result = searchContent($title, $category);
-            if(mysqli_num_rows($result) > 0) {
-                echo "<table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">";
-                while($crow = mysqli_fetch_assoc($result)) {
-                    $cid = $crow['ContentID'];
-                    $posterURL = $crow['Poster'];
-                    $title = $crow['ContentTitle'];
-                    $description = $crow['ContentDescription'];
-                    $releaseDate = $crow['ReleaseDate'];
-
-                    if(strlen($description) > 220) {
-                        $description = substr($description, 0, 220) . '...';
-                    }
-                    echo "
-                    <tr>
-                        <td><a href=\"content-page.php?cid={$cid}\"><img src=\"../$posterURL\" width=\"180px\"></a></td>
-                        <td valign=\"top\" align=\"left\">
-                            <a href=\"content-page.php?cid={$cid}\"><font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
-                            <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
-                            <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date: $releaseDate</font><br><br>";
-                            if($row['Role'] == "General User")
-                                                {
-                                                $content=watchlistcheck($id,$cid);
-                                                $count = mysqli_num_rows($content);
-                                                if ($count > 0) 
-                                                {
-                                                echo"<font color=\"5799EF\" face=\"times new roman\" size=\"4\">Already added to Watchlist</font><br><br>";
-                                                }
-                                                else{
-                                                echo"<a href=\"../Controllers/Add-to-Watchlist.php?cid=$cid\"><font color=\"5799EF\" face=\"times new roman\" size=\"4\">Add to Watchlist</font></a>";
-                                                }
-                                            }
-                       echo " </td>
-                    </tr>";
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15"></table>
+            <tr><td><font id="message" color="white" face="times new roman" size="6">Please enter a title</font></td></tr>
+            <script>
+            function search(str){ 
+                if(str==""){
+                document.getElementById('message').innerHTML="<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">Please Type Title</font><br><br><br>";
+                return;
                 }
-            } else {
-                echo "<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Found</font></td></tr>";
+                let xhttp=new XMLHttpRequest(); 
+                xhttp.open('post','search.php',true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send('name='+str);
+                xhttp.onload=function(){
+                document.getElementById('message').innerHTML=this.responseText;
+                }
             }
-            ?>
+            </script>
         </table>
 
         <br><br><br>

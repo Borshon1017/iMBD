@@ -90,7 +90,6 @@ function showAnime()
 
 
 function searchContent($title, $category='') {
-    global $id;
     $con = dbConnection();
     if (!empty($category))
     {

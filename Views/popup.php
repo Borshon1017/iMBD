@@ -1,7 +1,6 @@
 <?php
     require_once('../Models/user-info-model.php'); 
-    session_start(); 
-
+    session_start();
     $title = $_SESSION['title'];
     $message = $_SESSION['message'];
 ?>
