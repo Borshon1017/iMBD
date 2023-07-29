@@ -45,18 +45,18 @@
                 <br>
                 <input type="password" name="password" id="password" size="43px" onkeyup="checkPassword()">
                 <br>
-                <font color="white" face="times new roman" size="3"></font>
+                <font color="white" face="times new roman" size="3" id="passwordError"></font>
                 <br><br>
                 <font color="white" face="times new roman" size="2"><i>i &nbsp;</i></font><font color="white" face="times new roman" size="2">Passwords must be at least 8 characters.</font>
                 <br><br>
                 <font color="white" face="times new roman" id="repassword" size="4">Re-enter password</font>
                 <br>
-                <input type="password" name="repassword" size="43px" onkeyup="checkRepassword()">
+                <input type="password" name="repassword" id=repassword size="43px" onkeyup="checkRepassword()">
                 <br>
-                <font color="white" face="times new roman" size="3" id="passwordError"></font>
+                <font color="white" face="times new roman" size="3" id="repasswordError"></font>
                 <br><br>
                 <input type="checkbox" name="termsandconditions" required> <font color="white" face="times new roman" size="4">I accept the Terms and Conditioms</font><br><br><br>
-                <button size="250px" name="submit" id="submitButton" disabled>Create your iMBD account</button>
+                <button size="250px" name="submit" id="submitButton" >Create your iMBD account</button>
                 <br><br>
                 <hr color="F5C518" width="auto">
                 <p align="center">
@@ -71,6 +71,36 @@
     <br><br><br>
 
     <script>
+         function checkFormValidity() {
+        let fullname = document.getElementById('fullname').value;
+        let username = document.getElementById('username').value;
+        let phone = document.getElementById('phone').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let repassword = document.getElementById('repassword').value;
+
+        
+        if (
+            fullname === '' ||
+            username === '' ||
+            phone === '' ||
+            email === '' ||
+            password === '' ||
+            repassword === '' ||
+            document.getElementById('fnameError').innerText !== '' ||
+            document.getElementById('usernameError').innerText !== '' ||
+            document.getElementById('phoneError').innerText !== '' ||
+            document.getElementById('mailError').innerText !== '' ||
+            document.getElementById('passwordError').innerText !== '' ||
+            document.getElementById('repasswordError').innerText !== '' ||
+            password !== repassword
+        ) {
+            document.getElementById('submitButton').disabled = false;
+        } else {
+            document.getElementById('submitButton').disabled = true;
+        }
+    }
+
 function checkFullName(){
             let name = document.getElementById('fullname').value;
             let nameLen = name.split(' ');
@@ -94,7 +124,7 @@ for(let i=0; i<name.length; i++){
 
 
 
-
+        checkFormValidity()
     }
 
     function checkChar(ch) {
@@ -114,6 +144,7 @@ for(let i=0; i<name.length; i++){
                     if (!checkChar(username[i])) {
                         document.getElementById('usernameError').innerHTML = "Username can only contain letters, numbers, dots, or spaces.";
                         return;
+                        checkFormValidity()
                     }
                 }
 
@@ -137,6 +168,7 @@ for(let i=0; i<name.length; i++){
                     if (!Number.isInteger(parseInt(phone[i]))) {
                         document.getElementById('phoneError').innerHTML = "Phone number can only contain numbers.";
                         return;
+                        checkFormValidity()
                     }
                 }
 
@@ -158,6 +190,7 @@ for(let i=0; i<name.length; i++){
         } else {
             document.getElementById('passwordError').innerHTML = "";
         }
+        checkFormValidity()
     }
 
         function checkRepassword() {
@@ -165,10 +198,11 @@ for(let i=0; i<name.length; i++){
             let repassword = document.getElementById('repassword').value;
 
             if (repassword !== password) {
-                document.getElementById('passwordError').innerHTML = "Passwords do not match.";
+                document.getElementById('repasswordError').innerHTML = "Passwords do not match.";
             } else {
-                document.getElementById('passwordError').innerHTML = "";
+                document.getElementById('repasswordError').innerHTML = "";
             }
+            checkFormValidity()
         }
         function checkMail(){
             let mail = document.getElementById('email').value;
@@ -181,32 +215,14 @@ for(let i=0; i<name.length; i++){
             }else {
                 document.getElementById('mailError').innerHTML = "";
             }
+            checkFormValidity()
         }
 
-        function updateSubmitButton() {
-    let submitButton = document.getElementById('submitButton');
-    if (
-        document.getElementById('username').value === '' ||
-        document.getElementById('fullname').value === '' ||
-        document.getElementById('phone').value === '' ||
-        document.getElementById('email').value === '' ||
-        document.getElementById('password').value === '' ||
-        document.getElementById('repassword').value === ''
-    ) {
-        submitButton.disabled = true;
-    } else {
-        submitButton.disabled = false;
-    }
-}
+     
+
 
 
     
-    document.getElementById('fullname').onkeyup = updateSubmitButton;
-    document.getElementById('username').onkeyup = updateSubmitButton;
-    document.getElementById('phone').onkeyup = updateSubmitButton;
-    document.getElementById('email').onkeyup = updateSubmitButton;
-    document.getElementById('password').onkeyup = updateSubmitButton;
-    document.getElementById('repassword').onkeyup = updateSubmitButton;
 
 
     </script>
