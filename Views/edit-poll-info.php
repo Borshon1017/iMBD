@@ -97,7 +97,7 @@
             <tr align="center">
                 <td colspan="2">
                     <br><br><br>
-                    <input type="submit" name="submit" value="Edit Poll">
+                    <input type="submit" name="submit" value="Edit Poll" >
                 </td>
             </tr>
         </table><br><br><br>
@@ -117,19 +117,48 @@
     <script>
     function checkPollTitleLength() {
         let pollTitle = document.getElementById('pollTitle').value;
-        if (pollTitle.length > 100) {
-            document.getElementById('titleError').innerHTML = "Poll title cannot be more than 100 characters.";
+        if (pollTitle.length > 100  || pollTitle.length <1) {
+            document.getElementById('titleError').innerHTML = "Poll title cannot be more than 100 characters or empty";
         } else {
             document.getElementById('titleError').innerHTML = "";
         }
+        checkFormValidity();
     }
 
     function checkOptionLength(optionId) {
             let option = document.getElementById('option' + optionId).value;
-            if (option.length > 50) {
-                document.getElementById('option' + optionId + 'Error').innerText = "Option cannot be more than 50 characters.";
+            if (option.length > 50 || option.length <1) {
+                document.getElementById('option' + optionId + 'Error').innerText = "Option cannot be more than 50 characters or empty";
             } else {
                 document.getElementById('option' + optionId + 'Error').innerText = "";
+            }
+
+
+            checkFormValidity();
+        }
+
+        function checkFormValidity() {
+            let pollTitle = document.getElementById('pollTitle').value;
+            let option1 = document.getElementById('option1').value;
+            let option2 = document.getElementById('option2').value;
+            let option3 = document.getElementById('option3').value;
+            let option4 = document.getElementById('option4').value;
+
+            if (
+                pollTitle === '' ||
+                option1 === '' ||
+                option2 === '' ||
+                option3 === '' ||
+                option4 === '' ||
+                document.getElementById('titleError').innerText !== '' ||
+                document.getElementById('option1Error').innerText !== '' ||
+                document.getElementById('option2Error').innerText !== '' ||
+                document.getElementById('option3Error').innerText !== '' ||
+                document.getElementById('option4Error').innerText !== ''
+            ) {
+                document.getElementById('submitButton').disabled = true;
+            } else {
+                document.getElementById('submitButton').disabled = false;
             }
         }
 </script>
