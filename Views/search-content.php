@@ -81,7 +81,7 @@
                 return;
                 }
                 let xhttp=new XMLHttpRequest(); 
-                xhttp.open('post','../Controllers/search.php',true);
+                xhttp.open('post','../Controllers/search-controller.php',true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send('name='+str);
                 xhttp.onload=function(){
