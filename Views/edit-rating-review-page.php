@@ -59,33 +59,35 @@
         <hr color="F5C518" width="650px"><br><br><br>
         <form action="../Controllers/update-review.php" method="POST" enctype="multipart/form-data">
         <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td>
-                    <font color="white" face="times new roman" size="6">Rating [1-5] : </font>
-                </td>
-                <td>
-                    <input type="text" size="60px" name="rating" value="<?php echo $rating?>">
-                    <input type="hidden" size="60px" name="cid" value='<?php echo $cid; ?>' >
-                    <input type="hidden" size="60px" name="id" value='<?php echo $id; ?>' >
-
-
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <font color="white" face="times new roman" size="6">Review : </font>
-                </td>
-                <td>
-                <textarea cols="59" rows="10" name="review"><?php echo $review; ?></textarea>
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <br><br><br>
-                    <input type="submit" name="submit" value="Submit">
-                </td>
-            </tr>
-        </table><br><br><br>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Rating [1-5]: </font>
+                    </td>
+                    <td>
+                        <input type="text" size="60px" name="rating" id="rating" onkeyup="validateRating()">
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="ratingError"></font>
+                        <input type="hidden" size="60px" name="cid" value="<?php echo $cid; ?>">
+                        <input type="hidden" size="60px" name="id" value="<?php echo $id; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <font color="white" face="times new roman" size="6">Review [max 500 chars]: </font>
+                    </td>
+                    <td>
+                        <textarea cols="59" rows="10" name="review" id="review" onkeyup="validateReview()"></textarea>
+                        <br>
+                        <font color="red" face="times new roman" size="3" id="reviewError"></font>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <br><br><br>
+                        <input type="submit" name="submit" value="Submit" id="submitButton">
+                    </td>
+                </tr>
+            </table>  <br><br><br>
         </form>
     </center>
     <br><br><br>
@@ -98,6 +100,48 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+    <script>
+        function validateRating() {
+            const ratingInput = document.getElementById("rating");
+            const ratingError = document.getElementById("ratingError");
+            const rating = parseInt(ratingInput.value);
 
+            if (isNaN(rating) || rating < 1 || rating > 5) {
+                ratingError.textContent = "Rating must be a number between 1 and 5.";
+            } else {
+                ratingError.textContent = "";
+            }
+
+            checkFormValidity();
+        }
+
+        function validateReview() {
+            const reviewInput = document.getElementById("review");
+            const reviewError = document.getElementById("reviewError");
+            const review = reviewInput.value;
+
+            if (review.length > 500) {
+                reviewError.textContent = "Review cannot exceed 500 characters.";
+            } else {
+                reviewError.textContent = "";
+            }
+
+            checkFormValidity();
+        }
+
+        function checkFormValidity() {
+            const ratingInput = document.getElementById("rating");
+            const reviewInput = document.getElementById("review");
+            const submitButton = document.getElementById("submitButton");
+            const rating = parseInt(ratingInput.value);
+            const review = reviewInput.value;
+
+            if (isNaN(rating) || rating < 1 || rating > 5 || review.length > 500) {
+                submitButton.disabled = true;
+            } else {
+                submitButton.disabled = false;
+            }
+        }
+    </script>
 </body>
 </html>

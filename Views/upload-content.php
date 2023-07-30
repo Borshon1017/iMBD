@@ -47,72 +47,105 @@
             <tr>
                 <td>
                     <font color="white" face="times new roman" size="6">Title : </font>
-                
-                    
                 </td>
-                
                 <td>
-                    <input type="text" size="60px" name="title" onkeyup="validateTitle()">
-                    <br>
-                    <font color="red" face="times new roman" size="3" id="titleError"></font>
+                    <input type="text" size="60px" name="title">
                 </td>
             </tr>
             <tr>
-    <td valign="top">
-        <font color="white" face="times new roman" size="6">Description : </font>
-    </td>
-    <td>
-        <textarea cols="59" rows="10" name="description" onkeyup="validateDescription()"></textarea>
-        <br>
-        <font color="red" face="times new roman" size="3" id="descriptionError"></font>
-    </td>
-</tr>
-<tr>
-    <td valign="top">
-        <font color="white" face="times new roman" size="6">Director : </font>
-    </td>
-    <td>
-        <input type="text" size="60px" name="director" onkeyup="validateDirector()">
-        <br>
-        <font color="red" face="times new roman" size="3" id="directorError"></font>
-    </td>
-</tr>
-<tr>
-    <td valign="top">
-        <font color="white" face="times new roman" size="6">Cast : </font>
-    </td>
-    <td>
-        <input type="text" size="60px" name="cast" onkeyup="validateCast()">
-        <br>
-        <font color="red" face="times new roman" size="3" id="castError"></font>
-    </td>
-</tr>
-<tr>
-    <td>
-        <font color="white" face="times new roman" size="6">Price : </font>
-    </td>
-    <td>
-        <input type="text" size="60px" name="price" onkeyup="validatePrice()">
-        <br>
-        <font color="red" face="times new roman" size="3" id="priceError"></font>
-    </td>
-</tr>
-<tr>
-    <td>
-        <font color="white" face="times new roman" size="6">Download Link : </font>
-    </td>
-    <td>
-        <input type="text" size="60px" name="downloadLink" onkeyup="validateDownloadLink()">
-        <br>
-        <font color="red" face="times new roman" size="3" id="downloadLinkError"></font>
-    </td>
-</tr>
-<tr align="center">
-    <td colspan="2">
-        <br><br><br>
-        <input type="submit" name="Upload" value="Upload">
-    </td>
-</tr>
+                <td valign="top">
+                    <font color="white" face="times new roman" size="6">Description : </font>
+                </td>
+                <td>
+                    <textarea cols="59" rows="10" name="description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <font color="white" face="times new roman" size="6">Director : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="director">
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <font color="white" face="times new roman" size="6">Cast : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="cast">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Category : </font>
+                </td>
+                <td>
+                    <select name="category">
+                        <option value="Movie">Movie</option>
+                        <option value="TV Show">TV Show</option>
+                        <option value="Anime">Anime</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Release Date : </font>
+                </td>
+                <td>
+                    <input type="date" name="releaseDate" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Upload Poster : </font>
+                </td>
+                <td>
+                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
+                    <tr>
+                        <td>
+                            <input type="file" name="poster" accept=".png,.jpg,.jpeg"> <br> <br>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Upload Trailer : </font>
+                </td>
+                <td>
+                <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
+                    <tr>
+                        <td>
+                            <input type="file" name="trailer" accept=".mp4,.mkv,.webm"> <br> <br>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Price : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="price">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font color="white" face="times new roman" size="6">Download Link : </font>
+                </td>
+                <td>
+                    <input type="text" size="60px" name="downloadLink">
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <br><br><br>
+                    <input type="submit" name="Upload" value="Upload">
+                </td>
+            </tr>
         </table><br><br><br>
         </form>
     </center>
@@ -126,14 +159,6 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
-<script>
-    function checkFormValidity() {
-            
-        }
-        function ()
-        {
 
-        }
-    </script>
 </body>
 </html>
