@@ -1,22 +1,15 @@
 <?php  
 require_once('../Models/user-info-model.php');     
-require_once('../Models/database.php');
 require_once('../Models/watchlist-model.php');
+require_once('../Models/content-info-model.php'); 
 if(!isset($_COOKIE['flag'])){
     popup("Error!","You need to sign-in in order to access this page.");
 }
 $id = $_COOKIE['id'];
 $row = UserInfo($id);
-function search($value){
-    $con = dbConnection();
-    $sql = "SELECT * FROM ContentInfo WHERE ContentTitle LIKE '%$value%' ";
-    $result=mysqli_query($con,$sql);
-    return $result;
-}
-
             $json= $_REQUEST['name'];
             //$category = $_POST['category'];
-            $result = search($json);
+            $result = searchContent($json);
             if(mysqli_num_rows($result) > 0) {
                 echo "<table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">";
                 while($crow = mysqli_fetch_assoc($result)) {
