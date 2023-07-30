@@ -174,7 +174,7 @@
     <script>
    function isNotEmpty(inputValue) {
         return inputValue.trim() !== '';
-        function validateForm()
+        checkFormValidity();
     }
 
     function validateTitle() {
@@ -185,7 +185,7 @@
         } else {
             titleError.textContent = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
     function validateDescription() {
@@ -196,7 +196,7 @@
         } else {
             descriptionError.textContent = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
     function validateDirector() {
@@ -207,7 +207,7 @@
         } else {
             directorError.textContent = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
     function validateCast() {
@@ -218,10 +218,10 @@
         } else {
             castError.textContent = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
-    function validatePrice() {
+  function validatePrice() {
         let priceInput = document.getElementById('price').value;
 
         if (priceInput === '') {
@@ -231,7 +231,7 @@
         } else {
             document.getElementById('priceError').innerHTML = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
     function validateDownloadLink() {
@@ -242,11 +242,44 @@
         } else {
             downloadLinkError.textContent = "";
         }
-        function validateForm()
+        checkFormValidity();
     }
 
-    function validateForm() {
-        
+    function checkFormValidity() {
+        let titleInput = document.getElementById('title').value;
+        let descriptionInput = document.getElementById('description').value;
+        let directorInput = document.getElementById('director').value;
+        let castInput = document.getElementById('cast').value;
+        let priceInput = document.getElementById('price').value;
+        let downloadLinkInput = document.getElementById('downloadLink').value;
+
+        let titleError = document.getElementById('titleError').innerText;
+        let descriptionError = document.getElementById('descriptionError').innerText;
+        let directorError = document.getElementById('directorError').innerText;
+        let castError = document.getElementById('castError').innerText;
+        let priceError = document.getElementById('priceError').innerText;
+        let downloadLinkError = document.getElementById('downloadLinkError').innerText;
+
+        let submitButton = document.getElementById('submitButton');
+
+        if (
+            isNotEmpty(titleInput) &&
+            isNotEmpty(descriptionInput) &&
+            isNotEmpty(directorInput) &&
+            isNotEmpty(castInput) &&
+            isNotEmpty(priceInput) &&
+            isNotEmpty(downloadLinkInput) &&
+            titleError === '' &&
+            descriptionError === '' &&
+            directorError === '' &&
+            castError === '' &&
+            priceError === '' &&
+            downloadLinkError === ''
+        ) {
+            submitButton.disabled = false; 
+        } else {
+            submitButton.disabled = true; 
+        }
     }
 </script>
 </body>
