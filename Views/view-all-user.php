@@ -48,7 +48,7 @@
 
     <center>
         <font color="F5C518" face="times new roman" size="12">General Users</font><br><br><br>
-        <hr color="F5C518" width="530px"><br><br>
+        <hr color="F5C518" width="530px"><br><br><br> 
         <a href="search-user.php"><button class="btn search">Search General User</button></a> 
         <br><br>
         <?php 

@@ -16,6 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>iMBD Watchlist</title>
 </head>
 <body bgcolor="black">
@@ -29,7 +30,7 @@
             <td>
                 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="Views/search-content.php"><button class="btn search">Search iMBD</button></a>
+                <a href="search-content.php"><button class="btn search">Search iMBD</button></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
             </td>
