@@ -19,18 +19,21 @@
     <title>iMBD Watchlist</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr height="60px">
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
+            <td></td>
+            <td></td>
             <td>
-                <form action="search-content.php" method="post">
-                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="submit" value="Search">
-                </form>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="Views/search-content.php"><button class="btn search">Search iMBD</button></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
             </td>
-            <td>
+            <td align="right">
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
                 <select name="profile" onchange="location = this.value;">
                     <option disabled selected hidden><?php echo $row['Username']; ?></option>
@@ -41,6 +44,7 @@
                     <option value="logout-page.php">Log Out</option>
                 </select>
             </td>
+            <td></td>
         </tr>
     </table><br><br><br>
 
