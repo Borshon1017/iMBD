@@ -6,6 +6,7 @@ require_once('../Models/user-info-model.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>iMBD About Us</title>
 </head>
 <body bgcolor="black">
@@ -14,11 +15,14 @@ require_once('../Models/user-info-model.php');
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
+            <td></td>
+            <td></td>
             <td>
-                <form action="search-content.php" method="post">
-                <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="submit" value="Search">
-                </form>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="search-content.php"><button class="btn search">Search iMBD</button></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
             </td>
             <td>
             <?php
@@ -54,6 +58,8 @@ require_once('../Models/user-info-model.php');
                     </a>";
                 }
             ?>
+            </td>
+            <td></td>
         </tr>
     </table><br><br><br>
     

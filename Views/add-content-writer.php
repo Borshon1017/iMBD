@@ -12,19 +12,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>iMBD Add Content Writer</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr height="60px">
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>
             </td>
+            <td></td>
+            <td></td>
             <td>
-                <form action="search-content.php" method="post">
-                    <input type="text" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" name="submit" value="Search">
-                </form>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="search-content.php"><button class="btn search">Search iMBD</button></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
             </td>
             <td>
                 <img src="../<?php echo $row['ProfilePicture']; ?>" width="40px">&nbsp;&nbsp;&nbsp;
@@ -36,6 +40,7 @@
                     <option value="logout-page.php">Log Out</option>
                 </select>
             </td>
+            <td></td>
         </tr>
     </table><br><br><br>
 
