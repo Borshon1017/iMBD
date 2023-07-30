@@ -8,6 +8,4 @@ require_once('../Models/user-info-model.php');
             echo json_encode($user);
         }
     }
-
-
 ?>
