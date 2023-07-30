@@ -2,6 +2,7 @@
 
     require_once('database.php');
 
+
     $row;
     function login($email, $password){
 
@@ -22,6 +23,12 @@
 
     }
     
+    function search($value){
+        $con = dbConnection();
+        $sql="SELECT * FROM userinfo WHERE Email LIKE '$value%'";
+        $result=mysqli_query($con,$sql);
+        return $result;
+    }   
 
     function addUser($fullname, $username, $phone, $email, $password, $role){
 
@@ -176,5 +183,7 @@
         else return false; 
         
     }
+
+
 
 ?>

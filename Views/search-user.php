@@ -9,18 +9,14 @@
     $row=UserInfo($id);
     
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
     <title>iMBD View All Users</title>
 </head>
 <body bgcolor="black">
-
     <table width="100%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
         <tr height="60px">
             <td>
@@ -48,46 +44,30 @@
 
     <center>
         <font color="F5C518" face="times new roman" size="12">General Users</font><br><br><br>
-        <hr color="F5C518" width="530px"><br><br>
-        <a href="search-user.php"><button class="btn search">Search General User</button></a> 
-        <br><br>
-        <?php 
-           
-            if(mysqli_num_rows($result)>0){
-               echo" <table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
+        <hr color="F5C518" width="530px"><br> 
+        <input type="text" id="live" name="title" onkeyup="search(this.value)" placeholder="Search by email" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        <br><br> 
+         <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
             <tr>
                 <td>
-                    <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Name</font>
-                    <hr color=\"F5C518\" width=\"80px\" align=\"left\">
+                    <font color="F5C518" face="times new roman" size="5">Name</font>
+                    <hr color="F5C518" width="80px" align="left">
                 </td>
                 <td>
-                    <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Username</font>
-                    <hr color=\"F5C518\" width=\"120px\" align=\"left\">
+                    <font color="F5C518" face="times new roman" size="5">Username</font>
+                    <hr color="F5C518" width="120px" align="left">
                 </td>
                 <td>
-                    <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Email</font>
-                    <hr color=\"F5C518\" width=\"80px\" align=\"left\">
+                    <font color="F5C518" face="times new roman" size="5">Email</font>
+                    <hr color="F5C518" width="80px" align="left">
                 </td>
                 
-            </tr>";
-                while($w=mysqli_fetch_assoc($result)){
-                    $userid=$w['UserID'];
-                    $name=$w['Fullname'];
-                    $username=$w['Username'];
-                    $email=$w['Email'];
-                    echo "    
-                    <tr><td><font id=\"name\" color=\"white\" face=\"times new roman\" size=\"5\">$name</font></td>
-                    <td><font id=\"username\" color=\"white\" face=\"times new roman\" size=\"5\">$username</font></td>
-                    <td><font id=\"email\" color=\"white\" face=\"times new roman\" size=\"5\">$email</font></td> 
-                    <td><a href=\"view-profile-info.php?id={$userid}\"><font id=\"id\" color=\"5799EF\" face=\"times new roman\" size=\"5\">Show Details</font></a></td>          
-                    </tr>";
-                }
-            }else{
-                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No General User Found</font></td></tr>";
-            }
-        ?>
-            
-        </table>
+            </tr>
+            <tr><td><font id="name" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="username" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="email" color="white" face="times new roman" size="5"></font></td>          
+                    </tr>
+                    </table>
         
         <br><br><br>
     </center>
@@ -101,5 +81,32 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
+    <script>
+        function search(str){
+            if(str==""){
+                document.getElementById('name').innerHTML="";
+                document.getElementById('username').innerHTML="";
+                document.getElementById('email').innerHTML="";
+                return;
+            }
+
+            let email=document.getElementById('live').value;
+           
+            let data=JSON.stringify(email);
+            let xhttp=new XMLHttpRequest();
+            xhttp.open('post','../Controllers/searchuser-controller.php',true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('name='+data);
+            xhttp.onreadystatechange=function(){
+                if(this.readyState == 4 && this.status == 200){
+                    let user = JSON.parse(this.responseText);
+                    document.getElementById('name').innerHTML=user.Fullname;
+                    document.getElementById('username').innerHTML=user.Username;
+                    document.getElementById('email').innerHTML=user.Email;
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
