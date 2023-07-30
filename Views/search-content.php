@@ -8,14 +8,12 @@
     $id = $_COOKIE['id'];
     $row = UserInfo($id);
     if(isset($_POST['submit'])){
-
         $title = $_POST['title'];
         if(empty($title)){
             popup("Error!","Please enter what you want to search.");
         }
     } 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +30,7 @@
             <td>
                 
                 <input type="text" id="livesearch" onkeyup="search(this.value)" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <select name="category"> 
+                <select id=category name="category"> 
                 <option value="">Select Category</option>
                 <option value="Movie">Movie</option>
                 <option value="TV Show">TV Show</option>

@@ -8,7 +8,6 @@ if(!isset($_COOKIE['flag'])){
 $id = $_COOKIE['id'];
 $row = UserInfo($id);
     $name= $_REQUEST['name'];
-    //$category = $_POST['category'];
     $result = searchContent($name);
     if(mysqli_num_rows($result) > 0) {
         echo "<table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">";
