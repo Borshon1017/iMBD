@@ -1,7 +1,6 @@
 <?php
     require_once('../Models/user-info-model.php');
-    require_once('../Controllers/message-controller.php');
-    require_once('../Models/content-info-model.php');  
+    require_once('../Controllers/message-controller.php'); 
     require_once('../Models/watchlist-model.php');
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
@@ -82,7 +81,7 @@
                 return;
                 }
                 let xhttp=new XMLHttpRequest(); 
-                xhttp.open('post','search.php',true);
+                xhttp.open('post','../Controllers/search-controller.php',true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send('name='+str);
                 xhttp.onload=function(){
