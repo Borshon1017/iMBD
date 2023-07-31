@@ -59,6 +59,11 @@
                     <a href="edit-poll.php"><font color="white" face="times new roman" size="6">Edit Poll</font></a>
                 </td>
             </tr>
+            <tr align="center">
+                <td>
+                    <a href="search-poll.php"><font color="white" face="times new roman" size="6">Search Poll</font></a>
+                </td>
+            </tr>
         </table>
         
         <br><br><br>
