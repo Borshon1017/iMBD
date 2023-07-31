@@ -1,21 +1,55 @@
 <?php
-    require_once('../Models/user-info-model.php');  
+    require_once('../Models/user-info-model.php');
     require_once('../Controllers/message-controller.php');  
     if(!isset($_COOKIE['flag'])){
         popup("Error!","You need to sign-in in order to access this page.");
-    }       
+    }
+    $result=getAllUser();
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
+    
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>iMBD Manage Content Writer</title>
+    <title>iMBD View All Users</title>
 </head>
+<script>
+        function search(str){
+            if(str==""){
+                document.getElementById('name').innerHTML="";
+                document.getElementById('username').innerHTML="Please Enter a email";
+                document.getElementById('email').innerHTML="";
+              
+                return;
+            }
+
+            let email=document.getElementById('live').value;
+           
+            let data=JSON.stringify(email);
+            let xhttp=new XMLHttpRequest();
+            xhttp.open('post','../Controllers/view-content-writer-controller.php',true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('name='+data);
+            xhttp.onreadystatechange=function(){
+                if(this.readyState == 4 && this.status == 200){
+                    let user = JSON.parse(this.responseText);
+                    document.getElementById('name').innerHTML=user.Fullname;
+                    document.getElementById('username').innerHTML=user.Username;
+                    document.getElementById('email').innerHTML=user.Email;
+                }
+            }
+        }
+    </script>
+
 <body bgcolor="black">
+
     <table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr height="60px">
             <td>
@@ -43,37 +77,35 @@
             <td></td>
         </tr>
     </table><br><br><br>
+    
 
     <center>
-        <font color="F5C518" face="times new roman" size="12">Manage Content Writer</font><br><br><br>
-        <hr color="F5C518" width="530px"><br><br><br>
-        
-        <table width="60%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-            <tr align="center">
+        <font color="F5C518" face="times new roman" size="12">Content Writer</font><br><br><br>
+        <hr color="F5C518" width="530px"><br> 
+        <br><br> 
+        <input type="text" id="live" name="title" onkeyup="search(this.value)" placeholder="Search by email" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        <br><br> 
+         <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
+            <tr>
                 <td>
-                    <a href="view-all-content-writer.php"><font color="white" face="times new roman" size="6">Search Content Writer</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Name</font>
+                    <hr color="F5C518" width="80px" align="left">
                 </td>
-            </tr>
-            <tr align="center">
                 <td>
-                    <a href="add-content-writer.php"><font color="white" face="times new roman" size="6">Add Content Writer</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Username</font>
+                    <hr color="F5C518" width="120px" align="left">
                 </td>
-            </tr>
-            <tr align="center">
                 <td>
-                    <a href="edit-content-writer-info.php"><font color="white" face="times new roman" size="6">Edit Content Writer Info</font></a>
+                    <font color="F5C518" face="times new roman" size="5">Email</font>
+                    <hr color="F5C518" width="80px" align="left">
                 </td>
+                
             </tr>
-            <tr align="center">
-                <td>
-                    <a href="ban-content-writer.php"><font color="white" face="times new roman" size="6">Ban Content Writer</font></a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>
-                    <a href="recover-content-writer.php"><font color="white" face="times new roman" size="6">Recover Content Writer</font></a>
-                </td>
-            </tr>
+            <tr><td><font id="name" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="username" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="email" color="white" face="times new roman" size="5"></font></td>          
+                    </tr>
+                    </table>
         </table>
         
         <br><br><br>
@@ -88,6 +120,5 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com, Inc.</font><br><br>
     </center>
-
 </body>
 </html>
