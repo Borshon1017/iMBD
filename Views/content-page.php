@@ -135,7 +135,6 @@
             }
         }
         ?>
-               
                 <hr color="F5C518" width="100%">
             </td>
         </tr>
@@ -192,8 +191,6 @@
             </td>
         </tr>
     </table>
-    <h1 id="abc"></h1>
-
     <script>
 
         function postComment(){
