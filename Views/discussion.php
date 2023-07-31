@@ -105,14 +105,14 @@
         let maxLength = 500;
 
         if (commentInput.value.length > maxLength) {
+
             commentError.textContent = 'Comment cannot exceed 500 characters.';
             
-        } else {
+        }
+        else {
             commentError.textContent = '';
-            
         }
     }
 </script>
-
 </body>
 </html>

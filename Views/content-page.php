@@ -183,15 +183,42 @@
         ?>
                 
                 <br><br><br>
-                <form action="../Controllers/comment-controller.php?cid=<?php echo $cid;?>" method="post">
-                <textarea name="comment" rows="15" cols="174"></textarea><br><br>
+                <input type="hidden" id="uid" value="<?php echo $id; ?>">
+                <input type="hidden" id="cid" value="<?php echo $cid; ?>">
+                <input type="hidden" id="username" value="<?php echo $row['Username']; ?>">
+                <textarea id="comment" rows="15" cols="174"></textarea><br><br>
                 <p align="right">
-                    <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button name="submit" onclick="postComment()">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
-                </form>
             </td>
         </tr>
     </table>
+
+    <script>
+
+        function postComment(){
+
+            let id = document.getElementById('uid').value;
+            let cid = document.getElementById('cid').value;
+            let username = document.getElementById('username').value;
+            let comment = document.getElementById('comment').value;
+
+            let commentOBJ =  {
+                    'uid': id,
+                    'cid': cid,
+                    'username': username,
+                    'comment' : comment
+            };
+
+            let data = JSON.stringify(commentOBJ);
+
+            let xhttp = new XMLHttpRequest();
+            xhttp.open('POST', '../Controllers/comment-controller.php', true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('json='+data);
+        }
+
+    </script>
 
     <br><br><br>
     <center>
