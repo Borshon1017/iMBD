@@ -184,9 +184,10 @@
                 <input type="hidden" id="uid" value="<?php echo $id; ?>">
                 <input type="hidden" id="cid" value="<?php echo $cid; ?>">
                 <input type="hidden" id="username" value="<?php echo $row['Username']; ?>">
-                <textarea id="comment" rows="15" cols="174"></textarea><br><br>
+                <textarea id="comment" rows="15" cols="174" onkeyup="checkCommentLength()"></textarea><br><br>
+                <font color="red" face="times new roman" size="3" id="commentError"></font>
                 <p align="right">
-                    <button name="submit" onclick="postComment()">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button name="submit" id=submitButton onclick="postComment()">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
             </td>
         </tr>
@@ -214,7 +215,34 @@
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send('json='+data);
             location.reload();
+           
         }
+
+        function checkCommentLength() {
+    let commentInput = document.getElementById('comment'); 
+    let commentError = document.getElementById('commentError');
+    let maxLength = 500;
+
+    if (commentInput.value.length > maxLength || commentInput.value.length==0) {
+        commentError.textContent = 'Comment cannot exceed 500 or be empty characters.';
+    } else {
+        commentError.textContent = '';
+    }
+}
+function checkCommentLength() {
+    let commentInput = document.getElementById('comment'); 
+    let commentError = document.getElementById('commentError');
+    let maxLength = 500;
+
+    if (commentInput.value.length > maxLength || commentInput.value.length === 0) {
+        commentError.textContent = 'Comment cannot exceed 500 characters or be empty.';
+        document.getElementById('submitButton').disabled = true;
+    } else {
+        commentError.textContent = '';
+        document.getElementById('submitButton').disabled = false;
+    }
+}
+
 
     </script>
 
