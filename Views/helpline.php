@@ -74,9 +74,14 @@
             <form action="../Controllers/helpline-controller.php" method="post">
             <td align="center">
                 <font color="white" face="times new roman" size="6">Email : helpline.imbd@gmail.com</font><br><br>
-                <input type="email" placeholder="Enter Your Email Address" size="58px" name="sender"><br><br>
+                <input type="email" id="email" placeholder="Enter Your Email Address" size="58px" onkeyup="checkMail()" name="sender"><br><br>
+            
+                
+                    <font color="red" face="times new roman" size="3" id="mailError"></font>
+                    <br>
+                    <br>
                 <textarea name="message" cols="57" rows="20"></textarea><br><br>
-                <button name="submit">Send</button>
+                <button name="submit" id="submitButton">Send</button>
             </td>
             </form>
         </tr>
@@ -93,6 +98,42 @@
         <font color="white" face="times new roman" size="2">A Maa Babar Dowa Company</font><br>
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com,  Inc.</font><br><br>
     </center>
-    
+ 
+    <script>
+    function checkMail() {
+            let mail = document.getElementById('email').value;
+            let atPos = mail.indexOf('@');
+            let dotPos = mail.lastIndexOf('.');
+
+            if (!mail) {
+                document.getElementById('mailError').innerHTML = "Email cannot be empty.";
+            } else if (atPos === -1 || atPos === 0 || dotPos === -1 || dotPos <= atPos + 1 || dotPos === mail.length - 1) {
+                document.getElementById('mailError').innerHTML = "Invalid email address.";
+            } else {
+                document.getElementById('mailError').innerHTML = "";
+            }
+            checkFormValidity();
+        }
+        function checkFormValidity() {
+        
+        let email = document.getElementById('email').value;
+       
+        let mailError = document.getElementById('mailError').innerText;
+ 
+
+        let submitButton = document.getElementById('submitButton');
+
+        if (
+           
+            mailError !== '' 
+        ) {
+            submitButton.disabled = true;
+        } else {
+            submitButton.disabled = false;
+        }
+    }
+
+
+        </script>
 </body>
 </html>

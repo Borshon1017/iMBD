@@ -12,24 +12,24 @@ if(isset($_POST['submit'])){
     if(strlen(trim($sender)) == 0 || strlen(trim($message)) == 0) popup("Error!", "You can not leave any fields empty.");
 
     
-    //Email validation 
-    $checking1 = explode('@', $email);
-    if(count($checking1) == 2){
-        $checking2 = explode('.', $checking1[1]);
-        $c = count($checking2);
-        if(count($checking2) < 2){
-            popup("Error!", "Invalid email, Please try again.");
-            return;
-        }
-    }
-    else {
-        popup("Error!", "Invalid email, Please try again.");
-        return;
-    }
-    if($email[strlen($email)-1] == "."){
-        popup("Error!", "Invalid email, Please try again.");
-        return;
-    }
+    // //Email validation 
+    // $checking1 = explode('@', $email);
+    // if(count($checking1) == 2){
+    //     $checking2 = explode('.', $checking1[1]);
+    //     $c = count($checking2);
+    //     if(count($checking2) < 2){
+    //         popup("Error!", "Invalid email, Please try again.");
+    //         return;
+    //     }
+    // }
+    // else {
+    //     popup("Error!", "Invalid email, Please try again.");
+    //     return;
+    // }
+    // if($email[strlen($email)-1] == "."){
+    //     popup("Error!", "Invalid email, Please try again.");
+    //     return;
+    // }
 
     $status = sendMail($sender, $reciever, $message);
     if($status) popup("Thank You!", "Thank you for your contacting us. Our team will reach out to you soon.");
