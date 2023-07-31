@@ -53,6 +53,11 @@
         $result=mysqli_query($con,$sql);
         return $result;
     }  
-
+    function deletepoll($id){
+        $con = dbConnection();
+        $sql="DELETE FROM poll WHERE PollID='$id'";
+        $result=mysqli_query($con,$sql);
+        return $result;
+    }
 
 ?>

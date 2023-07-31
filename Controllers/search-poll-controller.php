@@ -15,7 +15,7 @@ $row = UserInfo($id);
             $poll=$w['PollTitle'];
             echo "    
             <tr><td><font color=\"white\" face=\"times new roman\" size=\"5\">$poll</font></td><br>
-            <td><a href=\"delete-poll-info.php?pollid={$pollid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Delete Poll</font></a></td><br>         
+            <td><a href=\"../Controllers/delete-poll-info.php?pollid={$pollid}\"><font color=\"5799EF\" face=\"times new roman\" size=\"5\">Delete Poll</font></a></td><br>         
             </tr>";
         }
     }else {
