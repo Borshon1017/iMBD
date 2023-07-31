@@ -45,11 +45,10 @@
         </tr>
     </table><br><br><br>
 
-    <center onload="search()">
+    <center>
         <font color="F5C518" face="times new roman" size="12">List Of Content Writers</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
-        <tr><td><font id="message" color="white" face="times new roman" size="6"></font></td></tr>
-        <?php
+        <?php 
                 if(mysqli_num_rows($result)>0){
                     echo "<table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
                     <tr>
@@ -83,10 +82,8 @@
                     echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Writer Found</font></td></tr>";
                 }       
             ?>
-        
-    </table>
+        </table>
         <br><br><br>
-
     </center>
     <br><br><br><br><br><br>
     <center>

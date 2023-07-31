@@ -71,7 +71,7 @@
                         <font color="white" face="times new roman" size="6">Option 2 : </font>
                     </td>
                     <td>
-                        <input type="text" size="40px" name="option1" id="option2" onkeyup="checkOptionLength(2)">
+                        <input type="text" size="40px" name="option2" id="option2" onkeyup="checkOptionLength(2)">
                         <br>
                         <font color="red" face="times new roman" size="3" id="option2Error"></font>
                     </td>

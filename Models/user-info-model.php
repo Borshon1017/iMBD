@@ -22,21 +22,20 @@
         else return false;
 
     }
-    function searchcontentwriter($value){
-        $con = dbConnection();
-        $sql="SELECT * FROM userinfo WHERE Email LIKE '%$value%' AND Role='Content Writer'";
-        $result=mysqli_query($con,$sql);
-        return $result;
-    }   
-
-
     
     function search($value){
         $con = dbConnection();
         $sql="SELECT * FROM userinfo WHERE Email LIKE '$value%'";
         $result=mysqli_query($con,$sql);
         return $result;
-    }   
+    }  
+     
+    function searchcontentwriter($value){
+        $con = dbConnection();
+        $sql="SELECT * FROM userinfo WHERE Email LIKE '$value%' and Role='Content Writer'";
+        $result=mysqli_query($con,$sql);
+        return $result;
+    }  
 
     function addUser($fullname, $username, $phone, $email, $password, $role){
 
