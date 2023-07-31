@@ -73,7 +73,7 @@
                 <tr align="center">
                     <td colspan="2">
                         <br><br><br>
-                        <input type="submit" name="submit" value="Create Discussion">
+                        <input type="submit" name="submit" id=submitButton value="Create Discussion">
                     </td>
                 </tr>
             </table><br><br><br>
