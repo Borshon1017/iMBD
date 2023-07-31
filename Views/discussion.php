@@ -73,16 +73,21 @@
                     }
                 }
                 ?>
+                
                 <br><br><br>
-                <form action="../Controllers/discussion-comment-controller.php?did=<?php echo $did; ?>" method="post">
-                <textarea name="comment" id="commentInput" oninput="checkCommentLength()" rows="15" cols="134"></textarea><br><br>
+                <input type="hidden" id="uid" value="<?php echo $id; ?>">
+                <input type="hidden" id="did" value="<?php echo $did; ?>">
+                <input type="hidden" id="username" value="<?php echo $row['Username']; ?>">
+              
+       
+                <textarea id="comment" rows="15" cols="174"></textarea><br><br>
                 <font color="red" face="times new roman" size="3" id="commentError"></font>
                 <p align="right">
 
-                <button name="submit">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button name="submit" onclick="postComment()">Post Comment</button>&nbsp;&nbsp;&nbsp;&nbsp;
             
                 </p>
-                </form>
+             
             </td>
             
             <br>
@@ -99,20 +104,41 @@
         <font color="white" face="times new roman" size="1">© 2023 by iMBD.com,  Inc.</font><br><br>
     </center>
     <script>
-    function checkCommentLength() {
-        let commentInput = document.getElementById('commentInput');
-        let commentError = document.getElementById('commentError');
-        let maxLength = 500;
 
-        if (commentInput.value.length > maxLength) {
+function postComment(){
 
-            commentError.textContent = 'Comment cannot exceed 500 characters.';
-            
-        }
-        else {
-            commentError.textContent = '';
-        }
+let id = document.getElementById('uid').value;
+let did = document.getElementById('did').value;
+let username = document.getElementById('username').value;
+let comment = document.getElementById('comment').value;
+
+let commentOBJ =  {
+        'uid': id,
+        'did': did,
+        'username': username,
+        'comment' : comment
+};
+
+let data = JSON.stringify(commentOBJ);
+
+let xhttp = new XMLHttpRequest();
+xhttp.open('POST', '../Controllers/discussion-comment-controller.php', true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+xhttp.send('json='+data);
+}
+
+function checkCommentLength() {
+    let commentInput = document.getElementById('comment'); 
+    let commentError = document.getElementById('commentError');
+    let maxLength = 500;
+
+    if (commentInput.value.length > maxLength) {
+        commentError.textContent = 'Comment cannot exceed 500 characters.';
+    } else {
+        commentError.textContent = '';
     }
+}
 </script>
 </body>
 </html>
