@@ -1,14 +1,5 @@
 <?php
-require_once('message-controller.php');
-require_once('../Models/user-info-model.php'); 
-if(!isset($_COOKIE['flag'])){
-    popup("Error!","You need to sign-in in order to access this page.");
-} 
 
-$id = $_COOKIE['id'];
-$row = UserInfo($id);
-    $name= $_REQUEST['name'];
-    $result = searchContent($name);
                 if(mysqli_num_rows($result)>0){
                     echo "<table width=\"85%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">
                     <tr>
@@ -42,5 +33,4 @@ $row = UserInfo($id);
                     echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Writer Found</font></td></tr>";
                 }       
             ?>
-        </table>
         
