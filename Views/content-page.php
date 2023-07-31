@@ -176,12 +176,11 @@
                         echo "<font color=\"F5C518\" face=\"times new roman\" size=\"5\">{$uname} : </font>
                         <font color=\"white\" face=\"times new roman\" size=\"5\">{$comment}</font><br><br>";
                         if($id == $w['UserID']){
-                        echo "<a href=\"edit-comment.php?id={$commentID}&cid={$cid}\"><button>Edit Comment</button></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../Controllers/delete-comment-controller.php?id={$commentID}&cid={$cid}\"><button>Delete Comment</button></a><br><br>";
+                            echo "<a href=\"edit-comment.php?id={$commentID}&cid={$cid}\"><button>Edit Comment</button></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../Controllers/delete-comment-controller.php?id={$commentID}&cid={$cid}\"><button>Delete Comment</button></a><br><br>";
+                        }
                     }
                 }
-            }
-        ?>
-                
+            ?>
                 <br><br><br>
                 <input type="hidden" id="uid" value="<?php echo $id; ?>">
                 <input type="hidden" id="cid" value="<?php echo $cid; ?>">
@@ -193,6 +192,7 @@
             </td>
         </tr>
     </table>
+    <h1 id="abc"></h1>
 
     <script>
 
@@ -216,6 +216,7 @@
             xhttp.open('POST', '../Controllers/comment-controller.php', true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send('json='+data);
+            location.reload();
         }
 
     </script>

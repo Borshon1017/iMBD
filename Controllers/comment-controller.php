@@ -8,9 +8,6 @@ $json = $_REQUEST['json'];
 $commentOBJ = json_decode($json);
 
     
-$status = addComment($commentOBJ->uid, $commentOBJ->cid, $commentOBJ->username, $commentOBJ->comment);
-if($status) header('location:../Views/content-page.php?cid='.$commentOBJ->cid);
-else popup("Error!", "Unable to post. Please try again");
-
+addComment($commentOBJ->uid, $commentOBJ->cid, $commentOBJ->username, $commentOBJ->comment);
 
 ?>
