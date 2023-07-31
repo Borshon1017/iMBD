@@ -42,7 +42,7 @@
     <title>iMBD Content Title</title>
 </head>
 <body bgcolor="black">
-    <table width="100%" border="0" cellspacing="0" cellpadding="15">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
         <tr height="60px">
             <td>
                 &nbsp;<a href="../index.php"><img src="../Uploads/logo.png" width="80px"></a>

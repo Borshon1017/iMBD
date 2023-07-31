@@ -37,7 +37,6 @@
                 <option value="TV Show">TV Show</option>
                 <option value="Anime">Anime</option>
                 </select> &nbsp;&nbsp;&nbsp;
-                <input type="submit" name="submit" value="Search">
                 
                 
             </td>
