@@ -72,34 +72,43 @@
     <br><br><br>
 
     <script>
-        function checkFormValidity() {
-            let fullname = document.getElementById('fullname').value;
-            let username = document.getElementById('username').value;
-            let phone = document.getElementById('phone').value;
-            let email = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
-            let repassword = document.getElementById('repasswordField').value;
+         function checkFormValidity() {
+        let fullname = document.getElementById('fullname').value;
+        let username = document.getElementById('username').value;
+        let phone = document.getElementById('phone').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let repassword = document.getElementById('repasswordField').value;
 
-            if (
-                fullname === '' ||
-                username === '' ||
-                phone === '' ||
-                email === '' ||
-                password === '' ||
-                repassword === '' ||
-                document.getElementById('fnameError').innerText !== '' ||
-                document.getElementById('usernameError').innerText !== '' ||
-                document.getElementById('phoneError').innerText !== '' ||
-                document.getElementById('mailError').innerText !== '' ||
-                document.getElementById('passwordError').innerText !== '' ||
-                document.getElementById('repasswordError').innerText !== '' ||
-                password !== repassword
-            ) {
-                document.getElementById('submitButton').disabled = true;
-            } else {
-                document.getElementById('submitButton').disabled = false;
-            }
+        let fnameError = document.getElementById('fnameError').innerText;
+        let usernameError = document.getElementById('usernameError').innerText;
+        let phoneError = document.getElementById('phoneError').innerText;
+        let mailError = document.getElementById('mailError').innerText;
+        let passwordError = document.getElementById('passwordError').innerText;
+        let repasswordError = document.getElementById('repasswordError').innerText;
+
+        let submitButton = document.getElementById('submitButton');
+
+        if (
+            fullname === '' ||
+            username === '' ||
+            phone === '' ||
+            email === '' ||
+            password === '' ||
+            repassword === '' ||
+            fnameError !== '' ||
+            usernameError !== '' ||
+            phoneError !== '' ||
+            mailError !== '' ||
+            passwordError !== '' ||
+            repasswordError !== '' ||
+            password !== repassword
+        ) {
+            submitButton.disabled = true;
+        } else {
+            submitButton.disabled = false;
         }
+    }
 
         function checkFullName() {
             let name = document.getElementById('fullname').value;
@@ -236,42 +245,7 @@
             checkFormValidity();
         }
 
-        function checkFormValidity() {
-        let titleInput = document.getElementById('title').value;
-        let descriptionInput = document.getElementById('description').value;
-        let directorInput = document.getElementById('director').value;
-        let castInput = document.getElementById('cast').value;
-        let priceInput = document.getElementById('price').value;
-        let downloadLinkInput = document.getElementById('downloadLink').value;
-
-        let titleError = document.getElementById('titleError').innerText;
-        let descriptionError = document.getElementById('descriptionError').innerText;
-        let directorError = document.getElementById('directorError').innerText;
-        let castError = document.getElementById('castError').innerText;
-        let priceError = document.getElementById('priceError').innerText;
-        let downloadLinkError = document.getElementById('downloadLinkError').innerText;
-
-        let submitButton = document.getElementById('submitButton');
-
-        if (
-            isNotEmpty(titleInput) ||
-            isNotEmpty(descriptionInput) ||
-            isNotEmpty(directorInput) ||
-            isNotEmpty(castInput) ||
-            isNotEmpty(priceInput) ||
-            isNotEmpty(downloadLinkInput) ||
-            titleError !== '' ||
-            descriptionError !== '' ||
-            directorError !== '' ||
-            castError !== '' ||
-            priceError !== '' ||
-            downloadLinkError !== ''
-        ) {
-            submitButton.disabled = true;
-        } else {
-            submitButton.disabled = false;
-        }
-    }
+     
     </script>
 
 
