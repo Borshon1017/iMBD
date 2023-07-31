@@ -8,8 +8,6 @@
     $row=UserInfo($id);
     $result=getAllContentWriter();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
