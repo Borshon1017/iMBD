@@ -8,6 +8,13 @@
     $id=$_COOKIE['id'];
     $row=UserInfo($id);
     $result=showUploadsDelete($id);
+
+    if(isset($_POST['submit'])){
+        $title = $_POST['title'];
+        if(empty($title)){
+            popup("Error!","Please enter what you want to search.");
+        }
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,46 +56,38 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Delete Content</font><br><br><br>
         <hr color="F5C518" width="530px"><br><br><br>
+        <input type="text" id="livesearch" onkeyup="search(this.value)" name="title" placeholder="Search iMBD" size="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
 
         <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
-        <?php 
-            if(mysqli_num_rows($result)>0){
-                echo "<table width=\"40%\" bgcolor=\"black\" border=\"0\" cellspacing=\"0\" cellpadding=\"15\">";
-                while ($crow = mysqli_fetch_assoc($result)) {
-                    $cid = $crow['ContentID'];
-                    $posterURL = $crow['Poster'];
-                    $title = $crow['ContentTitle'];
-                    $description = $crow['ContentDescription'];
-                    $releaseDate = $crow['ReleaseDate'];
-                    
-                    if (strlen($description) > 220) {
-                    $description = substr($description, 0, 220) . '...';
-                    }
-                    echo"
-                    <tr>
-                    <td><a href=\"content-page.php?cid={$cid}\"><img src=\"../$posterURL\" width=\"180px\"></a></td>
-                    <td valign=\"top\" align=\"left\">
-                    <a href=\"content-page.php?cid={$cid}\"><font color=\"white\" face=\"times new roman\" size=\"6\">$title</font></a><br><br>
-                    <font color=\"white\" face=\"times new roman\" size=\"4\">$description</font><br><br>
-                    <font color=\"white\" face=\"times new roman\" size=\"4\">Release Date:$releaseDate</font><br><br>
-                    <form action=\"../Controllers/delete-content-details.php\" method=\"POST\" enctype=\"multipart/form-data\">
-                    <input type=\"hidden\" name=\"cid\" value=\"$cid\">
-                    <input type=\"submit\" value=\"Delete Content\">
-                    </form>
-                    </td>
-                    </tr>";
-                    
-                    
-                    
-    
-                }
-            }else{
-                echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Content Found</font></td></tr>";
-            }
-        ?>
+      
+           
         </table>
         
         <br><br><br><br><br><br>
+    </center>
+    <center>
+        <table width="40%" bgcolor="black" border="0" cellspacing="0" cellpadding="15"></table>
+            <tr><td><font id="message" color="white" face="times new roman" size="6">Please enter a title</font></td></tr>
+            <script>
+        function search(str) {
+            let xhttp = new XMLHttpRequest();
+            xhttp.open('post', '../Controllers/search-to-delete-controller.php', true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('name=' + str);
+            xhttp.onload = function () {
+                document.getElementById('message').innerHTML = this.responseText;
+            }
+        }
+        
+      
+        window.onload = function () {
+            search('');
+        };
+    </script>
+        </table>
+
+        <br><br><br>
     </center>
     <br><br><br>
     <center>
