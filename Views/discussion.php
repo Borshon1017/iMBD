@@ -59,6 +59,7 @@
                 <br><br><br>
                 <font color="white" face="times new roman" size="4"><?php echo $drow["DiscussionDescription"]?></font>
                 <br><br><br>
+                <div id="comments">
                 <?php 
                 if(mysqli_num_rows($resultC)>0){
                     while($w=mysqli_fetch_assoc($resultC)){
@@ -73,6 +74,7 @@
                     }
                 }
                 ?>
+                </div>
                 
                 <br><br><br>
                 <input type="hidden" id="uid" value="<?php echo $id; ?>">
@@ -126,6 +128,7 @@ xhttp.open('POST', '../Controllers/discussion-comment-controller.php', true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 xhttp.send('json='+data);
+location.reload();
 }
 
 function checkCommentLength() {
