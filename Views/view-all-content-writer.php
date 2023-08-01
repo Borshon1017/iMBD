@@ -26,12 +26,10 @@
                 document.getElementById('name').innerHTML="";
                 document.getElementById('username').innerHTML="Please Enter a email";
                 document.getElementById('email').innerHTML="";
-              
                 return;
             }
 
             let email=document.getElementById('live').value;
-           
             let data=JSON.stringify(email);
             let xhttp=new XMLHttpRequest();
             xhttp.open('post','../Controllers/view-content-writer-controller.php',true);
@@ -40,9 +38,14 @@
             xhttp.onreadystatechange=function(){
                 if(this.readyState == 4 && this.status == 200){
                     let user = JSON.parse(this.responseText);
-                    document.getElementById('name').innerHTML=user.Fullname;
-                    document.getElementById('username').innerHTML=user.Username;
-                    document.getElementById('email').innerHTML=user.Email;
+                    if(user=="No"){
+                        document.getElementById('username').innerHTML="No match found";
+                    }else{
+                        document.getElementById('name').innerHTML=user.Fullname;
+                        document.getElementById('username').innerHTML=user.Username;
+                        document.getElementById('email').innerHTML=user.Email;
+                         
+                    }
                 }
             }
         }
