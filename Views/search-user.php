@@ -99,7 +99,7 @@
            
             let data=JSON.stringify(email);
             let xhttp=new XMLHttpRequest();
-            xhttp.open('post','../Controllers/searchuser-controller.php',true);
+            xhttp.open('post','../Controllers/search-user-controller.php',true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send('name='+data);
             xhttp.onreadystatechange=function(){
