@@ -106,7 +106,9 @@
                 if(this.readyState == 4 && this.status == 200){
                     let user = JSON.parse(this.responseText);
                     if(user=="No"){
+                        document.getElementById('name').innerHTML="";
                         document.getElementById('username').innerHTML="No match found";
+                        document.getElementById('email').innerHTML="";
                     }else{
                     document.getElementById('name').innerHTML=user.Fullname;
                     document.getElementById('username').innerHTML=user.Username;
