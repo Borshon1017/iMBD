@@ -64,7 +64,7 @@
     <center>
         <font color="F5C518" face="times new roman" size="12">Search Poll</font><br><br><br>
         <hr color="F5C518" width="530px"><br>
-        <input type="text" id="livesearch" onkeyup="search(this.value)" name="title" placeholder="Search Poll Title" size="100px">&nbsp;&nbsp;
+        <input type="text" id="livesearch" onkeyup="search(this.value)" name="title" placeholder="Search By Poll Title" size="100px">&nbsp;&nbsp;
         <br><br>
             
             <table width="85%" bgcolor="black" border="0" cellspacing="0" cellpadding="15">
