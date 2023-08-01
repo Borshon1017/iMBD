@@ -92,7 +92,6 @@
                 document.getElementById('name').innerHTML="";
                 document.getElementById('username').innerHTML="Please Enter a email";
                 document.getElementById('email').innerHTML="";
-              
                 return;
             }
 
