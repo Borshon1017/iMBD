@@ -99,6 +99,7 @@
                 echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Sales History Found</font></td></tr>";
             }
         ?>
+        </table>
         <br><br><br>
     </center>
     <br><br><br><br><br><br>
