@@ -107,7 +107,7 @@
                 
             </tr>
             <tr><td><font id="name" color="white" face="times new roman" size="5"></font></td>
-                    <td><font id="username" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="username" color="white" face="times new roman" size="5">Please Enter a email</font></td>
                     <td><font id="email" color="white" face="times new roman" size="5"></font></td>          
                     </tr>
                     </table>
