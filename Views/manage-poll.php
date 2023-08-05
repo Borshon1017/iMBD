@@ -61,7 +61,7 @@
             </tr>
             <tr align="center">
                 <td>
-                    <a href="search-poll.php"><font color="white" face="times new roman" size="6">Search Poll</font></a>
+                    <a href="search-poll.php"><font color="white" face="times new roman" size="6">Delete Poll</font></a>
                 </td>
             </tr>
         </table>
