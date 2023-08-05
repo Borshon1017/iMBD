@@ -73,12 +73,12 @@
         <font color="F5C518" face="times new roman" size="5">Poll Title</font>
         <hr color="F5C518" width="120px" align="left">
         </td></tr>
-        <tr><td><font id="message" color="white" face="times new roman" size="6">Please enter a title</font></td></tr>
+        <tr><td><font id="message" color="white" face="times new roman" size="5">Please enter a title</font></td></tr>
         
             <script>
             function search(str){ 
                 if(str==""){
-                document.getElementById('message').innerHTML="<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">Please Type Title</font><br><br><br>";
+                document.getElementById('message').innerHTML="<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"5\">Please Type Title</font><br><br><br>";
                 return;
                 }
                 let xhttp=new XMLHttpRequest(); 
