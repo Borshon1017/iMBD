@@ -64,7 +64,7 @@
                 </td>
                 <td>
                 <font color=\"F5C518\" face=\"times new roman\" size=\"5\">Purchase Date</font>;
-                <hr color=\"F5C518\" width=\"160px\" align=\"left\">;
+                <hr color=\"F5C518\" width=\"160px\" align=\"left\">
                 </td>
                 </tr>";
 
@@ -86,9 +86,18 @@
                     <font color=\"white\" face=\"times new roman\" size=\"5\">$purchaseDate</font>
                     </td>
                     </tr>";
+                    
                 }
             }else{
                 echo"<tr><td align=\"center\"><font color=\"white\" face=\"times new roman\" size=\"6\">No Purchase History Found</font></td></tr>";
+            }
+            if(mysqli_num_rows($paymentInfo)>0){
+                $count=0;
+            while($count<1){
+                echo" <tr><td><br></td></tr>
+                <tr><td align=\"center\"><td><button onclick=\"window.print()\">Print Purchase History</td></td></tr>";
+                $count++;
+                }
             }
         ?>
         </table>

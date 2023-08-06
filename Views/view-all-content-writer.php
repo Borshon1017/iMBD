@@ -26,12 +26,10 @@
                 document.getElementById('name').innerHTML="";
                 document.getElementById('username').innerHTML="Please Enter a email";
                 document.getElementById('email').innerHTML="";
-              
                 return;
             }
 
             let email=document.getElementById('live').value;
-           
             let data=JSON.stringify(email);
             let xhttp=new XMLHttpRequest();
             xhttp.open('post','../Controllers/view-content-writer-controller.php',true);
@@ -40,9 +38,16 @@
             xhttp.onreadystatechange=function(){
                 if(this.readyState == 4 && this.status == 200){
                     let user = JSON.parse(this.responseText);
-                    document.getElementById('name').innerHTML=user.Fullname;
-                    document.getElementById('username').innerHTML=user.Username;
-                    document.getElementById('email').innerHTML=user.Email;
+                    if(user=="No"){
+                        document.getElementById('name').innerHTML="";
+                        document.getElementById('username').innerHTML="No match found";
+                        document.getElementById('email').innerHTML="";
+                    }else{
+                        document.getElementById('name').innerHTML=user.Fullname;
+                        document.getElementById('username').innerHTML=user.Username;
+                        document.getElementById('email').innerHTML=user.Email;
+                         
+                    }
                 }
             }
         }
@@ -102,7 +107,7 @@
                 
             </tr>
             <tr><td><font id="name" color="white" face="times new roman" size="5"></font></td>
-                    <td><font id="username" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="username" color="white" face="times new roman" size="5">Please Enter a email</font></td>
                     <td><font id="email" color="white" face="times new roman" size="5"></font></td>          
                     </tr>
                     </table>

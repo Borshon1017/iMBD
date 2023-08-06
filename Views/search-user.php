@@ -69,7 +69,7 @@
                 
             </tr>
             <tr><td><font id="name" color="white" face="times new roman" size="5"></font></td>
-                    <td><font id="username" color="white" face="times new roman" size="5"></font></td>
+                    <td><font id="username" color="white" face="times new roman" size="5">Please Enter a email</font></td>
                     <td><font id="email" color="white" face="times new roman" size="5"></font></td>          
                     </tr>
                     </table>
@@ -92,7 +92,6 @@
                 document.getElementById('name').innerHTML="";
                 document.getElementById('username').innerHTML="Please Enter a email";
                 document.getElementById('email').innerHTML="";
-              
                 return;
             }
 
@@ -100,15 +99,21 @@
            
             let data=JSON.stringify(email);
             let xhttp=new XMLHttpRequest();
-            xhttp.open('post','../Controllers/searchuser-controller.php',true);
+            xhttp.open('post','../Controllers/search-user-controller.php',true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send('name='+data);
             xhttp.onreadystatechange=function(){
                 if(this.readyState == 4 && this.status == 200){
                     let user = JSON.parse(this.responseText);
+                    if(user=="No"){
+                        document.getElementById('name').innerHTML="";
+                        document.getElementById('username').innerHTML="No match found";
+                        document.getElementById('email').innerHTML="";
+                    }else{
                     document.getElementById('name').innerHTML=user.Fullname;
                     document.getElementById('username').innerHTML=user.Username;
                     document.getElementById('email').innerHTML=user.Email;
+                    }
                 }
             }
         }
