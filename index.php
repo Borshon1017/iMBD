@@ -118,7 +118,7 @@
                                 }         
                             ?>
                 </table><br><br><br>
-
+                
                 <a href="Views/tv-shows.php"><font color="F5C518" face="times new roman" size="12">TV Shows</font></a><br>
                 <hr color="F5C518" width="530px" align="left"><br>
                 <a href="Views/tv-shows.php"><font color="5799EF" face="times new roman" size="4">More to explore</font></a><br><br>
@@ -273,8 +273,10 @@
                                 }
                             ?>     
                   
-
+                
                 </table><br><br><br>
+                <a href="#" onclick="redirectToRandomPage() ; return false;"><font color="F5C518" face="times new roman" size="12">Surprise me</font></a>
+                <hr color="F5C518" width="530px" align="left"><br>
             </td>
         </tr>
     </table>
@@ -291,3 +293,17 @@
     </center>
 </body>
 </html>
+
+<script>
+
+function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        
+        function redirectToRandomPage() {
+            let randomCid = getRandomInt(1, 6);
+            let redirectUrl = "http://localhost/imbd/Views/content-page.php?cid=" + randomCid;
+            window.location.href = redirectUrl;
+        }
+    </script>
