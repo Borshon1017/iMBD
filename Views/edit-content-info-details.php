@@ -126,7 +126,34 @@
                         <input type="date" name="releaseDate" value="<?php echo htmlentities($convertedDate); ?>" required>
                     </td>
                 </tr>
-                
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Upload Poster : </font>
+                    </td>
+                    <td>
+                        <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
+                            <tr>
+                                <td>
+                                    <input type="file" name="poster" accept=".png,.jpg,.jpeg"> <br> <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font color="white" face="times new roman" size="6">Upload Trailer : </font>
+                    </td>
+                    <td>
+                        <table cellspacing="0" cellpadding="10" bgcolor="F5C518">
+                            <tr>
+                                <td>
+                                    <input type="file" name="trailer" accept=".mp4,.mkv,.webm"> <br> <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <font color="white" face="times new roman" size="6">Price:</font>
