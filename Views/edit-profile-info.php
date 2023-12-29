@@ -187,9 +187,9 @@
     <script>
     
     function validateFullName() {
-        const fullNameInput = document.getElementById("fullname");
-        const fullNameError = document.getElementById("fnameError");
-        const fullName = fullNameInput.value;
+        let fullNameInput = document.getElementById("fullname");
+        let fullNameError = document.getElementById("fnameError");
+        let fullName = fullNameInput.value;
 
         if (fullName.trim() === "") {
             fullNameError.textContent = "Full Name cannot be empty";
@@ -205,9 +205,9 @@
 
     
     function validateUsername() {
-        const usernameInput = document.getElementById("username");
-        const usernameError = document.getElementById("usernameError");
-        const username = usernameInput.value;
+        let usernameInput = document.getElementById("username");
+        let usernameError = document.getElementById("usernameError");
+        let username = usernameInput.value;
 
         if (username.trim() === "") {
             usernameError.textContent = "Username cannot be empty";

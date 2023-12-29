@@ -183,8 +183,8 @@
     }
 
     function validateTitle() {
-        const titleInput = document.getElementById('title');
-        const titleError = document.getElementById('titleError');
+        let titleInput = document.getElementById('title');
+        let titleError = document.getElementById('titleError');
         if (!isNotEmpty(titleInput.value) || titleInput.value.length > 40) {
             titleError.textContent = "Title must not be empty and should be 40 characters or less.";
         } else {
@@ -194,8 +194,8 @@
     }
 
     function validateDescription() {
-        const descriptionInput = document.getElementById('description');
-        const descriptionError = document.getElementById('descriptionError');
+        let descriptionInput = document.getElementById('description');
+        let descriptionError = document.getElementById('descriptionError');
         if (descriptionInput.value.length > 500) {
             descriptionError.textContent = "Description should be 500 characters or less.";
         } else {
@@ -205,8 +205,8 @@
     }
 
     function validateDirector() {
-        const directorInput = document.getElementById('director');
-        const directorError = document.getElementById('directorError');
+        let directorInput = document.getElementById('director');
+        let directorError = document.getElementById('directorError');
         if (!isNotEmpty(directorInput.value) || directorInput.value.length > 40) {
             directorError.textContent = "Director must not be empty and should be 40 characters or less.";
         } else {
@@ -216,8 +216,8 @@
     }
 
     function validateCast() {
-        const castInput = document.getElementById('cast');
-        const castError = document.getElementById('castError');
+        let castInput = document.getElementById('cast');
+        let castError = document.getElementById('castError');
         if (!isNotEmpty(castInput.value) || castInput.value.length > 40) {
             castError.textContent = "Cast must not be empty and should be 40 characters or less.";
         } else {
@@ -240,8 +240,8 @@
     }
 
     function validateDownloadLink() {
-        const downloadLinkInput = document.getElementById('downloadLink');
-        const downloadLinkError = document.getElementById('downloadLinkError');
+        let downloadLinkInput = document.getElementById('downloadLink');
+        let downloadLinkError = document.getElementById('downloadLinkError');
         if (!isNotEmpty(downloadLinkInput.value)) {
             downloadLinkError.textContent = "Download Link must not be empty.";
         } else {
