@@ -5,9 +5,6 @@
 
     $row;
     function login($email, $password){
-
-        global $row;
-
         $con = dbConnection();
         $sql = "select * from UserInfo where email ='{$email}' and password ='{$password}'";
         $result = mysqli_query($con, $sql);
