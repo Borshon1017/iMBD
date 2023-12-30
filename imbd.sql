@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2023 at 03:41 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 31, 2023 at 12:59 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -132,6 +132,15 @@ CREATE TABLE `paymentinfo` (
   `PurchaseDate` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `paymentinfo`
+--
+
+INSERT INTO `paymentinfo` (`PaymentID`, `UserID`, `Username`, `ContentTitle`, `Price`, `PurchaseDate`) VALUES
+(14, 4, 'ppsppspsspss', 'Morbius: It is Morbing Time', 350, '02-08-2023'),
+(15, 4, 'ppsppspsspss', 'Spiderman: Across The Spider Verse', 500, '02-08-2023'),
+(16, 4, 'ppsppspsspss', 'Morbius: It is Morbing Time', 350, '01-09-2023');
+
 -- --------------------------------------------------------
 
 --
@@ -152,7 +161,7 @@ CREATE TABLE `poll` (
 --
 
 INSERT INTO `poll` (`PollID`, `PollTitle`, `OptionOne`, `OptionTwo`, `OptionThree`, `OptionFour`) VALUES
-(1, 'Will we be able to finish this project on Time?', 'Yes', 'No', 'Maybe', 'Do not wanna answer');
+(8, 'What the name of your School?', 'Ideal School', 'Faizur Rahman Ideal', 'National Ideal School', 'Rampura Ideal');
 
 -- --------------------------------------------------------
 
@@ -211,10 +220,15 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`UserID`, `Fullname`, `Username`, `Phone`, `Email`, `Password`, `ProfilePicture`, `Role`, `Status`) VALUES
-(1, 'Tanvir Hasan Tamal', 'tanvirh103', '01534103985', 'tanvirh103@gmail.com', '12345678', 'Uploads/Images/2272665.jpg', 'Administrator', 'Active'),
+(1, 'Tanvir Hasan Tamal', 'tanvirh103', '01534103985', 'tanvirh103@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'Administrator', 'Active'),
 (2, 'Borshon Alfred Gomes', 'borshon1017', '0171389335', 'borshongomez@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'Content Writer', 'Active'),
 (3, 'Ferdous Sazid', 'ferdoussazid', '01911816035', 'ferdoussazid2015@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'Critic', 'Active'),
-(4, 'Rianul Amin Rian', 'ppsppspsspss', '01402246680', 'ppsppspsspss@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'General User', 'Active');
+(4, 'Rianul Amin Rian', 'ppsppspsspss', '01402246680', 'ppsppspsspss@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'General User', 'Active'),
+(15, 'Tanvir Hasan Tamal', 'tanvir103', '01534103985', 'imran@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'Content Writer', 'Active'),
+(16, 'Imran Hossain', 'imran103', '01534103985', 'tanv5656irh103@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'Content Writer', 'Active'),
+(17, '', '', '', '', '', 'Uploads/Images/default_pfp.jpg', 'Content Writer', 'Active'),
+(18, 'Tanvir Hasan Tamal', 'tanvir103', '01534103985', 'tanvirh103@gmail.com1', '12345678', 'Uploads/Images/default_pfp.jpg', 'Content Writer', 'Active'),
+(19, 'Rafiul haq', 'rafi103', '01813609522', 'rafihasan103@gmail.com', '12345678', 'Uploads/Images/default_pfp.jpg', 'General User', 'Active');
 
 -- --------------------------------------------------------
 
@@ -325,7 +339,7 @@ ALTER TABLE `discussion`
 -- AUTO_INCREMENT for table `discussioncomment`
 --
 ALTER TABLE `discussioncomment`
-  MODIFY `DiscussionCommentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `DiscussionCommentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `helpline`
@@ -337,13 +351,13 @@ ALTER TABLE `helpline`
 -- AUTO_INCREMENT for table `paymentinfo`
 --
 ALTER TABLE `paymentinfo`
-  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `poll`
 --
 ALTER TABLE `poll`
-  MODIFY `PollID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PollID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pollvotes`
@@ -361,13 +375,13 @@ ALTER TABLE `ratingreview`
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `WatchListID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `WatchListID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
